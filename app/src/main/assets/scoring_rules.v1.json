@@ -1,0 +1,17 @@
+{
+  "version": "1",
+  "gap_threshold": 1,
+  "tag_weights": {
+    "morning": 3,
+    "afternoon": 3,
+    "evening": 3,
+    "night": 3,
+    "clear": 2,
+    "outdoor": 1,
+    "cloudy": 2,
+    "rainy": 2,
+    "indoor": 1,
+    "hot": 2,
+    "cold": 2
+  }
+}

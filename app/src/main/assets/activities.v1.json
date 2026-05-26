@@ -1,0 +1,442 @@
+{
+  "version": "1",
+  "activities": [
+    {
+      "id": "stretch_neck_roll_01",
+      "name": "목 돌리기 스트레칭",
+      "category": "stretch",
+      "duration_min": 6,
+      "context_tags": ["morning", "evening", "indoor", "cold", "rainy", "cloudy"],
+      "steps": [
+        { "order": 1, "text": "어깨를 편안히 내리고 허벅지 위에 손을 올린 채 등을 곧게 세워 앉습니다." },
+        { "order": 2, "text": "천천히 턱을 가슴 쪽으로 내리고 세 번의 깊은 호흡 동안 유지합니다." },
+        { "order": 3, "text": "오른쪽 귀를 오른쪽 어깨 방향으로 기울이고 세 번의 호흡 동안 유지합니다." },
+        { "order": 4, "text": "중앙으로 돌아온 뒤, 왼쪽 귀를 왼쪽 어깨 방향으로 기울이고 세 번의 호흡 동안 유지합니다." },
+        { "order": 5, "text": "턱을 살짝 위로 들어 정면을 바라보며 턱 주변의 긴장을 풀어줍니다." },
+        { "order": 6, "text": "중립 자세로 돌아와 마무리로 깊은 숨을 한 번 크게 들이쉽니다." }
+      ]
+    },
+    {
+      "id": "stretch_shoulder_open_02",
+      "name": "어깨 이완 스트레칭",
+      "category": "stretch",
+      "duration_min": 8,
+      "context_tags": ["morning", "afternoon", "indoor", "cold"],
+      "steps": [
+        { "order": 1, "text": "등을 곧게 세워 서거나 앉고 등 뒤에서 두 손을 깍지 낍니다." },
+        { "order": 2, "text": "손바닥을 맞붙이며 날개뼈를 서로 모아주는 느낌으로 천천히 당깁니다." },
+        { "order": 3, "text": "다섯 번의 호흡 동안 수축을 유지한 뒤 손을 털며 풀어줍니다." },
+        { "order": 4, "text": "오른팔을 가슴 앞으로 뻗어 왼손으로 부드럽게 눌러 다섯 번의 호흡 동안 유지합니다." },
+        { "order": 5, "text": "반대편도 동일하게 왼팔을 가슴 앞으로 뻗어 오른손으로 눌러줍니다." },
+        { "order": 6, "text": "마무리로 양쪽 어깨를 크게 원을 그리며 뒤로 다섯 번 돌립니다." }
+      ]
+    },
+    {
+      "id": "stretch_spine_twist_03",
+      "name": "앉아서 하는 척추 비틀기",
+      "category": "stretch",
+      "duration_min": 7,
+      "context_tags": ["afternoon", "evening", "indoor"],
+      "steps": [
+        { "order": 1, "text": "의자에 등을 곧게 세워 앉고 발을 바닥에 평평하게 놓은 뒤 손을 허벅지 위에 올립니다." },
+        { "order": 2, "text": "숨을 들이쉬며 척추를 길게 늘이고, 내쉬면서 상체를 오른쪽으로 천천히 돌립니다." },
+        { "order": 3, "text": "오른손을 의자 등받이에 놓고 왼손은 오른쪽 무릎 위에 얹어 자세를 지지합니다." },
+        { "order": 4, "text": "척추를 길게 유지하며 다섯 번의 느린 호흡 동안 비틀린 자세를 유지합니다." },
+        { "order": 5, "text": "중앙으로 돌아와 한 번 호흡한 뒤, 왼쪽으로도 동일하게 비틀기를 반복합니다." },
+        { "order": 6, "text": "중앙으로 돌아와 두 번의 깊은 호흡으로 자세를 정리합니다." }
+      ]
+    },
+    {
+      "id": "stretch_hip_flexor_04",
+      "name": "고관절 굴곡근 이완",
+      "category": "stretch",
+      "duration_min": 10,
+      "context_tags": ["morning", "afternoon", "indoor", "outdoor", "clear"],
+      "steps": [
+        { "order": 1, "text": "오른발을 앞으로 내딛어 낮은 런지 자세를 취하고, 왼쪽 무릎을 바닥에 놓습니다." },
+        { "order": 2, "text": "앞쪽 무릎이 발목 위에 오도록 유지하고 꼬리뼈를 아래로 길게 뻗습니다." },
+        { "order": 3, "text": "여덟 번의 호흡 동안 유지하며 내쉴 때마다 조금씩 더 깊이 내려갑니다." },
+        { "order": 4, "text": "천천히 일어나 다리를 바꿔 왼발을 앞으로 내딛고 동일하게 반복합니다." },
+        { "order": 5, "text": "일어서서 양쪽 다리를 가볍게 털고 두 번의 호흡 동안 편안히 섭니다." }
+      ]
+    },
+    {
+      "id": "stretch_chest_open_05",
+      "name": "가슴 열기 스트레칭",
+      "category": "stretch",
+      "duration_min": 5,
+      "context_tags": ["morning", "indoor"],
+      "steps": [
+        { "order": 1, "text": "문틀에 서서 양 팔뚝을 어깨 높이로 문틀에 댑니다." },
+        { "order": 2, "text": "한 발을 앞으로 내딛고 가슴이 당기는 느낌이 날 때까지 문틀 안으로 부드럽게 기댑니다." },
+        { "order": 3, "text": "여섯 번의 느린 호흡 동안 유지하며 스트레칭을 느낍니다." },
+        { "order": 4, "text": "뒤로 물러나 어깨를 앞뒤로 두 번씩 돌린 뒤 한 번 더 반복합니다." }
+      ]
+    },
+    {
+      "id": "stretch_forward_fold_06",
+      "name": "선 자세 전굴",
+      "category": "stretch",
+      "duration_min": 6,
+      "context_tags": ["morning", "evening", "indoor", "cloudy"],
+      "steps": [
+        { "order": 1, "text": "발을 골반 너비로 벌리고 무릎을 살짝 구부려 섭니다." },
+        { "order": 2, "text": "숨을 들이쉬며 척추를 길게 늘이고, 내쉬면서 허리가 아닌 고관절에서 앞으로 숙입니다." },
+        { "order": 3, "text": "머리를 자연스럽게 늘어뜨리고 반대편 팔꿈치를 잡거나 손을 바닥 방향으로 내려뜨립니다." },
+        { "order": 4, "text": "여덟 번의 느린 호흡 동안 유지하며 내쉴 때마다 긴장을 풀어줍니다." },
+        { "order": 5, "text": "숨을 들이쉬며 척추 한 마디씩 천천히 세우며 일어섭니다." }
+      ]
+    },
+    {
+      "id": "stretch_cat_cow_07",
+      "name": "고양이-소 자세 흐름",
+      "category": "stretch",
+      "duration_min": 8,
+      "context_tags": ["morning", "night", "indoor", "rainy", "cold"],
+      "steps": [
+        { "order": 1, "text": "손목이 어깨 아래, 무릎이 고관절 아래에 오도록 네 발 자세를 취합니다." },
+        { "order": 2, "text": "숨을 들이쉬며 배를 바닥 쪽으로 내리고 머리와 꼬리뼈를 들어 올립니다 (소 자세)." },
+        { "order": 3, "text": "숨을 내쉬며 등을 천장 쪽으로 둥글게 말고 턱과 꼬리뼈를 당깁니다 (고양이 자세)." },
+        { "order": 4, "text": "들숨에 소 자세, 날숨에 고양이 자세를 열 번 반복합니다." },
+        { "order": 5, "text": "중립 자세로 돌아와 발꿈치 위에 앉아 세 번의 편안한 호흡을 취합니다." }
+      ]
+    },
+    {
+      "id": "stretch_side_body_08",
+      "name": "옆구리 스트레칭",
+      "category": "stretch",
+      "duration_min": 5,
+      "context_tags": ["afternoon", "indoor", "cloudy"],
+      "steps": [
+        { "order": 1, "text": "등을 곧게 세워 앉거나 서서 오른팔을 머리 위로 들어 올립니다." },
+        { "order": 2, "text": "오른쪽 옆구리가 길게 당기는 느낌으로 왼쪽으로 천천히 기울입니다." },
+        { "order": 3, "text": "골반을 수평으로 유지하고 어깨를 편 채로 다섯 번의 호흡 동안 유지합니다." },
+        { "order": 4, "text": "중앙으로 돌아와 왼팔을 머리 위로 들어 반대쪽도 동일하게 반복합니다." },
+        { "order": 5, "text": "중앙으로 돌아와 양 어깨를 한 번 뒤로 돌린 뒤 이완합니다." }
+      ]
+    },
+    {
+      "id": "stretch_wrist_desk_09",
+      "name": "손목·전완 스트레칭",
+      "category": "stretch",
+      "duration_min": 5,
+      "context_tags": ["afternoon", "evening", "indoor"],
+      "steps": [
+        { "order": 1, "text": "오른팔을 앞으로 뻗고 손바닥이 위를 향하게 합니다." },
+        { "order": 2, "text": "왼손으로 오른손 손가락을 부드럽게 바닥 방향으로 당깁니다." },
+        { "order": 3, "text": "전완을 따라 당기는 느낌을 유지하며 다섯 번의 호흡 동안 유지합니다." },
+        { "order": 4, "text": "오른쪽 손바닥이 아래를 향하게 뒤집어 손등을 부드럽게 아래로 눌러 다섯 번의 호흡 동안 유지합니다." },
+        { "order": 5, "text": "양손을 가볍게 털고 왼팔도 동일하게 반복합니다." }
+      ]
+    },
+    {
+      "id": "stretch_full_body_10",
+      "name": "전신 기상 스트레칭",
+      "category": "stretch",
+      "duration_min": 12,
+      "context_tags": ["morning", "outdoor", "clear"],
+      "steps": [
+        { "order": 1, "text": "발을 어깨 너비로 벌리고 서서 양팔을 머리 위로 뻗어 몸을 최대한 길게 늘입니다." },
+        { "order": 2, "text": "이 자세에서 세 번의 깊은 호흡을 하며 들숨마다 조금씩 더 길어지는 느낌을 느낍니다." },
+        { "order": 3, "text": "앞으로 숙여 전굴 자세를 취하고 양팔을 늘어뜨린 채 다섯 번의 호흡을 합니다." },
+        { "order": 4, "text": "손을 바닥으로 짚으며 플랭크 자세로 천천히 걸어 나와 세 번의 안정적인 호흡을 유지합니다." },
+        { "order": 5, "text": "바닥으로 내려와 부드럽게 백벤드 자세를 취하고 네 번의 호흡 동안 유지합니다." },
+        { "order": 6, "text": "네 발 자세에서 다운독으로 전환하며 발뒤꿈치를 번갈아 누르며 다섯 번의 호흡을 합니다." },
+        { "order": 7, "text": "발을 손 쪽으로 걸어와 천천히 일어서며 몸이 상쾌해진 것을 느낍니다." }
+      ]
+    },
+    {
+      "id": "meditation_breath_count_01",
+      "name": "호흡 세기 명상",
+      "category": "meditation",
+      "duration_min": 10,
+      "context_tags": ["morning", "evening", "night", "indoor"],
+      "steps": [
+        { "order": 1, "text": "등을 곧게 세워 편안히 앉고 두 손을 무릎 위에 올립니다." },
+        { "order": 2, "text": "눈을 감고 세 번의 자연스러운 호흡으로 마음을 가라앉힙니다." },
+        { "order": 3, "text": "내쉬는 숨을 조용히 세기 시작합니다: 하나, 둘, 열까지." },
+        { "order": 4, "text": "열까지 세면 다시 하나부터 시작합니다. 잊어버렸다면 부드럽게 하나부터 다시 시작합니다." },
+        { "order": 5, "text": "세션이 끝날 때까지 계속하며, 떠오르는 생각들이 흘러가도록 내버려 둡니다." },
+        { "order": 6, "text": "마무리할 준비가 되면 깊은 숨을 한 번 들이쉬고 천천히 눈을 뜹니다." }
+      ]
+    },
+    {
+      "id": "meditation_body_scan_02",
+      "name": "바디 스캔 명상",
+      "category": "meditation",
+      "duration_min": 15,
+      "context_tags": ["night", "indoor", "rainy", "cold"],
+      "steps": [
+        { "order": 1, "text": "등을 대고 눕거나 편안한 의자에 앉아 눈을 감습니다." },
+        { "order": 2, "text": "다섯 번의 느린 호흡으로 몸의 긴장을 풀고 조급함을 내려놓습니다." },
+        { "order": 3, "text": "머리 꼭대기에 주의를 집중하고 천천히 아래로 내려가며 몸의 감각을 살핍니다." },
+        { "order": 4, "text": "얼굴, 목, 어깨, 팔, 가슴, 배, 골반, 다리, 발 순서로 주의를 이동합니다." },
+        { "order": 5, "text": "긴장이 느껴지는 곳에 숨을 보내어 그 부위가 부드러워지는 것을 상상합니다." },
+        { "order": 6, "text": "마지막으로 온몸 전체에 집중하며 세 번의 깊은 호흡으로 마무리합니다." }
+      ]
+    },
+    {
+      "id": "meditation_open_awareness_03",
+      "name": "열린 알아차림 명상",
+      "category": "meditation",
+      "duration_min": 10,
+      "context_tags": ["morning", "afternoon", "indoor", "outdoor", "clear"],
+      "steps": [
+        { "order": 1, "text": "편안하게 앉아 눈을 반쯤 감거나 완전히 감습니다." },
+        { "order": 2, "text": "하나에 집중하는 대신, 주변의 모든 것을 향해 주의를 열어둡니다." },
+        { "order": 3, "text": "소리, 감각, 생각이 떠오르는 대로 알아차리되 어느 것에도 집착하지 않습니다." },
+        { "order": 4, "text": "마음이 좁아지거나 한 곳에 고정되면, 부드럽게 다시 전체로 주의를 넓힙니다." },
+        { "order": 5, "text": "세션 내내 이 열리고 넓은 알아차림 안에서 쉽니다." }
+      ]
+    },
+    {
+      "id": "meditation_loving_kindness_04",
+      "name": "자애 명상",
+      "category": "meditation",
+      "duration_min": 12,
+      "context_tags": ["evening", "night", "indoor"],
+      "steps": [
+        { "order": 1, "text": "편안하게 앉아 눈을 감고 한 손을 가슴 위에 올립니다." },
+        { "order": 2, "text": "사랑하는 사람을 떠올리며 진심으로 바랍니다: 행복하기를. 안전하기를." },
+        { "order": 3, "text": "같은 마음을 자신에게도 전합니다: 내가 행복하기를. 내가 안전하기를." },
+        { "order": 4, "text": "특별히 친하지 않은 사람을 떠올리며 동일한 마음을 진심으로 전합니다." },
+        { "order": 5, "text": "마지막으로, 세상 모든 존재들에게 이 바람을 확장합니다." },
+        { "order": 6, "text": "마지막 1분 동안 따뜻한 선의 안에서 쉬다가 천천히 눈을 뜹니다." }
+      ]
+    },
+    {
+      "id": "meditation_visualization_05",
+      "name": "자연 시각화 명상",
+      "category": "meditation",
+      "duration_min": 10,
+      "context_tags": ["morning", "afternoon", "indoor"],
+      "steps": [
+        { "order": 1, "text": "눈을 감고 다섯 번의 느린 호흡으로 마음을 가라앉힙니다." },
+        { "order": 2, "text": "평화로운 자연 속 장면을 상상합니다: 고요한 숲, 잔잔한 해변, 넓은 초원." },
+        { "order": 3, "text": "감각적 디테일을 더합니다: 온도, 소리, 빛의 느낌을 느껴봅니다." },
+        { "order": 4, "text": "상상 속 그 장소를 천천히 거닐며 기분 좋은 곳에 잠시 머뭅니다." },
+        { "order": 5, "text": "세션이 끝날 때까지 그곳에서 호흡하며 쉽니다." },
+        { "order": 6, "text": "깊은 숨을 한 번 들이쉬고, 천천히 현실로 돌아와 부드럽게 눈을 뜹니다." }
+      ]
+    },
+    {
+      "id": "meditation_mindful_walk_06",
+      "name": "마음챙김 걷기 명상",
+      "category": "meditation",
+      "duration_min": 10,
+      "context_tags": ["afternoon", "outdoor", "clear"],
+      "steps": [
+        { "order": 1, "text": "장애물 없이 걸을 수 있는 조용한 길을 찾습니다." },
+        { "order": 2, "text": "평소보다 약간 느린 속도로 걷기 시작합니다." },
+        { "order": 3, "text": "각 발걸음의 감각에 집중합니다: 발뒤꿈치, 발 아치, 발가락." },
+        { "order": 4, "text": "팔이 흔들리는 방식과 발걸음마다 체중이 이동하는 것을 느낍니다." },
+        { "order": 5, "text": "마음이 다른 곳으로 가면, 부드럽게 걷는 신체 감각으로 주의를 돌립니다." },
+        { "order": 6, "text": "세션 마무리로 멈춰 서서 세 번의 느린 호흡을 취한 뒤 평상시 걷기로 돌아갑니다." }
+      ]
+    },
+    {
+      "id": "meditation_gratitude_07",
+      "name": "감사 명상",
+      "category": "meditation",
+      "duration_min": 8,
+      "context_tags": ["evening", "indoor"],
+      "steps": [
+        { "order": 1, "text": "조용히 앉아 눈을 감습니다. 세 번의 깊은 호흡으로 도착합니다." },
+        { "order": 2, "text": "오늘 하루 아무리 작아도 감사했던 한 가지를 떠올립니다." },
+        { "order": 3, "text": "그 감사함을 가슴 안에 품고 1분 동안 함께 호흡합니다." },
+        { "order": 4, "text": "두 번째로, 사람, 순간, 또는 소소한 편안함 하나를 더 떠올립니다." },
+        { "order": 5, "text": "세 번째 항목까지 확장하며 세 가지 모두의 따뜻함을 함께 느낍니다." },
+        { "order": 6, "text": "깊은 숨을 한 번 들이쉬고 마음속으로 '감사합니다'라고 말한 뒤 눈을 뜹니다." }
+      ]
+    },
+    {
+      "id": "meditation_focus_anchor_08",
+      "name": "집중 닻내리기 명상",
+      "category": "meditation",
+      "duration_min": 10,
+      "context_tags": ["morning", "afternoon", "indoor"],
+      "steps": [
+        { "order": 1, "text": "등을 곧게 세워 앉아 눈을 감습니다. 닻을 하나 고릅니다: 호흡, 소리, 또는 고정된 지점." },
+        { "order": 2, "text": "그것을 바꾸려 하지 말고 모든 주의를 닻 위에 올려놓습니다." },
+        { "order": 3, "text": "마음이 떠나면, '생각하고 있었구나' 하고 알아차리고 닻으로 돌아옵니다." },
+        { "order": 4, "text": "돌아오는 행위 자체가 집중력을 키웁니다; 방해는 실패가 아니라 수련의 일부입니다." },
+        { "order": 5, "text": "세션이 끝날 때까지 닻과 함께 머무른 뒤 천천히 눈을 뜹니다." }
+      ]
+    },
+    {
+      "id": "meditation_cold_clarity_09",
+      "name": "추운 날 맑은 정신 명상",
+      "category": "meditation",
+      "duration_min": 10,
+      "context_tags": ["morning", "indoor", "cold"],
+      "steps": [
+        { "order": 1, "text": "창가에 앉거나 서서 눈을 감습니다." },
+        { "order": 2, "text": "다섯 번의 느린 호흡을 하며, 들숨마다 차갑고 맑은 공기가 폐를 가득 채우는 것을 상상합니다." },
+        { "order": 3, "text": "추운 계절의 선명함이 감각을 날카롭게 해주도록 허용합니다; 소리와 감각의 디테일을 알아차립니다." },
+        { "order": 4, "text": "날숨마다 정신적 안개가 빠져나가고, 들숨마다 차갑고 맑은 각성이 들어옵니다." },
+        { "order": 5, "text": "남은 시간 동안 이 새롭고 주의 깊은 상태 안에서 쉽니다." }
+      ]
+    },
+    {
+      "id": "meditation_rain_sound_10",
+      "name": "빗소리 명상",
+      "category": "meditation",
+      "duration_min": 15,
+      "context_tags": ["rainy", "night", "indoor"],
+      "steps": [
+        { "order": 1, "text": "차가운 바람이 닿지 않는 실내의 편안한 곳에 앉거나 누울 자리를 찾습니다." },
+        { "order": 2, "text": "눈을 감고 실제로 또는 상상 속의 빗소리에 귀를 기울입니다." },
+        { "order": 3, "text": "빗방울 하나하나가 스쳐 지나가는 생각처럼: 알아차리고, 그리고 사라집니다." },
+        { "order": 4, "text": "호흡마다 따뜻함과 안정감 속으로 더 깊이 가라앉는 것을 느낍니다." },
+        { "order": 5, "text": "비의 규칙적인 리듬이 현재 순간에 주의를 고정시키도록 합니다." },
+        { "order": 6, "text": "세션이 끝나면 천천히 숨을 들이쉬고 이 고요함을 하루 속으로 가져갑니다." }
+      ]
+    },
+    {
+      "id": "breathing_box_4_4_4_01",
+      "name": "박스 호흡",
+      "category": "breathing",
+      "duration_min": 8,
+      "context_tags": ["morning", "afternoon", "evening", "night", "indoor"],
+      "steps": [
+        { "order": 1, "text": "발을 바닥에 평평하게 놓고 척추를 편안하게 세워 앉습니다." },
+        { "order": 2, "text": "시작을 위해 완전히 내쉽니다. 그런 다음 코로 4초 동안 천천히 들이쉽니다." },
+        { "order": 3, "text": "호흡을 최고점에서 4초 동안 멈춥니다." },
+        { "order": 4, "text": "입으로 4초 동안 천천히 내쉽니다." },
+        { "order": 5, "text": "호흡을 최저점에서 4초 동안 멈춥니다." },
+        { "order": 6, "text": "세션 내내 이 사이클을 반복하며, 각 카운트를 부드럽고 균일하게 유지합니다." }
+      ]
+    },
+    {
+      "id": "breathing_4_7_8_02",
+      "name": "4-7-8 이완 호흡",
+      "category": "breathing",
+      "duration_min": 10,
+      "context_tags": ["evening", "night", "indoor"],
+      "steps": [
+        { "order": 1, "text": "편안하게 앉거나 누워 혀끝을 윗니 뒤 입천장에 댑니다." },
+        { "order": 2, "text": "입으로 완전히 내쉬며 부드러운 '후' 소리를 냅니다." },
+        { "order": 3, "text": "입을 닫고 코로 4초 동안 조용히 들이쉽니다." },
+        { "order": 4, "text": "7초 동안 숨을 멈춥니다." },
+        { "order": 5, "text": "입으로 '후' 소리를 내며 8초 동안 완전히 내쉽니다." },
+        { "order": 6, "text": "이 사이클을 4~8회 반복하며, 무리하지 않고 천천히 호흡합니다." }
+      ]
+    },
+    {
+      "id": "breathing_belly_03",
+      "name": "복식 호흡",
+      "category": "breathing",
+      "duration_min": 8,
+      "context_tags": ["morning", "afternoon", "indoor", "rainy"],
+      "steps": [
+        { "order": 1, "text": "등을 대고 눕거나 편안하게 앉아 한 손은 배 위에, 한 손은 가슴 위에 올립니다." },
+        { "order": 2, "text": "코로 천천히 들이쉬며 가슴은 그대로 두고 배가 부풀어 오르도록 합니다." },
+        { "order": 3, "text": "코로 천천히 내쉬며 배가 자연스럽게 내려가는 것을 느낍니다." },
+        { "order": 4, "text": "아래 손 아래의 오르내림에 집중하며 이 방식으로 계속 호흡합니다." },
+        { "order": 5, "text": "마음이 다른 곳으로 가면, 배의 부드러운 움직임을 닻으로 삼아 돌아옵니다." }
+      ]
+    },
+    {
+      "id": "breathing_energize_04",
+      "name": "활력 호흡",
+      "category": "breathing",
+      "duration_min": 5,
+      "context_tags": ["morning", "clear", "indoor"],
+      "steps": [
+        { "order": 1, "text": "척추를 길게 세워 앉고 두 손을 무릎 위에 올립니다." },
+        { "order": 2, "text": "준비를 위해 코로 천천히 깊은 숨을 한 번 들이쉽니다." },
+        { "order": 3, "text": "초당 한 번씩 코로 강하고 빠르게 내쉬기 시작합니다." },
+        { "order": 4, "text": "각 능동적 날숨 사이에 자연스럽게 들숨이 일어나도록 합니다." },
+        { "order": 5, "text": "20번 펌핑 후 완전히 들이쉬고 5초 멈춘 뒤 천천히 내쉽니다. 두 번 더 반복합니다." }
+      ]
+    },
+    {
+      "id": "breathing_hot_cool_05",
+      "name": "냉각 호흡",
+      "category": "breathing",
+      "duration_min": 7,
+      "context_tags": ["hot", "indoor"],
+      "steps": [
+        { "order": 1, "text": "편안하게 앉아 혀를 말아 튜브 모양을 만들거나 입술을 살짝 벌립니다." },
+        { "order": 2, "text": "말린 혀나 벌린 입술 사이로 천천히 들이쉬며 혀 위를 넘는 시원한 공기를 느낍니다." },
+        { "order": 3, "text": "입을 닫고 코로 천천히 내쉽니다." },
+        { "order": 4, "text": "들숨마다 느껴지는 시원한 감각이 온몸으로 퍼지는 것을 느낍니다." },
+        { "order": 5, "text": "세션 내내 계속하며, 들숨마다 체온이 조금씩 낮아지는 것을 상상합니다." }
+      ]
+    },
+    {
+      "id": "breathing_warm_breath_06",
+      "name": "온기 호흡",
+      "category": "breathing",
+      "duration_min": 7,
+      "context_tags": ["cold", "indoor"],
+      "steps": [
+        { "order": 1, "text": "편안하게 가부좌 자세나 의자에 척추를 세워 앉습니다." },
+        { "order": 2, "text": "손이 따뜻해질 때까지 10초 동안 손바닥을 힘차게 비빕니다." },
+        { "order": 3, "text": "따뜻한 손을 코와 입 위에 덮고 다섯 번의 느리고 깊은 호흡을 합니다." },
+        { "order": 4, "text": "손을 내리고 코로 호흡을 계속하며, 따뜻한 공기가 온몸을 가득 채우는 것을 상상합니다." },
+        { "order": 5, "text": "날숨마다 차가움과 긴장을 내보내고, 들숨마다 따뜻함을 맞아들입니다." },
+        { "order": 6, "text": "두 손을 가슴 위에 올리고 마지막으로 깊은 숨 한 번으로 세션을 마칩니다." }
+      ]
+    },
+    {
+      "id": "breathing_coherent_07",
+      "name": "일관 호흡",
+      "category": "breathing",
+      "duration_min": 10,
+      "context_tags": ["morning", "evening", "indoor"],
+      "steps": [
+        { "order": 1, "text": "편안하게 앉아 어깨를 이완하고 호흡을 천천히 늦추기 시작합니다." },
+        { "order": 2, "text": "코로 5~6초 동안 부드럽게 들이쉽니다." },
+        { "order": 3, "text": "같은 5~6초 동안 코로 부드럽게 내쉽니다." },
+        { "order": 4, "text": "이 리듬을 부드럽고 서두르지 않게 유지합니다; 멈춤도 힘도 없이." },
+        { "order": 5, "text": "세션이 끝날 때까지 들숨과 날숨의 규칙적인 리듬 안에서 마음이 가라앉도록 합니다." }
+      ]
+    },
+    {
+      "id": "breathing_alternate_08",
+      "name": "교대 코 호흡",
+      "category": "breathing",
+      "duration_min": 10,
+      "context_tags": ["afternoon", "evening", "indoor"],
+      "steps": [
+        { "order": 1, "text": "등을 세워 앉아 오른손을 들어 검지와 중지를 미간 사이에 놓습니다." },
+        { "order": 2, "text": "엄지로 오른쪽 콧구멍을 막고 왼쪽 콧구멍으로 천천히 들이쉽니다." },
+        { "order": 3, "text": "들숨의 꼭대기에서 양쪽 콧구멍을 모두 막고 잠시 멈춥니다." },
+        { "order": 4, "text": "엄지를 풀어 오른쪽 콧구멍을 열고 완전히 내쉽니다." },
+        { "order": 5, "text": "오른쪽 콧구멍으로 들이쉬고, 양쪽을 막아 멈춘 뒤, 왼쪽으로 내쉽니다." },
+        { "order": 6, "text": "이것이 한 사이클입니다. 8~10사이클 계속한 뒤 손을 내리고 평상시 호흡으로 돌아갑니다." }
+      ]
+    },
+    {
+      "id": "breathing_humming_09",
+      "name": "벌 소리 호흡",
+      "category": "breathing",
+      "duration_min": 8,
+      "context_tags": ["evening", "night", "indoor", "rainy"],
+      "steps": [
+        { "order": 1, "text": "편안하게 앉아 눈을 감습니다. 턱과 입술의 긴장을 풀어줍니다." },
+        { "order": 2, "text": "코로 천천히 깊게 들이쉽니다." },
+        { "order": 3, "text": "내쉬면서 부드럽고 연속적인 허밍 소리를 냅니다." },
+        { "order": 4, "text": "입술, 두개골, 가슴에서 느껴지는 부드러운 진동을 느낍니다." },
+        { "order": 5, "text": "8~10번 반복하며, 매번 소리가 더 부드럽고 내면으로 향하도록 합니다." },
+        { "order": 6, "text": "마지막 허밍 후, 두 번의 호흡 동안 조용히 앉아 고요함을 느낍니다." }
+      ]
+    },
+    {
+      "id": "breathing_deep_release_10",
+      "name": "깊은 호흡과 해방",
+      "category": "breathing",
+      "duration_min": 6,
+      "context_tags": ["morning", "cloudy", "indoor"],
+      "steps": [
+        { "order": 1, "text": "등을 세워 앉거나 서서 손을 양옆에 편안하게 늘어뜨립니다." },
+        { "order": 2, "text": "코로 깊게 들이쉬며 팔을 천천히 바깥으로 펼쳐 머리 위로 올립니다." },
+        { "order": 3, "text": "꼭대기에서 2초 동안 멈추며 온몸이 완전히 펼쳐지는 느낌을 느낍니다." },
+        { "order": 4, "text": "입을 열어 길고 소리 나는 한숨을 내쉬며 팔을 천천히 내려뜨립니다." },
+        { "order": 5, "text": "다섯 번 반복하며 날숨마다 쌓인 긴장을 내보냅니다." },
+        { "order": 6, "text": "고요한 자연 호흡 한 번으로 마무리하고 일상으로 돌아갑니다." }
+      ]
+    }
+  ]
+}
