@@ -12,9 +12,11 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Named
 import javax.inject.Singleton
 
 private val Context.streakDataStore: DataStore<Preferences> by preferencesDataStore(name = "streak_prefs")
+private val Context.weatherDataStore: DataStore<Preferences> by preferencesDataStore(name = "weather_prefs")
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -29,5 +31,11 @@ abstract class AppModule {
         @Singleton
         fun provideDataStore(@ApplicationContext context: Context): DataStore<Preferences> =
             context.streakDataStore
+
+        @Provides
+        @Singleton
+        @Named("weather")
+        fun provideWeatherDataStore(@ApplicationContext context: Context): DataStore<Preferences> =
+            context.weatherDataStore
     }
 }

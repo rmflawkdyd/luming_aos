@@ -6,6 +6,7 @@ import javax.inject.Inject
 class LocationRepositoryImpl @Inject constructor(
     private val dataSource: CoarseLocationDataSource,
 ) : LocationRepository {
+    override fun hasPermission(): Boolean = dataSource.hasPermission()
     override suspend fun getCoarseLocation(): Pair<Double, Double>? =
         dataSource.getCoarseLocation()
 }

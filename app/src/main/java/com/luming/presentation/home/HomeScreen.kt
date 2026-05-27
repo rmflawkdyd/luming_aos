@@ -17,23 +17,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
-import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.pulltorefresh.PullToRefreshBox
-import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults
-import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -45,15 +36,16 @@ import com.luming.domain.model.Streak
 import com.luming.domain.model.WeatherBucket
 import com.luming.presentation.home.components.ActivityCard
 import com.luming.presentation.home.components.CompletionOverlay
+import com.luming.presentation.home.components.LocationFailedCard
 import com.luming.presentation.home.components.RationaleBanner
 import com.luming.presentation.home.components.SevenDayStrip
 import com.luming.presentation.home.components.StreakRing
+import com.luming.presentation.home.components.WeatherFailedCard
 import com.luming.presentation.theme.LumingMist
 import java.time.LocalDate
 import java.time.format.TextStyle
 import java.util.Locale
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     uiState: HomeUiState,
@@ -76,64 +68,39 @@ fun HomeScreen(
         }
     }
 
-    var isRefreshing by remember { mutableStateOf(false) }
-    LaunchedEffect(uiState) {
-        if (uiState is HomeUiState.WeatherAware || uiState is HomeUiState.TimeOnlyFinal) {
-            isRefreshing = false
-        }
-    }
-
     val showOverlay = when (uiState) {
         is HomeUiState.WeatherAware -> uiState.showCompletionOverlay
-        is HomeUiState.TimeOnlyFinal -> uiState.showCompletionOverlay
         else -> false
     }
 
-    val pullState = rememberPullToRefreshState()
-
     Box(modifier = modifier.fillMaxSize()) {
-        PullToRefreshBox(
-            isRefreshing = isRefreshing,
-            onRefresh = {
-                isRefreshing = true
-                onRefresh()
-            },
-            modifier = Modifier.fillMaxSize(),
-            state = pullState,
-            indicator = {
-                PullToRefreshDefaults.Indicator(
-                    state = pullState,
-                    isRefreshing = isRefreshing,
-                    modifier = Modifier
-                        .align(Alignment.TopCenter)
-                        .windowInsetsPadding(WindowInsets.statusBars),
-                )
-            },
-        ) {
-            when (uiState) {
-                HomeUiState.Empty -> {
-                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        CircularProgressIndicator()
-                    }
+        when (uiState) {
+            HomeUiState.Empty -> {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator()
                 }
-                is HomeUiState.TimeOnly -> HomeContent(
-                    recommendations = uiState.recommendations,
-                    streak = uiState.streak,
-                    weatherBucket = null,
-                    onActivityClick = onActivityClick,
-                )
-                is HomeUiState.WeatherAware -> HomeContent(
-                    recommendations = uiState.recommendations,
-                    streak = uiState.streak,
-                    weatherBucket = uiState.weatherBucket,
-                    onActivityClick = onActivityClick,
-                )
-                is HomeUiState.TimeOnlyFinal -> HomeContent(
-                    recommendations = uiState.recommendations,
-                    streak = uiState.streak,
-                    weatherBucket = null,
-                    onActivityClick = onActivityClick,
-                )
+            }
+            is HomeUiState.TimeOnly -> HomeContent(
+                recommendations = uiState.recommendations,
+                streak = uiState.streak,
+                weatherBucket = null,
+                onActivityClick = onActivityClick,
+            )
+            is HomeUiState.WeatherAware -> HomeContent(
+                recommendations = uiState.recommendations,
+                streak = uiState.streak,
+                weatherBucket = uiState.weatherBucket,
+                onActivityClick = onActivityClick,
+            )
+            HomeUiState.LocationFailed -> {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    LocationFailedCard(onRetry = onRefresh)
+                }
+            }
+            HomeUiState.WeatherFailed -> {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    WeatherFailedCard(onRetry = onRefresh)
+                }
             }
         }
 
@@ -167,10 +134,8 @@ private fun HomeContent(
         item {
             StreakHeader(streak = streak)
         }
-        if (weatherBucket != null && weatherBucket != WeatherBucket.UNKNOWN) {
-            item {
-                RationaleBanner(weatherBucket = weatherBucket)
-            }
+        item {
+            RationaleBanner(weatherBucket = weatherBucket)
         }
         items(recommendations, key = { it.activity.id }) { rec ->
             ActivityCard(

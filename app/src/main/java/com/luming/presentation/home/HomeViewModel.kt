@@ -44,9 +44,11 @@ class HomeViewModel @Inject constructor(
 
     fun onResume() {
         val current = clock.timeBucket()
-        if (lastTimeBucket != null && lastTimeBucket != current) {
+        val timeBucketChanged = lastTimeBucket != null && lastTimeBucket != current
+        val recoverable = _uiState.value == HomeUiState.LocationFailed && locationRepository.hasPermission()
+        if (timeBucketChanged || recoverable) {
             viewModelScope.launch {
-                weatherRepository.clearCache()
+                if (timeBucketChanged) weatherRepository.clearCache()
                 launchColdStart()
             }
         }
@@ -60,37 +62,47 @@ class HomeViewModel @Inject constructor(
     private suspend fun coldStart() {
         val today = clock.today()
         val streak = getCurrentStreak().first()
-
         val timeBucket = clock.timeBucket()
         lastTimeBucket = timeBucket
-        val timeCtx = buildContext(timeBucket, weather = null)
-        val timeRecs = getRecommendations(timeCtx)
-        _uiState.value = HomeUiState.TimeOnly(timeRecs, streak, today)
 
-        val location = withTimeoutOrNull(5_000L) { locationRepository.getCoarseLocation() }
-        val weather = if (location != null) {
-            withTimeoutOrNull(5_000L) { weatherRepository.getWeather(location.first, location.second) }
-        } else null
+        // 캐시된 날씨가 있으면 즉시 WeatherAware로 렌더, 없으면 TimeOnly
+        val cachedWeather = weatherRepository.getLastCachedWeather()
+        if (cachedWeather != null) {
+            val ctx = buildContext(timeBucket, cachedWeather)
+            _uiState.value = HomeUiState.WeatherAware(
+                recommendations = getRecommendations(ctx),
+                streak = streak,
+                date = today,
+                weatherBucket = weatherBucketOf(cachedWeather),
+            )
+        } else {
+            val timeCtx = buildContext(timeBucket, weather = null)
+            _uiState.value = HomeUiState.TimeOnly(getRecommendations(timeCtx), streak, today)
+        }
 
+        // Permission not yet granted — stay in current state; permission flow calls onRefresh()
+        if (!locationRepository.hasPermission()) return
+
+        val location = withTimeoutOrNull(10_000L) { locationRepository.getCoarseLocation() }
+        if (location == null) {
+            if (cachedWeather == null) _uiState.value = HomeUiState.LocationFailed
+            return
+        }
+
+        val weather = withTimeoutOrNull(5_000L) { weatherRepository.getWeather(location.first, location.second) }
         val currentStreak = getCurrentStreak().first()
         if (weather != null) {
             val currentBucket = clock.timeBucket()
             lastTimeBucket = currentBucket
             val weatherCtx = buildContext(currentBucket, weather)
-            val weatherRecs = getRecommendations(weatherCtx)
             _uiState.value = HomeUiState.WeatherAware(
-                recommendations = weatherRecs,
+                recommendations = getRecommendations(weatherCtx),
                 streak = currentStreak,
                 date = today,
                 weatherBucket = weatherBucketOf(weather),
             )
-        } else {
-            val current = _uiState.value as? HomeUiState.TimeOnly
-            _uiState.value = HomeUiState.TimeOnlyFinal(
-                recommendations = current?.recommendations ?: timeRecs,
-                streak = currentStreak,
-                date = today,
-            )
+        } else if (cachedWeather == null) {
+            _uiState.value = HomeUiState.WeatherFailed
         }
     }
 

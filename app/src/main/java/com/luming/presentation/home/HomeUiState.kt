@@ -23,16 +23,12 @@ sealed interface HomeUiState {
         val showCompletionOverlay: Boolean = false,
     ) : HomeUiState
 
-    data class TimeOnlyFinal(
-        val recommendations: List<Recommendation>,
-        val streak: Streak,
-        val date: LocalDate,
-        val showCompletionOverlay: Boolean = false,
-    ) : HomeUiState
+    data object LocationFailed : HomeUiState
+
+    data object WeatherFailed : HomeUiState
 }
 
 internal fun HomeUiState.withOverlay(show: Boolean): HomeUiState = when (this) {
     is HomeUiState.WeatherAware -> copy(showCompletionOverlay = show)
-    is HomeUiState.TimeOnlyFinal -> copy(showCompletionOverlay = show)
     else -> this
 }
