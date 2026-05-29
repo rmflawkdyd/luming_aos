@@ -34,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.luming.presentation.instruction.components.StepPager
 import kotlinx.coroutines.delay
@@ -90,44 +91,30 @@ fun InstructionScreen(
     Scaffold(
         modifier = modifier,
         topBar = {
-            Column {
-                TopAppBar(
-                    title = {
-                        Column {
-                            Text(
-                                text = uiState.activity.name,
-                                style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight.SemiBold,
-                            )
-                            Text(
-                                text = "${uiState.activity.durationMin}분",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = onBack) {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = "뒤로",
-                            )
-                        }
-                    },
-                )
-                // TimerDisplay: 타이머 시작 후 표시
-                AnimatedVisibility(visible = uiState.isTimerRunning) {
-                    Text(
-                        text = "${formatMs(elapsedMs)} / ${formatDuration(uiState.activity.durationMin)}",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 6.dp)
-                            .semantics { contentDescription = "경과 시간 ${formatMs(elapsedMs)}, 전체 ${uiState.activity.durationMin}분" },
-                    )
-                }
-            }
+            TopAppBar(
+                title = {
+                    Column {
+                        Text(
+                            text = uiState.activity.name,
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.SemiBold,
+                        )
+                        Text(
+                            text = "${uiState.activity.durationMin}분",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "뒤로",
+                        )
+                    }
+                },
+            )
         },
     ) { paddingValues ->
         Column(
@@ -136,6 +123,22 @@ fun InstructionScreen(
                 .padding(paddingValues),
             verticalArrangement = Arrangement.SpaceBetween,
         ) {
+            AnimatedVisibility(
+                visible = uiState.isTimerRunning,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text(
+                    text = "${formatMs(elapsedMs)} / ${formatDuration(uiState.activity.durationMin)}",
+                    style = MaterialTheme.typography.headlineLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 12.dp)
+                        .semantics { contentDescription = "경과 시간 ${formatMs(elapsedMs)}, 전체 ${uiState.activity.durationMin}분" },
+                )
+            }
+
             StepPager(
                 steps = uiState.activity.steps,
                 currentStepIndex = uiState.currentStepIndex,
