@@ -9,12 +9,14 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun StepNavBar(
     isFirstStep: Boolean,
     isLastStep: Boolean,
+    isTimerStarted: Boolean,
     isCompleting: Boolean,
     onPrevious: () -> Unit,
     onNext: () -> Unit,
@@ -35,10 +37,13 @@ fun StepNavBar(
             Text("이전")
         }
         if (isLastStep) {
+            val completeEnabled = isTimerStarted && !isCompleting
             Button(
                 onClick = onComplete,
-                enabled = !isCompleting,
-                modifier = Modifier.weight(2f),
+                enabled = completeEnabled,
+                modifier = Modifier
+                    .weight(2f)
+                    .alpha(if (completeEnabled) 1f else 0.4f),
             ) {
                 Text("완료")
             }

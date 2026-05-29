@@ -46,11 +46,34 @@ class InstructionViewModel @Inject constructor(
         }
     }
 
-    fun complete(onComplete: () -> Unit) {
+    fun startTimer() {
+        _uiState.update { it?.copy(timerStartedAt = System.currentTimeMillis()) }
+    }
+
+    fun requestComplete(elapsedMs: Long, onNavigate: () -> Unit) {
+        val state = _uiState.value ?: return
+        val thresholdMs = (state.activity.durationMin * 60_000L * 0.8).toLong()
+        if (elapsedMs >= thresholdMs) {
+            doComplete(onNavigate)
+        } else {
+            _uiState.update { it?.copy(showTimerWarning = true) }
+        }
+    }
+
+    fun dismissWarning() {
+        _uiState.update { it?.copy(showTimerWarning = false) }
+    }
+
+    fun confirmComplete(onNavigate: () -> Unit) {
+        _uiState.update { it?.copy(showTimerWarning = false) }
+        doComplete(onNavigate)
+    }
+
+    private fun doComplete(onNavigate: () -> Unit) {
         _uiState.update { it?.copy(isCompleting = true) }
         viewModelScope.launch {
             markActivityComplete()
-            onComplete()
+            onNavigate()
         }
     }
 }

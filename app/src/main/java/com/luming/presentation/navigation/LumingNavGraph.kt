@@ -76,16 +76,21 @@ fun LumingNavGraph(navController: NavHostController) {
             val vm: InstructionViewModel = hiltViewModel()
             val uiState by vm.uiState.collectAsStateWithLifecycle()
 
+            fun navigateComplete() {
+                navController.previousBackStackEntry
+                    ?.savedStateHandle
+                    ?.set("activity_completed", true)
+                navController.popBackStack()
+            }
+
             InstructionScreen(
                 uiState = uiState,
                 onNext = vm::goToNextStep,
                 onPrevious = vm::goToPreviousStep,
-                onComplete = {
-                    navController.previousBackStackEntry
-                        ?.savedStateHandle
-                        ?.set("activity_completed", true)
-                    vm.complete { navController.popBackStack() }
-                },
+                onStart = vm::startTimer,
+                onComplete = { elapsedMs -> vm.requestComplete(elapsedMs) { navigateComplete() } },
+                onConfirmWarning = { vm.confirmComplete { navigateComplete() } },
+                onDismissWarning = vm::dismissWarning,
                 onBack = { navController.popBackStack() },
             )
         }
