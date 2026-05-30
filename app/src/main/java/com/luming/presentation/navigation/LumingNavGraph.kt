@@ -91,7 +91,7 @@ fun LumingNavGraph(navController: NavHostController) {
                 onComplete = { elapsedMs -> vm.requestComplete(elapsedMs) { navigateComplete() } },
                 onConfirmWarning = { vm.confirmComplete { navigateComplete() } },
                 onDismissWarning = vm::dismissWarning,
-                onBack = { navController.popBackStack() },
+                onBack = { vm.onAbort(); navController.popBackStack() },
             )
         }
     }

@@ -17,6 +17,7 @@ import javax.inject.Singleton
 
 private val Context.streakDataStore: DataStore<Preferences> by preferencesDataStore(name = "streak_prefs")
 private val Context.weatherDataStore: DataStore<Preferences> by preferencesDataStore(name = "weather_prefs")
+private val Context.slotDataStore: DataStore<Preferences> by preferencesDataStore(name = "slot_prefs")
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -37,5 +38,11 @@ abstract class AppModule {
         @Named("weather")
         fun provideWeatherDataStore(@ApplicationContext context: Context): DataStore<Preferences> =
             context.weatherDataStore
+
+        @Provides
+        @Singleton
+        @Named("slot")
+        fun provideSlotDataStore(@ApplicationContext context: Context): DataStore<Preferences> =
+            context.slotDataStore
     }
 }

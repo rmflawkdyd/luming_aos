@@ -33,15 +33,17 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.luming.domain.model.Recommendation
 import com.luming.domain.model.Streak
+import com.luming.domain.model.TimeBucket
 import com.luming.domain.model.WeatherBucket
 import com.luming.presentation.home.components.ActivityCard
 import com.luming.presentation.home.components.CompletionOverlay
+import com.luming.presentation.home.components.FooterDisclaimer
 import com.luming.presentation.home.components.LocationFailedCard
 import com.luming.presentation.home.components.RationaleBanner
 import com.luming.presentation.home.components.SevenDayStrip
 import com.luming.presentation.home.components.StreakRing
+import com.luming.presentation.home.components.TimeSlotCompletedContent
 import com.luming.presentation.home.components.WeatherFailedCard
-import com.luming.presentation.theme.LumingMist
 import java.time.LocalDate
 import java.time.format.TextStyle
 import java.util.Locale
@@ -68,10 +70,7 @@ fun HomeScreen(
         }
     }
 
-    val showOverlay = when (uiState) {
-        is HomeUiState.WeatherAware -> uiState.showCompletionOverlay
-        else -> false
-    }
+    val showOverlay = uiState.showsOverlay()
 
     Box(modifier = modifier.fillMaxSize()) {
         when (uiState) {
@@ -102,6 +101,10 @@ fun HomeScreen(
                     WeatherFailedCard(onRetry = onRefresh)
                 }
             }
+            is HomeUiState.CompletedSlot -> CompletedSlotContent(
+                slot = uiState.slot,
+                streak = uiState.streak,
+            )
         }
 
         if (showOverlay) {
@@ -143,6 +146,35 @@ private fun HomeContent(
                 onClick = { onActivityClick(rec.activity.id) },
             )
         }
+    }
+}
+
+@Composable
+private fun CompletedSlotContent(
+    slot: TimeBucket,
+    streak: Streak,
+    modifier: Modifier = Modifier,
+) {
+    val safeInsets = WindowInsets.safeDrawing.asPaddingValues()
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(
+                start = 20.dp,
+                top = safeInsets.calculateTopPadding() + 24.dp,
+                end = 20.dp,
+                bottom = safeInsets.calculateBottomPadding() + 20.dp,
+            ),
+    ) {
+        StreakHeader(streak = streak)
+        Spacer(modifier = Modifier.height(32.dp))
+        RationaleBanner(weatherBucket = null)
+        Spacer(modifier = Modifier.height(16.dp))
+        TimeSlotCompletedContent(
+            slot = slot,
+            modifier = Modifier.weight(1f),
+        )
+        FooterDisclaimer(modifier = Modifier.padding(top = 24.dp, bottom = 8.dp))
     }
 }
 

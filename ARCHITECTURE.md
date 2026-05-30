@@ -1,6 +1,6 @@
 # 루밍 Android — 아키텍처 가이드
 
-> **기준 스펙:** `.omc/specs/feature-spec-luming.md` v0.5  
+> **기준 스펙:** `.omc/specs/feature-spec-luming.md` v0.5 + 시간대별 완료 UX  
 > **플랫폼:** Android 12+ (API 31+) | Kotlin | Jetpack Compose
 
 ---
@@ -86,13 +86,14 @@ com.luming/
 │   ├── home/
 │   │   ├── HomeScreen.kt            # @Composable, UiState 수신
 │   │   ├── HomeViewModel.kt         # @HiltViewModel, cold-start 시퀀서
-│   │   ├── HomeUiState.kt           # sealed interface
+│   │   ├── HomeUiState.kt           # sealed interface (CompletedSlot 추가)
 │   │   └── components/
 │   │       ├── ActivityCard.kt
 │   │       ├── StreakRing.kt
 │   │       ├── SevenDayStrip.kt
 │   │       ├── RationaleBanner.kt
-│   │       └── CompletionOverlay.kt
+│   │       ├── CompletionOverlay.kt
+│   │       └── TimeSlotCompletedContent.kt  # 신규: completed.* 상태 UI
 │   │
 │   ├── instruction/
 │   │   ├── InstructionScreen.kt
@@ -154,7 +155,11 @@ com.luming/
 │   ├── streak/
 │   │   ├── StreakRepositoryImpl.kt
 │   │   └── local/
-│   │       └── StreakDataStore.kt            # DataStore<Preferences>
+│   │       └── StreakDataStore.kt            # DataStore<Preferences>, file: streak_prefs
+│   │
+│   ├── slotcompletion/                       # 신규: 시간대별 완료 persistence
+│   │   ├── SlotCompletionRecord.kt           # @Serializable, Set<TimeBucket> (.night 제외)
+│   │   └── SlotCompletionStore.kt            # DataStore<Preferences>, file: slot_prefs
 │   │
 │   └── recommender/
 │       ├── RuleScorer.kt                    # scoring_rules.v1.json 구현
@@ -303,6 +308,9 @@ sealed interface HomeUiState {
         val showCompletionOverlay: Boolean = false,
     ) : HomeUiState
 
+    /** 신규: 시간대 완료 — ActivityCardList 대신 TimeSlotCompletedContent 표시 (night 제외) */
+    data class CompletedSlot(val slot: TimeBucket) : HomeUiState
+
     /** 방어적 폴백 (발생 불가 설계) */
     data object Empty : HomeUiState
 }
@@ -329,6 +337,7 @@ class HomeViewModel @Inject constructor(
     private val getCurrentStreak: GetCurrentStreakUseCase,
     private val locationRepository: LocationRepository,
     private val weatherRepository: WeatherRepository,
+    private val slotStore: SlotCompletionStore,    // 신규
     private val clock: Clock,
 ) : ViewModel() {
 
@@ -343,10 +352,18 @@ class HomeViewModel @Inject constructor(
 
     private suspend fun coldStart() {
         val today = clock.today()
+        val bucket = clock.timeBucket()
+
+        // 완료 상태 우선 확인 (completed.* > loaded.*)
+        if (bucket != TimeBucket.NIGHT && slotStore.isCompleted(bucket, today)) {
+            _uiState.value = HomeUiState.CompletedSlot(bucket)
+            return
+        }
+
         val streak = getCurrentStreak().first()
 
         // T=0: 동기 시간 기반 렌더링 (I/O 없음)
-        val timeCtx = buildContext(timeBucket = clock.timeBucket(), weather = null)
+        val timeCtx = buildContext(timeBucket = bucket, weather = null)
         val timeRecs = getRecommendations(timeCtx)
         _uiState.value = HomeUiState.TimeOnly(timeRecs, streak, today)
 
@@ -373,7 +390,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun refresh() {
-        // Pull-to-refresh: 캐시 무효화 후 날씨 재시도
+        // Pull-to-refresh: completed.* 상태에서는 호출되지 않음 (UI에서 비활성)
         viewModelScope.launch {
             weatherRepository.clearCache()
             coldStart()
@@ -400,12 +417,17 @@ class InstructionViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val activityRepository: ActivityRepository,
     private val markActivityComplete: MarkActivityCompleteUseCase,
+    private val slotStore: SlotCompletionStore,    // 신규
+    private val clock: Clock,                      // 신규
 ) : ViewModel() {
 
     private val activityId: String = checkNotNull(savedStateHandle["activityId"])
 
     private val _uiState = MutableStateFlow<InstructionUiState?>(null)
     val uiState: StateFlow<InstructionUiState?> = _uiState.asStateFlow()
+
+    // 신규: StartButton 탭 시점 TimeBucket 동결 (ADR-011, race condition 방지)
+    private var startedSlot: TimeBucket? = null
 
     init {
         viewModelScope.launch {
@@ -426,15 +448,34 @@ class InstructionViewModel @Inject constructor(
         }
     }
 
-    /** 완료 버튼 탭 → 스트리크 저장 후 Home으로 pop 신호 */
+    /** StartButton 탭 — 시작 시점의 TimeBucket 동결 */
+    fun onStartTapped() {
+        startedSlot = clock.timeBucket()           // 신규: 동결
+        _uiState.update { it?.copy(startedAt = clock.nowMillis()) }  // 기존
+    }
+
+    /** 완료 버튼 탭 → 스트리크 + 슬롯 저장 후 Home으로 pop 신호 */
     fun complete(onComplete: () -> Unit) {
         _uiState.update { it?.copy(isCompleting = true) }
         viewModelScope.launch {
             markActivityComplete()
+            // 신규: 시작 슬롯 기준으로 완료 기록 (NIGHT 제외)
+            startedSlot?.takeIf { it != TimeBucket.NIGHT }?.let { slot ->
+                slotStore.markCompleted(slot, clock.today())
+            }
             onComplete()             // NavController.popBackStack()
         }
     }
+
+    /** BackButton / aborting — startedSlot 명시적 리셋 (ViewModel 재사용 방어) */
+    fun onAbort() {
+        startedSlot = null
+        _uiState.update { it?.copy(startedAt = null) }
+    }
 }
+
+// ViewModel lifecycle: NavBackStackEntry-scoped → pop(back) 시 자동 cleanup → cross-entry stale 없음.
+// onAbort()는 ViewModel이 재사용되는 경우를 대비한 명시적 방어 리셋.
 ```
 
 ### 6.4 Navigation
@@ -733,6 +774,22 @@ abstract class RepositoryModule {
     @Binds abstract fun bindLocationRepo(impl: LocationRepositoryImpl): LocationRepository
     @Binds abstract fun bindStreakRepo(impl: StreakRepositoryImpl): StreakRepository
 }
+
+@Module
+@InstallIn(SingletonComponent::class)
+object SlotCompletionModule {
+
+    @Provides @Singleton
+    fun provideSlotDataStore(@ApplicationContext ctx: Context): DataStore<Preferences> =
+        PreferenceDataStoreFactory.create(
+            produceFile = { ctx.preferencesDataStoreFile("slot_prefs") }
+        )
+
+    @Provides @Singleton
+    fun provideSlotCompletionStore(
+        @Named("slot") dataStore: DataStore<Preferences>,
+    ): SlotCompletionStore = SlotCompletionStore(dataStore)
+}
 ```
 
 ---
@@ -770,7 +827,10 @@ HomeViewModel.init()
          ▼
 InstructionScreen
          │
-         │ CompleteButton (마지막 스텝)
+         ├─ CompleteButton 탭 (마지막 스텝, elapsed ≥ 80%)
+         │
+         └─ 타이머 duration_min 도달 → 자동 완료 (elapsed 고정, 다이얼로그 없음)
+         │
          ▼
 MarkActivityCompleteUseCase
          │
@@ -798,6 +858,10 @@ HomeScreen (StreakRing 업데이트)
 | UI | 접근성 | Compose semantics test | AC-16 |
 | CI | 정적 분석 | `grep ACCESS_FINE_LOCATION AndroidManifest.xml` | AC-10 |
 | CI | 번들 크기 | `bundletool get-size total` | AC-11 |
+| SlotCompletion | `SlotCompletionStore` 단위 | JUnit5 + DataStore(in-memory) + MockK Clock | AC-S4, AC-S6, AC-S7, AC-S10, AC-S12 |
+| SlotCompletion | Race condition (11:55 start → 12:01 complete) | JUnit5 Integration + mock clock | AC-S9 |
+| SlotCompletion | Aborting 후 재진입 (`onAbort` → `onStartTapped`) | JUnit5 Integration | AC-S13 |
+| UI | `TimeSlotCompletedContent` 시간대별 문구 | Compose semantics test + mock clock | AC-S1, AC-S2, AC-S3, AC-S5, AC-S11 |
 
 ### 핵심 테스트 패턴
 
