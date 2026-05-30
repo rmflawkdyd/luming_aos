@@ -86,5 +86,9 @@ class RecommenderImpl @Inject constructor(
         Category.BREATHING -> "호흡"
         Category.STRETCH -> "스트레칭"
         Category.MEDITATION -> "명상"
+        Category.WALK -> "걷기"
+        Category.FOCUS -> "집중"
+        Category.MOVEMENT -> "움직임"
+        Category.REST -> "휴식"
     }
 }

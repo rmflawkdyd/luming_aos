@@ -185,7 +185,7 @@ data class Activity(
     val contextTags: Set<ContextTag>,
 )
 
-enum class Category { stretch, meditation, breathing }
+enum class Category { stretch, meditation, breathing, walk, focus, movement, rest }
 
 // model/Step.kt
 data class Step(val order: Int, val text: String)

@@ -2,10 +2,9 @@ package com.luming.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.luming.data.weather.remote.mapper.WeatherMapper
 import com.luming.domain.model.ContextSnapshot
 import com.luming.domain.model.TimeBucket
-import com.luming.domain.model.WeatherBucket
-import com.luming.domain.model.WeatherCondition
 import com.luming.domain.model.WeatherSnapshot
 import com.luming.domain.repository.LocationRepository
 import com.luming.domain.repository.WeatherRepository
@@ -73,7 +72,7 @@ class HomeViewModel @Inject constructor(
                 recommendations = getRecommendations(ctx),
                 streak = streak,
                 date = today,
-                weatherBucket = weatherBucketOf(cachedWeather),
+                weatherBucket = WeatherMapper.toWeatherBucket(cachedWeather),
             )
         } else {
             val timeCtx = buildContext(timeBucket, weather = null)
@@ -99,7 +98,7 @@ class HomeViewModel @Inject constructor(
                 recommendations = getRecommendations(weatherCtx),
                 streak = currentStreak,
                 date = today,
-                weatherBucket = weatherBucketOf(weather),
+                weatherBucket = WeatherMapper.toWeatherBucket(weather),
             )
         } else if (cachedWeather == null) {
             _uiState.value = HomeUiState.WeatherFailed
@@ -124,19 +123,9 @@ class HomeViewModel @Inject constructor(
     private fun buildContext(timeBucket: TimeBucket, weather: WeatherSnapshot?): ContextSnapshot =
         ContextSnapshot(
             timeBucket = timeBucket,
-            weatherBucket = weatherBucketOf(weather),
+            weatherBucket = WeatherMapper.toWeatherBucket(weather),
             dayOfWeekHash = clock.dayOfWeekHash(),
             isPrecipitating = weather?.isPrecipitating ?: false,
         )
 
-    private fun weatherBucketOf(snapshot: WeatherSnapshot?): WeatherBucket = when {
-        snapshot == null -> WeatherBucket.UNKNOWN
-        snapshot.condition in setOf(WeatherCondition.RAIN, WeatherCondition.SNOW, WeatherCondition.THUNDER) ->
-            WeatherBucket.RAINY
-        snapshot.temperatureC >= 28.0 -> WeatherBucket.HOT
-        snapshot.temperatureC <= 5.0 -> WeatherBucket.COLD
-        snapshot.condition == WeatherCondition.CLEAR -> WeatherBucket.CLEAR
-        snapshot.condition in setOf(WeatherCondition.CLOUDY, WeatherCondition.FOG) -> WeatherBucket.CLOUDY
-        else -> WeatherBucket.UNKNOWN
-    }
 }

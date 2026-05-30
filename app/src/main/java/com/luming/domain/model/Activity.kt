@@ -18,4 +18,8 @@ enum class Category {
     @SerialName("stretch") STRETCH,
     @SerialName("meditation") MEDITATION,
     @SerialName("breathing") BREATHING,
+    @SerialName("walk") WALK,
+    @SerialName("focus") FOCUS,
+    @SerialName("movement") MOVEMENT,
+    @SerialName("rest") REST,
 }

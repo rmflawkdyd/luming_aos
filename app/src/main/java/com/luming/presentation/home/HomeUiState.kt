@@ -13,6 +13,7 @@ sealed interface HomeUiState {
         val recommendations: List<Recommendation>,
         val streak: Streak,
         val date: LocalDate,
+        val showCompletionOverlay: Boolean = false,
     ) : HomeUiState
 
     data class WeatherAware(
@@ -30,5 +31,6 @@ sealed interface HomeUiState {
 
 internal fun HomeUiState.withOverlay(show: Boolean): HomeUiState = when (this) {
     is HomeUiState.WeatherAware -> copy(showCompletionOverlay = show)
+    is HomeUiState.TimeOnly -> copy(showCompletionOverlay = show)
     else -> this
 }

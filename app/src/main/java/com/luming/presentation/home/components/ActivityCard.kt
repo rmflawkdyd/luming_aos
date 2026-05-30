@@ -9,10 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Air
-import androidx.compose.material.icons.filled.FitnessCenter
-import androidx.compose.material.icons.filled.SelfImprovement
+import androidx.annotation.DrawableRes
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -22,19 +19,28 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.luming.R
 import com.luming.domain.model.Category
 import com.luming.domain.model.Recommendation
+import com.luming.presentation.theme.LumingFocus
+import com.luming.presentation.theme.LumingFocusLight
 import com.luming.presentation.theme.LumingLavender
 import com.luming.presentation.theme.LumingLavenderLight
+import com.luming.presentation.theme.LumingMovement
+import com.luming.presentation.theme.LumingMovementLight
+import com.luming.presentation.theme.LumingRest
+import com.luming.presentation.theme.LumingRestLight
 import com.luming.presentation.theme.LumingSage
 import com.luming.presentation.theme.LumingSageLight
 import com.luming.presentation.theme.LumingShapes
 import com.luming.presentation.theme.LumingSky
 import com.luming.presentation.theme.LumingSkyLight
+import com.luming.presentation.theme.LumingWalk
+import com.luming.presentation.theme.LumingWalkLight
 
 @Composable
 fun ActivityCard(
@@ -84,12 +90,16 @@ fun ActivityCard(
     }
 }
 
-private data class CategoryStyle(val bg: Color, val fg: Color, val icon: ImageVector)
+private data class CategoryStyle(val bg: Color, val fg: Color, @DrawableRes val iconRes: Int)
 
 private fun categoryStyle(category: Category) = when (category) {
-    Category.BREATHING -> CategoryStyle(LumingSkyLight, LumingSky, Icons.Default.Air)
-    Category.STRETCH -> CategoryStyle(LumingSageLight, LumingSage, Icons.Default.FitnessCenter)
-    Category.MEDITATION -> CategoryStyle(LumingLavenderLight, LumingLavender, Icons.Default.SelfImprovement)
+    Category.BREATHING -> CategoryStyle(LumingSkyLight, LumingSky, R.drawable.ic_cat_breathing)
+    Category.STRETCH -> CategoryStyle(LumingSageLight, LumingSage, R.drawable.ic_cat_stretch)
+    Category.MEDITATION -> CategoryStyle(LumingLavenderLight, LumingLavender, R.drawable.ic_cat_meditation)
+    Category.WALK -> CategoryStyle(LumingWalkLight, LumingWalk, R.drawable.ic_cat_walk)
+    Category.FOCUS -> CategoryStyle(LumingFocusLight, LumingFocus, R.drawable.ic_cat_focus)
+    Category.MOVEMENT -> CategoryStyle(LumingMovementLight, LumingMovement, R.drawable.ic_cat_movement)
+    Category.REST -> CategoryStyle(LumingRestLight, LumingRest, R.drawable.ic_cat_rest)
 }
 
 @Composable
@@ -102,7 +112,7 @@ private fun CategoryIconBox(category: Category, modifier: Modifier = Modifier) {
         contentAlignment = Alignment.Center,
     ) {
         Icon(
-            imageVector = style.icon,
+            painter = painterResource(style.iconRes),
             contentDescription = null,
             tint = style.fg,
             modifier = Modifier.size(20.dp),
