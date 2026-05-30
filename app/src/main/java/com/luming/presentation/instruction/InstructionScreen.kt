@@ -62,10 +62,16 @@ fun InstructionScreen(
     // Ticker: recomputed every second from startedAt so background time is included
     var elapsedMs by remember { mutableStateOf(0L) }
     val timerStartedAt = uiState.timerStartedAt
+    val targetMs = uiState.activity.durationMin * 60_000L
     LaunchedEffect(timerStartedAt) {
         val startedAt = timerStartedAt ?: run { elapsedMs = 0L; return@LaunchedEffect }
         while (true) {
             elapsedMs = System.currentTimeMillis() - startedAt
+            if (elapsedMs >= targetMs) {
+                elapsedMs = targetMs
+                onComplete(elapsedMs)
+                break
+            }
             delay(1_000L)
         }
     }
