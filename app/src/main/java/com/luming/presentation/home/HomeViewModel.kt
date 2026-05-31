@@ -49,7 +49,9 @@ class HomeViewModel @Inject constructor(
         val recoverable = _uiState.value == HomeUiState.LocationFailed && locationRepository.hasPermission()
         // Re-check completed state on resume to handle date changes (AC-S7)
         val inCompletedSlot = _uiState.value is HomeUiState.CompletedSlot
-        if (timeBucketChanged || recoverable || inCompletedSlot) {
+        // Re-fetch if in-memory cache expired while backgrounded (§2.1 Background→foreground)
+        val weatherCacheStale = weatherRepository.isWeatherCacheStale()
+        if (timeBucketChanged || recoverable || inCompletedSlot || weatherCacheStale) {
             viewModelScope.launch {
                 if (timeBucketChanged) weatherRepository.clearCache()
                 launchColdStart()
@@ -67,7 +69,6 @@ class HomeViewModel @Inject constructor(
         val timeBucket = clock.timeBucket()
         lastTimeBucket = timeBucket
 
-        // completed.* is highest priority (AC-S1~S3, AC-S7)
         if (timeBucket != TimeBucket.NIGHT && slotStore.isCompleted(timeBucket, today)) {
             val streak = getCurrentStreak().first()
             _uiState.value = HomeUiState.CompletedSlot(

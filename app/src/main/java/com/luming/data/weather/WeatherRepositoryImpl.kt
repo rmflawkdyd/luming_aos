@@ -32,4 +32,6 @@ class WeatherRepositoryImpl @Inject constructor(
     override suspend fun getLastCachedWeather(): WeatherSnapshot? = dataStore.getLastWeather()
 
     override fun clearCache() = cache.clear()
+
+    override fun isWeatherCacheStale(): Boolean = !cache.hasAnyValid()
 }

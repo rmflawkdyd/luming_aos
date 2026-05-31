@@ -34,6 +34,8 @@ class WeatherInMemoryCache @Inject constructor() {
         )
     }
 
+    fun hasAnyValid(): Boolean = cache.values.any { Clock.System.now() < it.expiresAt }
+
     fun clear() = cache.clear()
 
     private fun cacheKey(lat: Double, lon: Double) =
