@@ -10,7 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.luming.R
 
 @Composable
 fun StepNavBar(
@@ -34,7 +36,7 @@ fun StepNavBar(
             enabled = !isFirstStep,
             modifier = Modifier.weight(1f),
         ) {
-            Text("이전")
+            Text(stringResource(R.string.action_previous))
         }
         if (isLastStep) {
             val completeEnabled = isTimerStarted && !isCompleting
@@ -45,14 +47,14 @@ fun StepNavBar(
                     .weight(2f)
                     .alpha(if (completeEnabled) 1f else 0.4f),
             ) {
-                Text("완료")
+                Text(stringResource(R.string.action_complete))
             }
         } else {
             Button(
                 onClick = onNext,
                 modifier = Modifier.weight(2f),
             ) {
-                Text("다음")
+                Text(stringResource(R.string.action_next))
             }
         }
     }

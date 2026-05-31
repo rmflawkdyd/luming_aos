@@ -14,14 +14,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.luming.R
 
 @Composable
 fun LocationFailedCard(onRetry: () -> Unit, modifier: Modifier = Modifier) {
     ErrorCard(
         icon = Icons.Outlined.LocationOff,
-        message = "위치 정보를 가져올 수 없어요.",
+        message = stringResource(R.string.error_location),
         onRetry = onRetry,
         modifier = modifier,
     )
@@ -31,7 +33,7 @@ fun LocationFailedCard(onRetry: () -> Unit, modifier: Modifier = Modifier) {
 fun WeatherFailedCard(onRetry: () -> Unit, modifier: Modifier = Modifier) {
     ErrorCard(
         icon = Icons.Outlined.CloudOff,
-        message = "날씨 정보를 가져올 수 없어요.",
+        message = stringResource(R.string.error_weather),
         onRetry = onRetry,
         modifier = modifier,
     )
@@ -62,7 +64,7 @@ private fun ErrorCard(
             textAlign = TextAlign.Center,
         )
         OutlinedButton(onClick = onRetry) {
-            Text("다시 시도")
+            Text(stringResource(R.string.action_retry))
         }
     }
 }

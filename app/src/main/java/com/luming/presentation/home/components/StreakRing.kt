@@ -12,9 +12,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.luming.R
 import com.luming.presentation.theme.LumingAmber
 import com.luming.presentation.theme.LumingPebble
 
@@ -55,7 +57,7 @@ fun StreakRing(
                 color = MaterialTheme.colorScheme.onBackground,
             )
             Text(
-                text = "일",
+                text = stringResource(R.string.streak_unit),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )

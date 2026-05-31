@@ -29,8 +29,10 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.luming.R
 import kotlinx.coroutines.delay
 
 @Composable
@@ -71,12 +73,12 @@ fun CompletionOverlay(onDismiss: () -> Unit, modifier: Modifier = Modifier) {
                         modifier = Modifier.size(72.dp),
                     )
                     Text(
-                        text = "완료!",
+                        text = stringResource(R.string.completion_title),
                         style = MaterialTheme.typography.headlineSmall,
                         fontWeight = FontWeight.Bold,
                     )
                     Text(
-                        text = "오늘의 활동을 마쳤어요",
+                        text = stringResource(R.string.completion_message),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )

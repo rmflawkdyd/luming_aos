@@ -28,8 +28,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.luming.R
 import androidx.core.content.ContextCompat
 import com.luming.domain.model.Recommendation
 import com.luming.domain.model.Streak
@@ -124,28 +126,35 @@ private fun HomeContent(
     onActivityClick: (String) -> Unit,
 ) {
     val safeInsets = WindowInsets.safeDrawing.asPaddingValues()
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(
-            start = 20.dp,
-            top = safeInsets.calculateTopPadding() + 24.dp,
-            end = 20.dp,
-            bottom = safeInsets.calculateBottomPadding() + 20.dp,
-        ),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-    ) {
-        item {
-            StreakHeader(streak = streak)
+    Box(modifier = Modifier.fillMaxSize()) {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = PaddingValues(
+                start = 20.dp,
+                top = safeInsets.calculateTopPadding() + 24.dp,
+                end = 20.dp,
+                bottom = safeInsets.calculateBottomPadding() + 48.dp,
+            ),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            item {
+                StreakHeader(streak = streak)
+            }
+            item {
+                RationaleBanner(weatherBucket = weatherBucket)
+            }
+            items(recommendations, key = { it.activity.id }) { rec ->
+                ActivityCard(
+                    recommendation = rec,
+                    onClick = { onActivityClick(rec.activity.id) },
+                )
+            }
         }
-        item {
-            RationaleBanner(weatherBucket = weatherBucket)
-        }
-        items(recommendations, key = { it.activity.id }) { rec ->
-            ActivityCard(
-                recommendation = rec,
-                onClick = { onActivityClick(rec.activity.id) },
-            )
-        }
+        FooterDisclaimer(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = safeInsets.calculateBottomPadding() + 8.dp),
+        )
     }
 }
 
@@ -187,7 +196,7 @@ private fun StreakHeader(streak: Streak) {
     }
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
-            text = "루밍",
+            text = stringResource(R.string.app_name),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onBackground,

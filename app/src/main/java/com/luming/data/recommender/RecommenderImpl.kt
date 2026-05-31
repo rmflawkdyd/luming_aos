@@ -1,5 +1,7 @@
 package com.luming.data.recommender
 
+import android.content.Context
+import com.luming.R
 import com.luming.domain.model.Activity
 import com.luming.domain.model.Category
 import com.luming.domain.model.ContextSnapshot
@@ -7,11 +9,13 @@ import com.luming.domain.model.ContextTag
 import com.luming.domain.model.Recommendation
 import com.luming.domain.model.WeatherBucket
 import com.luming.domain.recommender.Recommender
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 class RecommenderImpl @Inject constructor(
     private val ruleScorer: RuleScorer,
     private val selector: TFLiteSelector,
+    @ApplicationContext private val context: Context,
 ) : Recommender {
 
     override fun recommend(library: List<Activity>, ctx: ContextSnapshot): List<Recommendation> {
@@ -73,22 +77,22 @@ class RecommenderImpl @Inject constructor(
     private fun rationaleFor(activity: Activity, ctx: ContextSnapshot): String {
         val cat = activity.category.displayName()
         return when (ctx.weatherBucket) {
-            WeatherBucket.UNKNOWN -> "현재 시간대에 맞는 활동이에요."
-            WeatherBucket.CLEAR -> "맑은 날씨에 어울리는 ${cat} 활동이에요."
-            WeatherBucket.RAINY -> "비 오는 날엔 실내 ${cat} 활동이 좋아요."
-            WeatherBucket.HOT -> "더운 날엔 시원하게 즐기는 ${cat} 활동이에요."
-            WeatherBucket.COLD -> "쌀쌀한 날엔 몸을 풀어주는 ${cat} 활동이에요."
-            WeatherBucket.CLOUDY -> "흐린 날엔 실내 ${cat} 활동이 좋아요."
+            WeatherBucket.UNKNOWN -> context.getString(R.string.recommendation_rationale_unknown)
+            WeatherBucket.CLEAR -> context.getString(R.string.recommendation_rationale_clear, cat)
+            WeatherBucket.RAINY -> context.getString(R.string.recommendation_rationale_rainy, cat)
+            WeatherBucket.HOT -> context.getString(R.string.recommendation_rationale_hot, cat)
+            WeatherBucket.COLD -> context.getString(R.string.recommendation_rationale_cold, cat)
+            WeatherBucket.CLOUDY -> context.getString(R.string.recommendation_rationale_cloudy, cat)
         }
     }
 
     private fun Category.displayName(): String = when (this) {
-        Category.BREATHING -> "호흡"
-        Category.STRETCH -> "스트레칭"
-        Category.MEDITATION -> "명상"
-        Category.WALK -> "걷기"
-        Category.FOCUS -> "집중"
-        Category.MOVEMENT -> "움직임"
-        Category.REST -> "휴식"
+        Category.BREATHING -> context.getString(R.string.category_breathing)
+        Category.STRETCH -> context.getString(R.string.category_stretch)
+        Category.MEDITATION -> context.getString(R.string.category_meditation)
+        Category.WALK -> context.getString(R.string.category_walk)
+        Category.FOCUS -> context.getString(R.string.category_focus)
+        Category.MOVEMENT -> context.getString(R.string.category_movement)
+        Category.REST -> context.getString(R.string.category_rest)
     }
 }

@@ -17,12 +17,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.luming.R
 import com.luming.domain.model.TimeBucket
 import com.luming.presentation.theme.LumingMist
 import com.luming.presentation.theme.LumingSage
@@ -36,15 +38,15 @@ fun TimeSlotCompletedContent(
     modifier: Modifier = Modifier,
 ) {
     val completedLabel = when (slot) {
-        TimeBucket.MORNING -> "아침 활동 완료!"
-        TimeBucket.AFTERNOON -> "점심 활동 완료!"
-        TimeBucket.EVENING -> "오늘 하루 활동 완료!"
+        TimeBucket.MORNING -> stringResource(R.string.slot_completed_morning)
+        TimeBucket.AFTERNOON -> stringResource(R.string.slot_completed_afternoon)
+        TimeBucket.EVENING -> stringResource(R.string.slot_completed_evening)
         TimeBucket.NIGHT -> error("NIGHT slot cannot be in completed state")
     }
     val nextSlotHint = when (slot) {
-        TimeBucket.MORNING -> "점심엔 또 다른 활동이 기다려요"
-        TimeBucket.AFTERNOON -> "저녁엔 또 다른 활동이 기다려요"
-        TimeBucket.EVENING -> "내일도 함께해요"
+        TimeBucket.MORNING -> stringResource(R.string.slot_next_morning)
+        TimeBucket.AFTERNOON -> stringResource(R.string.slot_next_afternoon)
+        TimeBucket.EVENING -> stringResource(R.string.slot_next_evening)
         TimeBucket.NIGHT -> error("NIGHT slot cannot be in completed state")
     }
 
@@ -95,7 +97,7 @@ fun FooterDisclaimer(modifier: Modifier = Modifier) {
         contentAlignment = Alignment.Center,
     ) {
         Text(
-            text = "Wellness, not medical advice.",
+            text = stringResource(R.string.footer_disclaimer),
             fontSize = 11.sp,
             color = LumingMist,
         )

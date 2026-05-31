@@ -16,18 +16,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.luming.R
 import com.luming.domain.model.WeatherBucket
 
 @Composable
 fun RationaleBanner(weatherBucket: WeatherBucket?, modifier: Modifier = Modifier) {
     val (text, icon) = when (weatherBucket) {
-        WeatherBucket.CLEAR -> "맑은 날씨에 어울리는 활동이에요" to Icons.Default.WbSunny
-        WeatherBucket.CLOUDY -> "흐린 날에도 할 수 있는 활동이에요" to Icons.Default.Cloud
-        WeatherBucket.RAINY -> "실내에서 즐길 수 있는 활동이에요" to Icons.Default.WaterDrop
-        WeatherBucket.HOT -> "더운 날엔 실내 활동이 좋아요" to Icons.Default.WbSunny
-        WeatherBucket.COLD -> "추운 날엔 몸을 따뜻하게 풀어보세요" to Icons.Default.AcUnit
-        WeatherBucket.UNKNOWN, null -> "시간대에 맞는 활동이에요" to Icons.Default.AccessTime
+        WeatherBucket.CLEAR -> stringResource(R.string.rationale_clear) to Icons.Default.WbSunny
+        WeatherBucket.CLOUDY -> stringResource(R.string.rationale_cloudy) to Icons.Default.Cloud
+        WeatherBucket.RAINY -> stringResource(R.string.rationale_rainy) to Icons.Default.WaterDrop
+        WeatherBucket.HOT -> stringResource(R.string.rationale_hot) to Icons.Default.WbSunny
+        WeatherBucket.COLD -> stringResource(R.string.rationale_cold) to Icons.Default.AcUnit
+        WeatherBucket.UNKNOWN, null -> stringResource(R.string.rationale_unknown) to Icons.Default.AccessTime
     }
     Row(
         modifier = modifier.fillMaxWidth(),

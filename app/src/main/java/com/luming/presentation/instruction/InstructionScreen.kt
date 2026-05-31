@@ -31,11 +31,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.luming.R
 import com.luming.presentation.instruction.components.StepPager
 import kotlinx.coroutines.delay
 
@@ -83,13 +85,13 @@ fun InstructionScreen(
         val remainingMins = ((remainingMs + 59_999L) / 60_000L).coerceAtLeast(1L)
         AlertDialog(
             onDismissRequest = onDismissWarning,
-            title = { Text("아직 완료하지 않으셨나요?") },
-            text = { Text("아직 ${remainingMins}분 남았어요. 지금 완료할까요?") },
+            title = { Text(stringResource(R.string.dialog_early_complete_title)) },
+            text = { Text(stringResource(R.string.dialog_early_complete_message, remainingMins)) },
             confirmButton = {
-                TextButton(onClick = onConfirmWarning) { Text("완료") }
+                TextButton(onClick = onConfirmWarning) { Text(stringResource(R.string.action_complete)) }
             },
             dismissButton = {
-                TextButton(onClick = onDismissWarning) { Text("계속하기") }
+                TextButton(onClick = onDismissWarning) { Text(stringResource(R.string.action_continue)) }
             },
         )
     }
@@ -106,7 +108,7 @@ fun InstructionScreen(
                             fontWeight = FontWeight.SemiBold,
                         )
                         Text(
-                            text = "${uiState.activity.durationMin}분",
+                            text = stringResource(R.string.duration_min, uiState.activity.durationMin),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
@@ -116,13 +118,15 @@ fun InstructionScreen(
                     IconButton(onClick = onBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "뒤로",
+                            contentDescription = stringResource(R.string.cd_back),
                         )
                     }
                 },
             )
         },
     ) { paddingValues ->
+        val elapsedTimeCd = stringResource(R.string.cd_elapsed_time, formatMs(elapsedMs), uiState.activity.durationMin)
+        val timerStartCd = stringResource(R.string.cd_timer_start)
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -141,7 +145,7 @@ fun InstructionScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp, vertical = 12.dp)
-                        .semantics { contentDescription = "경과 시간 ${formatMs(elapsedMs)}, 전체 ${uiState.activity.durationMin}분" },
+                        .semantics { contentDescription = elapsedTimeCd },
                 )
             }
 
@@ -164,7 +168,7 @@ fun InstructionScreen(
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp, vertical = 16.dp),
                 ) {
-                    Text("완료")
+                    Text(stringResource(R.string.action_complete))
                 }
             } else {
                 Button(
@@ -172,14 +176,14 @@ fun InstructionScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp, vertical = 16.dp)
-                        .semantics { contentDescription = "타이머 시작" },
+                        .semantics { contentDescription = timerStartCd },
                 ) {
                     Icon(
                         imageVector = Icons.Default.PlayArrow,
                         contentDescription = null,
                     )
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("시작")
+                    Text(stringResource(R.string.action_start))
                 }
             }
         }
