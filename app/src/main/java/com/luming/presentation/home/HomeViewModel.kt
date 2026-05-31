@@ -97,7 +97,7 @@ class HomeViewModel @Inject constructor(
         // Permission not yet granted — stay in current state; permission flow calls onRefresh()
         if (!locationRepository.hasPermission()) return
 
-        val location = withTimeoutOrNull(10_000L) { locationRepository.getCoarseLocation() }
+        val location = withTimeoutOrNull(5_000L) { locationRepository.getCoarseLocation() }
         if (location == null) {
             if (cachedWeather == null) _uiState.value = HomeUiState.LocationFailed
             return
