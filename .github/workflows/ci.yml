@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ac11-artifact-gate:
+    name: "AC-11 selector artifact gate"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 ci/check_ac11_artifact_gate.py
+
+  ac12-outbound-urls:
+    name: "AC-12 outbound URL check"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 ci/check_ac12_outbound_urls.py
+
+  ac13-diversity:
+    name: "AC-13 diversity gate"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 ci/check_ac13_diversity.py
+
+  ac4-json-schema:
+    name: "AC-4 activity library schema"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install jsonschema
+      - run: python3 ci/check_ac4_json_schema.py
+
+  ac20-manifest:
+    name: "AC-20 AndroidManifest intent-filter"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 ci/check_ac20_manifest.py
+
+  android-unit-tests:
+    name: "Android unit tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+      - run: ./gradlew testDebugUnitTest

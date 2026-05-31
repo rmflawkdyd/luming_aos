@@ -1,0 +1,11 @@
+{
+  "alpha": 0.6,
+  "beta": 0.4,
+  "sha256": "09216e1632aeac04869e2fe4f46e35be82fe4d01d21181209c6559ae49b64e32",
+  "selected_at": "2026-05-29T10:44:34.784897+00:00",
+  "gate_status": "pass",
+  "selector_excluded": false,
+  "diversity_at_7": 3.0,
+  "selector_mean_raw_score": 3.911,
+  "hash_k_mean_raw_score": 3.911
+}
