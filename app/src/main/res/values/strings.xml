@@ -55,6 +55,16 @@
     <string name="recommendation_rationale_cold">쌀쌀한 날엔 몸을 풀어주는 %s 활동이에요.</string>
     <string name="recommendation_rationale_cloudy">흐린 날엔 실내 %s 활동이 좋아요.</string>
 
+    <!-- Notification -->
+    <string name="notification_channel_name">일일 활동 알림</string>
+    <string name="notification_channel_desc">아침·점심·저녁 활동 알림</string>
+    <string name="notification_morning_title">좋은 아침이에요</string>
+    <string name="notification_morning_body">오늘 아침 활동을 시작해 보세요</string>
+    <string name="notification_afternoon_title">점심 시간이에요</string>
+    <string name="notification_afternoon_body">잠깐 스트레칭 어때요?</string>
+    <string name="notification_evening_title">저녁 시간이에요</string>
+    <string name="notification_evening_body">하루를 마무리하는 활동을 해보세요</string>
+
     <!-- Category display names -->
     <string name="category_breathing">호흡</string>
     <string name="category_stretch">스트레칭</string>
