@@ -17,12 +17,15 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.luming.presentation.MainViewModel
 import com.luming.presentation.home.HomeScreen
 import com.luming.presentation.home.HomeViewModel
 import com.luming.presentation.instruction.InstructionScreen
 import com.luming.presentation.instruction.InstructionViewModel
+import com.luming.presentation.permission.PermissionScreen
 
 private object Screen {
+    const val PERMISSION = "permission"
     const val HOME = "home"
     const val INSTRUCTION = "instruction/{activityId}"
     fun instruction(activityId: String) = "instruction/$activityId"
@@ -30,7 +33,23 @@ private object Screen {
 
 @Composable
 fun LumingNavGraph(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = Screen.HOME) {
+    val mainViewModel: MainViewModel = hiltViewModel()
+
+    NavHost(
+        navController = navController,
+        startDestination = if (mainViewModel.needsPermission) Screen.PERMISSION else Screen.HOME,
+    ) {
+
+        composable(Screen.PERMISSION) {
+            PermissionScreen(
+                onPermissionsHandled = { notificationGranted ->
+                    mainViewModel.onPermissionsResult(notificationGranted)
+                    navController.navigate(Screen.HOME) {
+                        popUpTo(Screen.PERMISSION) { inclusive = true }
+                    }
+                },
+            )
+        }
 
         composable(Screen.HOME) { entry ->
             val vm: HomeViewModel = hiltViewModel()

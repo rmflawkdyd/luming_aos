@@ -1,42 +1,34 @@
 package com.luming
 
-import android.Manifest
-import android.content.pm.PackageManager
 import android.content.res.Configuration
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.luming.notification.NotificationScheduler
 import com.luming.presentation.navigation.LumingNavGraph
 import com.luming.presentation.theme.ColorIntBackgroundWarm
 import com.luming.presentation.theme.ColorIntOnSurface
 import com.luming.presentation.theme.LumingTheme
+import androidx.activity.viewModels
+import com.luming.presentation.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @Inject lateinit var notificationScheduler: NotificationScheduler
-
-    private val notificationPermLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { granted ->
-        if (granted) notificationScheduler.scheduleAll()
-    }
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
-        requestNotificationPermission()
+        splashScreen.setKeepOnScreenCondition { !mainViewModel.permissionsHandled.value }
         val isDark = (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
             Configuration.UI_MODE_NIGHT_YES
         enableEdgeToEdge(
@@ -64,15 +56,4 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun requestNotificationPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
-                notificationScheduler.scheduleAll()
-            } else {
-                notificationPermLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-            }
-        } else {
-            notificationScheduler.scheduleAll()
-        }
-    }
 }
