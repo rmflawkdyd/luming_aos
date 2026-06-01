@@ -1,0 +1,1572 @@
+{
+  "version": "1",
+  "generated_by": "rule_scorer.py",
+  "entries": [
+    {
+      "context": {
+        "id": "morning_clear_dow0",
+        "time_bucket": "morning",
+        "weather_bucket": "clear",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "meditation_mindful_walk_04",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing meditation fits."
+        },
+        {
+          "rank": 2,
+          "activity_id": "stretch_forward_fold_05",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+        },
+        {
+          "rank": 3,
+          "activity_id": "stretch_sun_salutation_09",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_clear_dow3",
+        "time_bucket": "morning",
+        "weather_bucket": "clear",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "meditation_mindful_walk_04",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing meditation fits."
+        },
+        {
+          "rank": 2,
+          "activity_id": "stretch_forward_fold_05",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+        },
+        {
+          "rank": 3,
+          "activity_id": "stretch_sun_salutation_09",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_cloudy_dow0",
+        "time_bucket": "morning",
+        "weather_bucket": "cloudy",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_alternate_nostril_04",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_cloudy_dow3",
+        "time_bucket": "morning",
+        "weather_bucket": "cloudy",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_alternate_nostril_04",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_rainy_dow0",
+        "time_bucket": "morning",
+        "weather_bucket": "rainy",
+        "day_of_week_hash": 0,
+        "is_precipitating": true
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_alternate_nostril_04",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_rainy_dow3",
+        "time_bucket": "morning",
+        "weather_bucket": "rainy",
+        "day_of_week_hash": 3,
+        "is_precipitating": true
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_alternate_nostril_04",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_hot_dow0",
+        "time_bucket": "morning",
+        "weather_bucket": "hot",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_alternate_nostril_04",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_hot_dow3",
+        "time_bucket": "morning",
+        "weather_bucket": "hot",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_alternate_nostril_04",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_cold_dow0",
+        "time_bucket": "morning",
+        "weather_bucket": "cold",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_alternate_nostril_04",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_cold_dow3",
+        "time_bucket": "morning",
+        "weather_bucket": "cold",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_alternate_nostril_04",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_unknown_dow0",
+        "time_bucket": "morning",
+        "weather_bucket": "unknown",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_alternate_nostril_04",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_unknown_dow3",
+        "time_bucket": "morning",
+        "weather_bucket": "unknown",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_alternate_nostril_04",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_clear_dow0",
+        "time_bucket": "afternoon",
+        "weather_bucket": "clear",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_clear_dow3",
+        "time_bucket": "afternoon",
+        "weather_bucket": "clear",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_cloudy_dow0",
+        "time_bucket": "afternoon",
+        "weather_bucket": "cloudy",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_cloudy_dow3",
+        "time_bucket": "afternoon",
+        "weather_bucket": "cloudy",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_rainy_dow0",
+        "time_bucket": "afternoon",
+        "weather_bucket": "rainy",
+        "day_of_week_hash": 0,
+        "is_precipitating": true
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_rainy_dow3",
+        "time_bucket": "afternoon",
+        "weather_bucket": "rainy",
+        "day_of_week_hash": 3,
+        "is_precipitating": true
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_hot_dow0",
+        "time_bucket": "afternoon",
+        "weather_bucket": "hot",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_hot_dow3",
+        "time_bucket": "afternoon",
+        "weather_bucket": "hot",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_cold_dow0",
+        "time_bucket": "afternoon",
+        "weather_bucket": "cold",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_cold_dow3",
+        "time_bucket": "afternoon",
+        "weather_bucket": "cold",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_unknown_dow0",
+        "time_bucket": "afternoon",
+        "weather_bucket": "unknown",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_unknown_dow3",
+        "time_bucket": "afternoon",
+        "weather_bucket": "unknown",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "evening_clear_dow0",
+        "time_bucket": "evening",
+        "weather_bucket": "clear",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_humming_bee_07",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "evening_clear_dow3",
+        "time_bucket": "evening",
+        "weather_bucket": "clear",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_humming_bee_07",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "evening_cloudy_dow0",
+        "time_bucket": "evening",
+        "weather_bucket": "cloudy",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_humming_bee_07",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "evening_cloudy_dow3",
+        "time_bucket": "evening",
+        "weather_bucket": "cloudy",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_humming_bee_07",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "evening_rainy_dow0",
+        "time_bucket": "evening",
+        "weather_bucket": "rainy",
+        "day_of_week_hash": 0,
+        "is_precipitating": true
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_humming_bee_07",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "evening_rainy_dow3",
+        "time_bucket": "evening",
+        "weather_bucket": "rainy",
+        "day_of_week_hash": 3,
+        "is_precipitating": true
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_humming_bee_07",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "evening_hot_dow0",
+        "time_bucket": "evening",
+        "weather_bucket": "hot",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_humming_bee_07",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "evening_hot_dow3",
+        "time_bucket": "evening",
+        "weather_bucket": "hot",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_humming_bee_07",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "evening_cold_dow0",
+        "time_bucket": "evening",
+        "weather_bucket": "cold",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_humming_bee_07",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "evening_cold_dow3",
+        "time_bucket": "evening",
+        "weather_bucket": "cold",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_humming_bee_07",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "evening_unknown_dow0",
+        "time_bucket": "evening",
+        "weather_bucket": "unknown",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_humming_bee_07",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "evening_unknown_dow3",
+        "time_bucket": "evening",
+        "weather_bucket": "unknown",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_humming_bee_07",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_clear_dow0",
+        "time_bucket": "night",
+        "weather_bucket": "clear",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing meditation fits."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_clear_dow3",
+        "time_bucket": "night",
+        "weather_bucket": "clear",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 3,
+          "rationale": "Clear skies \u2014 a refreshing meditation fits."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_cloudy_dow0",
+        "time_bucket": "night",
+        "weather_bucket": "cloudy",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor meditation."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_cloudy_dow3",
+        "time_bucket": "night",
+        "weather_bucket": "cloudy",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 3,
+          "rationale": "Cloudy and cool \u2014 a gentle indoor meditation."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_rainy_dow0",
+        "time_bucket": "night",
+        "weather_bucket": "rainy",
+        "day_of_week_hash": 0,
+        "is_precipitating": true
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor meditation."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_rainy_dow3",
+        "time_bucket": "night",
+        "weather_bucket": "rainy",
+        "day_of_week_hash": 3,
+        "is_precipitating": true
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 4,
+          "rationale": "It's wet outside \u2014 a calming indoor meditation."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_hot_dow0",
+        "time_bucket": "night",
+        "weather_bucket": "hot",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling meditation."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_hot_dow3",
+        "time_bucket": "night",
+        "weather_bucket": "hot",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling meditation."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_cold_dow0",
+        "time_bucket": "night",
+        "weather_bucket": "cold",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle meditation."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_cold_dow3",
+        "time_bucket": "night",
+        "weather_bucket": "cold",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 4,
+          "rationale": "Chilly \u2014 warm up with a gentle meditation."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_unknown_dow0",
+        "time_bucket": "night",
+        "weather_bucket": "unknown",
+        "day_of_week_hash": 0,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_unknown_dow3",
+        "time_bucket": "night",
+        "weather_bucket": "unknown",
+        "day_of_week_hash": 3,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_clear_dow1",
+        "time_bucket": "morning",
+        "weather_bucket": "clear",
+        "day_of_week_hash": 1,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "meditation_mindful_walk_04",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing meditation fits."
+        },
+        {
+          "rank": 2,
+          "activity_id": "stretch_forward_fold_05",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+        },
+        {
+          "rank": 3,
+          "activity_id": "stretch_sun_salutation_09",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_clear_dow2",
+        "time_bucket": "morning",
+        "weather_bucket": "clear",
+        "day_of_week_hash": 2,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "meditation_mindful_walk_04",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing meditation fits."
+        },
+        {
+          "rank": 2,
+          "activity_id": "stretch_forward_fold_05",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+        },
+        {
+          "rank": 3,
+          "activity_id": "stretch_sun_salutation_09",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "morning_clear_dow6",
+        "time_bucket": "morning",
+        "weather_bucket": "clear",
+        "day_of_week_hash": 6,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "meditation_mindful_walk_04",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing meditation fits."
+        },
+        {
+          "rank": 2,
+          "activity_id": "stretch_forward_fold_05",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+        },
+        {
+          "rank": 3,
+          "activity_id": "stretch_sun_salutation_09",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "afternoon_hot_precip_dow4",
+        "time_bucket": "afternoon",
+        "weather_bucket": "hot",
+        "day_of_week_hash": 4,
+        "is_precipitating": true
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_box_4_4_01",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_coherent_05",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        },
+        {
+          "rank": 3,
+          "activity_id": "breathing_diaphragm_03",
+          "rule_score": 4,
+          "rationale": "Warm out \u2014 try a cooling breathing."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_unknown_dow1",
+        "time_bucket": "night",
+        "weather_bucket": "unknown",
+        "day_of_week_hash": 1,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        }
+      ]
+    },
+    {
+      "context": {
+        "id": "night_unknown_dow5",
+        "time_bucket": "night",
+        "weather_bucket": "unknown",
+        "day_of_week_hash": 5,
+        "is_precipitating": false
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "activity_id": "breathing_4_7_8_02",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 2,
+          "activity_id": "breathing_sleep_prep_10",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        },
+        {
+          "rank": 3,
+          "activity_id": "meditation_body_scan_02",
+          "rule_score": 3,
+          "rationale": "Based on time of day."
+        }
+      ]
+    }
+  ]
+}
