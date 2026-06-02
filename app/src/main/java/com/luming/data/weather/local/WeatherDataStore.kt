@@ -24,7 +24,7 @@ class WeatherDataStore @Inject constructor(
         private val KEY_TEMP = floatPreferencesKey("temp_c")
         private val KEY_IS_PRECIPITATING = booleanPreferencesKey("is_precipitating")
         private val KEY_FETCHED_AT = longPreferencesKey("fetched_at_ms")
-        private const val MAX_AGE_MS = 60 * 60 * 1000L
+        private const val MAX_AGE_MS = 30 * 60 * 1000L
     }
 
     suspend fun getLastWeather(): WeatherSnapshot? {
