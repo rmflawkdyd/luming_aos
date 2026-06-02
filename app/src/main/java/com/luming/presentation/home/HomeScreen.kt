@@ -85,6 +85,7 @@ fun HomeScreen(
             is HomeUiState.CompletedSlot -> CompletedSlotContent(
                 slot = uiState.slot,
                 streak = uiState.streak,
+                weatherBucket = uiState.weatherBucket,
             )
         }
 
@@ -141,6 +142,7 @@ private fun HomeContent(
 private fun CompletedSlotContent(
     slot: TimeBucket,
     streak: Streak,
+    weatherBucket: WeatherBucket?,
     modifier: Modifier = Modifier,
 ) {
     val safeInsets = WindowInsets.safeDrawing.asPaddingValues()
@@ -156,7 +158,7 @@ private fun CompletedSlotContent(
     ) {
         StreakHeader(streak = streak)
         Spacer(modifier = Modifier.height(32.dp))
-        RationaleBanner(weatherBucket = null)
+        RationaleBanner(weatherBucket = weatherBucket)
         Spacer(modifier = Modifier.height(16.dp))
         TimeSlotCompletedContent(
             slot = slot,

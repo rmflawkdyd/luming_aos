@@ -34,6 +34,7 @@ sealed interface HomeUiState {
         val slot: TimeBucket,
         val streak: Streak,
         val date: LocalDate,
+        val weatherBucket: WeatherBucket? = null,
         val showCompletionOverlay: Boolean = false,
     ) : HomeUiState
 }

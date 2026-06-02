@@ -6,15 +6,12 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.luming.notification.NotificationScheduler
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -32,10 +29,7 @@ class MainViewModel @Inject constructor(
         if (!needsPermission) {
             notificationScheduler.scheduleAll()
         } else {
-            viewModelScope.launch {
-                delay(5_000)
-                _permissionsHandled.value = true
-            }
+            _permissionsHandled.value = true
         }
     }
 

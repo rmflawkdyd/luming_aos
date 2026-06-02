@@ -71,10 +71,12 @@ class HomeViewModel @Inject constructor(
 
         if (timeBucket != TimeBucket.NIGHT && slotStore.isCompleted(timeBucket, today)) {
             val streak = getCurrentStreak().first()
+            val cachedWeather = weatherRepository.getLastCachedWeather()
             _uiState.value = HomeUiState.CompletedSlot(
                 slot = timeBucket,
                 streak = streak,
                 date = today,
+                weatherBucket = WeatherMapper.toWeatherBucket(cachedWeather),
             )
             return
         }
@@ -138,10 +140,12 @@ class HomeViewModel @Inject constructor(
             if (bucket != TimeBucket.NIGHT && slotStore.isCompleted(bucket, today)) {
                 val streak = getCurrentStreak().first()
                 _uiState.update { current ->
+                    val weatherBucket = (current as? HomeUiState.WeatherAware)?.weatherBucket
                     HomeUiState.CompletedSlot(
                         slot = bucket,
                         streak = streak,
                         date = today,
+                        weatherBucket = weatherBucket,
                         showCompletionOverlay = current.showsOverlay(),
                     )
                 }
