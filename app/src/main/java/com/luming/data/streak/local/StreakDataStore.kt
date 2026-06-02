@@ -3,6 +3,7 @@ package com.luming.data.streak.local
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.luming.domain.model.Streak
 import com.luming.domain.util.Clock
@@ -19,17 +20,19 @@ class StreakDataStore @Inject constructor(
     private val dataStore: DataStore<Preferences>,
     private val clock: Clock,
 ) {
-    private val KEY = stringPreferencesKey("streak_completion_dates")
+    private val KEY_COMPLETION_DATES = stringPreferencesKey("streak_completion_dates")
+    private val KEY_CURRENT_COUNT = intPreferencesKey("streak_current_count")
+    private val KEY_LAST_COMPLETED_DATE = stringPreferencesKey("streak_last_completed_date")
 
     fun getStreak(): Flow<Streak> = dataStore.data.map { prefs ->
-        val dates = parseDates(prefs[KEY])
+        val dates = parseDates(prefs[KEY_COMPLETION_DATES])
         buildStreak(dates, clock.today())
     }
 
     suspend fun markCompleted(today: LocalDate): Streak {
         var result: Streak? = null
         dataStore.edit { prefs ->
-            val dates = parseDates(prefs[KEY]).toMutableList()
+            val dates = parseDates(prefs[KEY_COMPLETION_DATES]).toMutableList()
             val last = dates.lastOrNull()
             when {
                 last == today -> { /* idempotent: no-op */ }
@@ -37,8 +40,15 @@ class StreakDataStore @Inject constructor(
                 else -> { dates.clear(); dates.add(today) }
             }
             val pruned = dates.takeLast(30)
-            prefs[KEY] = pruned.joinToString(",") { it.toString() }
-            result = buildStreak(pruned, today)
+            val streak = buildStreak(pruned, today)
+            prefs[KEY_COMPLETION_DATES] = pruned.joinToString(",") { it.toString() }
+            prefs[KEY_CURRENT_COUNT] = streak.currentCount
+            if (streak.lastCompletedDate != null) {
+                prefs[KEY_LAST_COMPLETED_DATE] = streak.lastCompletedDate.toString()
+            } else {
+                prefs.remove(KEY_LAST_COMPLETED_DATE)
+            }
+            result = streak
         }
         return result!!
     }
