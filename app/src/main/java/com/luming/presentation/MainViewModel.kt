@@ -9,9 +9,6 @@ import androidx.lifecycle.ViewModel
 import com.luming.notification.NotificationScheduler
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,20 +19,12 @@ class MainViewModel @Inject constructor(
 
     val needsPermission: Boolean = !hasRequiredPermissions()
 
-    private val _permissionsHandled = MutableStateFlow(!needsPermission)
-    val permissionsHandled: StateFlow<Boolean> = _permissionsHandled.asStateFlow()
-
     init {
-        if (!needsPermission) {
-            notificationScheduler.scheduleAll()
-        } else {
-            _permissionsHandled.value = true
-        }
+        if (!needsPermission) notificationScheduler.scheduleAll()
     }
 
     fun onPermissionsResult(notificationGranted: Boolean) {
         if (notificationGranted) notificationScheduler.scheduleAll()
-        _permissionsHandled.value = true
     }
 
     private fun hasRequiredPermissions(): Boolean {
