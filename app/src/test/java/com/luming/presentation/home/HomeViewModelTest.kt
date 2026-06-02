@@ -78,12 +78,13 @@ class HomeViewModelTest {
         locationRepo: LocationRepository = FakeLocationRepository(),
         weatherRepo: WeatherRepository = FakeWeatherRepository(),
         timeBucket: TimeBucket = TimeBucket.MORNING,
+        streakRepo: StreakRepository = FakeStreakRepository(),
     ): HomeViewModel = HomeViewModel(
         getRecommendations = GetRecommendationsUseCase(
             activityRepository = FakeActivityRepository(listOf(stubActivity)),
             recommender = FakeRecommender(stubRecommendations),
         ),
-        getCurrentStreak = GetCurrentStreakUseCase(FakeStreakRepository()),
+        getCurrentStreak = GetCurrentStreakUseCase(streakRepo),
         locationRepository = locationRepo,
         weatherRepository = weatherRepo,
         slotStore = slotStore,
@@ -185,6 +186,35 @@ class HomeViewModelTest {
         assertThat(vm.uiState.value).isInstanceOf(HomeUiState.WeatherAware::class.java)
     }
 
+    // ─── showCompletionOverlay: NIGHT 슬롯 streak 갱신 ──────────────────────────
+
+    @Test fun `showCompletionOverlay - NIGHT 슬롯 완료 시 streak이 fresh 값으로 갱신됨`() =
+        testScope.runTest {
+            // coldStart 때 count=0, showCompletionOverlay 때 count=5 반환하는 순차 repo
+            val updatedStreak = Streak(5, today, List(7) { it == 6 })
+            val streakRepo = SequentialStreakRepository(
+                initial = Streak(0, null, List(7) { false }),
+                updated = updatedStreak,
+            )
+            val vm = buildViewModel(
+                timeBucket = TimeBucket.NIGHT,
+                streakRepo = streakRepo,
+                locationRepo = FakeLocationRepository(permissionGranted = false),
+                weatherRepo = FakeWeatherRepository(cachedWeather = stubWeather),
+            )
+            advanceUntilIdle()
+            // 초기 상태: WeatherAware with streak.count=0
+            val initial = vm.uiState.value as HomeUiState.WeatherAware
+            assertThat(initial.streak.currentCount).isEqualTo(0)
+
+            vm.showCompletionOverlay()
+            advanceUntilIdle()
+
+            // NIGHT이므로 CompletedSlot이 아니라 WeatherAware 유지, streak만 갱신
+            val after = vm.uiState.value as HomeUiState.WeatherAware
+            assertThat(after.streak.currentCount).isEqualTo(5)
+        }
+
     // ─── onResume: LocationFailed 복구 ──────────────────────────────────────────
 
     @Test fun `onResume - LocationFailed 상태에서 권한 부여 시 WeatherAware로 복구`() =
@@ -241,11 +271,23 @@ class HomeViewModelTest {
         override fun isWeatherCacheStale() = cachedWeather == null
     }
 
-    private class FakeStreakRepository : StreakRepository {
-        override fun getStreak(): Flow<Streak> =
-            flowOf(Streak(0, null, List(7) { false }))
+    private class FakeStreakRepository(
+        private val streak: Streak = Streak(0, null, List(7) { false }),
+    ) : StreakRepository {
+        override fun getStreak(): Flow<Streak> = flowOf(streak)
         override suspend fun markCompleted(today: LocalDate) =
             Streak(1, today, List(7) { it == 6 })
+    }
+
+    /** coldStart(초기) 때는 initial, 이후 호출부터는 updated를 반환한다. */
+    private class SequentialStreakRepository(
+        private val initial: Streak,
+        private val updated: Streak,
+    ) : StreakRepository {
+        private var callCount = 0
+        override fun getStreak(): Flow<Streak> =
+            flowOf(if (callCount++ == 0) initial else updated)
+        override suspend fun markCompleted(today: LocalDate) = updated
     }
 
     private class FakeActivityRepository(

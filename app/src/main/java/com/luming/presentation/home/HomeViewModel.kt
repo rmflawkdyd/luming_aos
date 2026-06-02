@@ -135,21 +135,30 @@ class HomeViewModel @Inject constructor(
 
     fun showCompletionOverlay() {
         _uiState.update { it.withOverlay(true) }
-        // 슬롯 완료 여부를 확인해 CompletedSlot 상태로 전환 (AC-S1~S3)
         viewModelScope.launch {
             val today = clock.today()
             val bucket = clock.timeBucket()
+            val freshStreak = getCurrentStreak().first()
             if (bucket != TimeBucket.NIGHT && slotStore.isCompleted(bucket, today)) {
-                val streak = getCurrentStreak().first()
+                // 비-NIGHT 슬롯: CompletedSlot 상태로 전환 (AC-S1~S3)
                 _uiState.update { current ->
                     val weatherBucket = (current as? HomeUiState.WeatherAware)?.weatherBucket
                     HomeUiState.CompletedSlot(
                         slot = bucket,
-                        streak = streak,
+                        streak = freshStreak,
                         date = today,
                         weatherBucket = weatherBucket,
                         showCompletionOverlay = current.showsOverlay(),
                     )
+                }
+            } else {
+                // NIGHT 완료: CompletedSlot 전환 없이 streak만 갱신 (스펙 §2.1 "streak은 정상 반영")
+                _uiState.update { current ->
+                    when (current) {
+                        is HomeUiState.WeatherAware -> current.copy(streak = freshStreak)
+                        is HomeUiState.TimeOnly -> current.copy(streak = freshStreak)
+                        else -> current
+                    }
                 }
             }
         }
