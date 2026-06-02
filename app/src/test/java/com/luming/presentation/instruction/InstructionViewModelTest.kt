@@ -157,6 +157,7 @@ class InstructionViewModelTest {
         override fun today() = date
         override fun timeBucket() = bucket
         override fun dayOfWeekHash() = 0
+        override fun isRestHour() = false
     }
 
     private class FakeActivityRepository(private val activities: List<Activity>) : ActivityRepository {

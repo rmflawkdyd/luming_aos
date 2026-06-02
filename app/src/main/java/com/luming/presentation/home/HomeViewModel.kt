@@ -57,6 +57,7 @@ class HomeViewModel @Inject constructor(
             is HomeUiState.WeatherAware -> state.date != today
             is HomeUiState.TimeOnly -> state.date != today
             is HomeUiState.CompletedSlot -> state.date != today
+            is HomeUiState.RestPrompt -> state.date != today
             else -> false
         }
         if (timeBucketChanged || recoverable || inCompletedSlot || weatherCacheStale || dateChanged) {
@@ -76,6 +77,12 @@ class HomeViewModel @Inject constructor(
         val today = clock.today()
         val timeBucket = clock.timeBucket()
         lastTimeBucket = timeBucket
+
+        if (clock.isRestHour()) {
+            val streak = getCurrentStreak().first()
+            _uiState.value = HomeUiState.RestPrompt(streak = streak, date = today)
+            return
+        }
 
         if (timeBucket != TimeBucket.NIGHT && slotStore.isCompleted(timeBucket, today)) {
             val streak = getCurrentStreak().first()

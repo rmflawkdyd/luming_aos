@@ -29,6 +29,10 @@
     <string name="slot_next_afternoon">저녁엔 또 다른 활동이 기다려요</string>
     <string name="slot_next_evening">내일도 함께해요</string>
 
+    <!-- RestPrompt (00~04시 휴식 안내) -->
+    <string name="rest_prompt_title">지금은 쉬어요</string>
+    <string name="rest_prompt_message">자정부터 아침까지는 충분히 쉬는 게 좋아요.\n아침 5시부터 오늘의 활동을 시작할 수 있어요.</string>
+
     <!-- FooterDisclaimer -->
     <string name="footer_disclaimer">건강 정보 제공 목적이며, 의학적 조언이 아닙니다.</string>
 

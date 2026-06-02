@@ -7,4 +7,5 @@ interface Clock {
     fun today(): LocalDate
     fun timeBucket(): TimeBucket
     fun dayOfWeekHash(): Int
+    fun isRestHour(): Boolean
 }

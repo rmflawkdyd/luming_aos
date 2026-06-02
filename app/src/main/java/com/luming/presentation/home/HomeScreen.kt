@@ -87,6 +87,9 @@ fun HomeScreen(
                 streak = uiState.streak,
                 weatherBucket = uiState.weatherBucket,
             )
+            is HomeUiState.RestPrompt -> RestPromptContent(
+                streak = uiState.streak,
+            )
         }
 
         if (showOverlay) {
@@ -164,6 +167,41 @@ private fun CompletedSlotContent(
             slot = slot,
             modifier = Modifier.weight(1f),
         )
+        FooterDisclaimer(modifier = Modifier.padding(top = 24.dp, bottom = 8.dp))
+    }
+}
+
+@Composable
+private fun RestPromptContent(
+    streak: Streak,
+    modifier: Modifier = Modifier,
+) {
+    val safeInsets = WindowInsets.safeDrawing.asPaddingValues()
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(
+                start = 20.dp,
+                top = safeInsets.calculateTopPadding() + 24.dp,
+                end = 20.dp,
+                bottom = safeInsets.calculateBottomPadding() + 20.dp,
+            ),
+    ) {
+        StreakHeader(streak = streak)
+        Spacer(modifier = Modifier.height(48.dp))
+        Text(
+            text = stringResource(R.string.rest_prompt_title),
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onBackground,
+        )
+        Spacer(modifier = Modifier.height(12.dp))
+        Text(
+            text = stringResource(R.string.rest_prompt_message),
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Spacer(modifier = Modifier.weight(1f))
         FooterDisclaimer(modifier = Modifier.padding(top = 24.dp, bottom = 8.dp))
     }
 }

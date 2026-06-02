@@ -14,7 +14,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [31])
+@Config(sdk = [31], application = android.app.Application::class)
 class ActivityLibrarySchemaTest {
 
     private val context: Context = ApplicationProvider.getApplicationContext()

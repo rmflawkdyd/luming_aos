@@ -37,6 +37,12 @@ sealed interface HomeUiState {
         val weatherBucket: WeatherBucket? = null,
         val showCompletionOverlay: Boolean = false,
     ) : HomeUiState
+
+    /** 자정~04시 휴식 안내 화면 */
+    data class RestPrompt(
+        val streak: Streak,
+        val date: LocalDate,
+    ) : HomeUiState
 }
 
 internal fun HomeUiState.withOverlay(show: Boolean): HomeUiState = when (this) {

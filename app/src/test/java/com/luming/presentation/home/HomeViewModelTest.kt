@@ -79,6 +79,7 @@ class HomeViewModelTest {
         weatherRepo: WeatherRepository = FakeWeatherRepository(),
         timeBucket: TimeBucket = TimeBucket.MORNING,
         streakRepo: StreakRepository = FakeStreakRepository(),
+        restHour: Boolean = false,
     ): HomeViewModel = HomeViewModel(
         getRecommendations = GetRecommendationsUseCase(
             activityRepository = FakeActivityRepository(listOf(stubActivity)),
@@ -88,7 +89,7 @@ class HomeViewModelTest {
         locationRepository = locationRepo,
         weatherRepository = weatherRepo,
         slotStore = slotStore,
-        clock = FakeClock(today, timeBucket),
+        clock = FakeClock(today, timeBucket, restHour),
     )
 
     // ─── AC-9: 위치 권한 거부 케이스 ────────────────────────────────────────────
@@ -186,6 +187,24 @@ class HomeViewModelTest {
         assertThat(vm.uiState.value).isInstanceOf(HomeUiState.WeatherAware::class.java)
     }
 
+    // ─── RestPrompt: 00~04시 휴식 안내 ──────────────────────────────────────────
+
+    @Test fun `isRestHour=true - RestPrompt 상태로 전환`() = testScope.runTest {
+        val vm = buildViewModel(restHour = true)
+        advanceUntilIdle()
+        assertThat(vm.uiState.value).isInstanceOf(HomeUiState.RestPrompt::class.java)
+    }
+
+    @Test fun `isRestHour=false - RestPrompt 상태 미전환`() = testScope.runTest {
+        val vm = buildViewModel(
+            restHour = false,
+            locationRepo = FakeLocationRepository(permissionGranted = false),
+            weatherRepo = FakeWeatherRepository(cachedWeather = stubWeather),
+        )
+        advanceUntilIdle()
+        assertThat(vm.uiState.value).isNotInstanceOf(HomeUiState.RestPrompt::class.java)
+    }
+
     // ─── showCompletionOverlay: NIGHT 슬롯 streak 갱신 ──────────────────────────
 
     @Test fun `showCompletionOverlay - NIGHT 슬롯 완료 시 streak이 fresh 값으로 갱신됨`() =
@@ -239,10 +258,12 @@ class HomeViewModelTest {
     private class FakeClock(
         private val date: LocalDate,
         private val bucket: TimeBucket = TimeBucket.MORNING,
+        private val restHour: Boolean = false,
     ) : com.luming.domain.util.Clock {
         override fun today() = date
         override fun timeBucket() = bucket
         override fun dayOfWeekHash() = 1
+        override fun isRestHour() = restHour
     }
 
     private class FakeLocationRepository(

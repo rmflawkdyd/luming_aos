@@ -21,7 +21,7 @@ import org.robolectric.annotation.Config
  * golden_recommendations.json은 shared/tests/golden_recommendations.json 복사본.
  */
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [31])
+@Config(sdk = [31], application = android.app.Application::class)
 class GoldenRecommendationsTest {
 
     private val json = Json { ignoreUnknownKeys = true }

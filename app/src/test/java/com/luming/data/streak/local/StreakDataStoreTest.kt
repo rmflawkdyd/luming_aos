@@ -107,5 +107,6 @@ class StreakDataStoreTest {
         override fun today() = date
         override fun timeBucket() = TimeBucket.MORNING
         override fun dayOfWeekHash() = 0
+        override fun isRestHour() = false
     }
 }

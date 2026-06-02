@@ -22,6 +22,8 @@ class ClockImpl @Inject constructor() : Clock {
         }
     }
 
+    override fun isRestHour(): Boolean = ZonedDateTime.now().hour in 0..4
+
     override fun dayOfWeekHash(): Int =
         today().dayOfWeek.value % 7
 }
