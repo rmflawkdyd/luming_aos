@@ -19,8 +19,10 @@ class RecommenderImpl @Inject constructor(
 ) : Recommender {
 
     override fun recommend(library: List<Activity>, ctx: ContextSnapshot): List<Recommendation> {
-        // 1. Hard filter
-        val candidates = applyFilters(library, ctx).ifEmpty { library }
+        // 1. Hard filter — fallback to full library when all candidates are filtered out
+        val filtered = applyFilters(library, ctx)
+        val isFallback = filtered.isEmpty()
+        val candidates = filtered.ifEmpty { library }
 
         // 2. Rule scoring and sort: score desc, then id asc (deterministic tiebreak)
         val scored = candidates
@@ -55,10 +57,12 @@ class RecommenderImpl @Inject constructor(
             else -> ordered.size.coerceAtMost(3)
         }
 
+        // Fallback rationale treats weather as unknown (spec §6.2)
+        val rationaleCtx = if (isFallback) ctx.copy(weatherBucket = WeatherBucket.UNKNOWN) else ctx
         return ordered.take(n).mapIndexed { idx, (activity, _) ->
             Recommendation(
                 activity = activity,
-                rationale = rationaleFor(activity, ctx),
+                rationale = rationaleFor(activity, rationaleCtx),
                 rank = idx + 1,
             )
         }

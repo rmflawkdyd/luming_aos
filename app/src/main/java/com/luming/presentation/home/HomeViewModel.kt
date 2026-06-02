@@ -51,7 +51,15 @@ class HomeViewModel @Inject constructor(
         val inCompletedSlot = _uiState.value is HomeUiState.CompletedSlot
         // Re-fetch if in-memory cache expired while backgrounded (§2.1 Background→foreground)
         val weatherCacheStale = weatherRepository.isWeatherCacheStale()
-        if (timeBucketChanged || recoverable || inCompletedSlot || weatherCacheStale) {
+        // Re-fetch if date changed while bucket stayed the same (e.g. NIGHT across midnight)
+        val today = clock.today()
+        val dateChanged = when (val state = _uiState.value) {
+            is HomeUiState.WeatherAware -> state.date != today
+            is HomeUiState.TimeOnly -> state.date != today
+            is HomeUiState.CompletedSlot -> state.date != today
+            else -> false
+        }
+        if (timeBucketChanged || recoverable || inCompletedSlot || weatherCacheStale || dateChanged) {
             viewModelScope.launch {
                 if (timeBucketChanged) weatherRepository.clearCache()
                 launchColdStart()
