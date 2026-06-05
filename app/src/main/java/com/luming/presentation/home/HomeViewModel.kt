@@ -36,11 +36,11 @@ class HomeViewModel @Inject constructor(
     private val _uiState = MutableStateFlow<HomeUiState>(HomeUiState.Empty)
     val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
-    private var coldStartJob: Job? = null
+    private var loadJob: Job? = null
     private var lastTimeBucket: TimeBucket? = null
 
     init {
-        launchColdStart()
+        launchLoad()
     }
 
     fun onResume() {
@@ -63,17 +63,17 @@ class HomeViewModel @Inject constructor(
         if (timeBucketChanged || recoverable || inCompletedSlot || weatherCacheStale || dateChanged) {
             viewModelScope.launch {
                 if (timeBucketChanged) weatherRepository.clearCache()
-                launchColdStart()
+                launchLoad()
             }
         }
     }
 
-    private fun launchColdStart() {
-        coldStartJob?.cancel()
-        coldStartJob = viewModelScope.launch { coldStart() }
+    private fun launchLoad() {
+        loadJob?.cancel()
+        loadJob = viewModelScope.launch { loadHomeState() }
     }
 
-    private suspend fun coldStart() {
+    private suspend fun loadHomeState() {
         val today = clock.today()
         val timeBucket = clock.timeBucket()
         lastTimeBucket = timeBucket
@@ -144,7 +144,7 @@ class HomeViewModel @Inject constructor(
         // completed.* 상태에서는 호출되지 않음 (UI에서 pull-to-refresh 비활성)
         viewModelScope.launch {
             weatherRepository.clearCache()
-            launchColdStart()
+            launchLoad()
         }
     }
 

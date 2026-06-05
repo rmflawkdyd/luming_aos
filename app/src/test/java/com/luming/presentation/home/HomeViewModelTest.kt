@@ -209,7 +209,7 @@ class HomeViewModelTest {
 
     @Test fun `showCompletionOverlay - NIGHT 슬롯 완료 시 streak이 fresh 값으로 갱신됨`() =
         testScope.runTest {
-            // coldStart 때 count=0, showCompletionOverlay 때 count=5 반환하는 순차 repo
+            // loadHomeState 때 count=0, showCompletionOverlay 때 count=5 반환하는 순차 repo
             val updatedStreak = Streak(5, today, List(7) { it == 6 })
             val streakRepo = SequentialStreakRepository(
                 initial = Streak(0, null, List(7) { false }),
@@ -300,7 +300,7 @@ class HomeViewModelTest {
             Streak(1, today, List(7) { it == 6 })
     }
 
-    /** coldStart(초기) 때는 initial, 이후 호출부터는 updated를 반환한다. */
+    /** loadHomeState(초기) 때는 initial, 이후 호출부터는 updated를 반환한다. */
     private class SequentialStreakRepository(
         private val initial: Streak,
         private val updated: Streak,
