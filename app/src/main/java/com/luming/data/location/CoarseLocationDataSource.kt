@@ -1,6 +1,7 @@
 package com.luming.data.location
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
@@ -29,6 +30,7 @@ class CoarseLocationDataSource @Inject constructor(
             Manifest.permission.ACCESS_COARSE_LOCATION,
         ) == PackageManager.PERMISSION_GRANTED
 
+    @SuppressLint("MissingPermission") // hasPermission() 으로 호출 전 권한을 보장함
     suspend fun getCoarseLocation(): Pair<Double, Double>? {
         if (!hasPermission()) return null
         return try {
