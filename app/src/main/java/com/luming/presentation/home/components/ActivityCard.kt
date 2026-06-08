@@ -57,36 +57,30 @@ fun ActivityCard(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
     ) {
-        Column(
+        Row(
             modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
-            ) {
-                CategoryIconBox(category = activity.category)
-                Column(modifier = Modifier.weight(1f)) {
+            CategoryIconBox(category = activity.category)
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = activity.name,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
+                if (recommendation.rationale.isNotBlank()) {
                     Text(
-                        text = activity.name,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colorScheme.onSurface,
+                        text = recommendation.rationale,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
                     )
-                    if (recommendation.rationale.isNotBlank()) {
-                        Text(
-                            text = recommendation.rationale,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            maxLines = 2,
-                            overflow = TextOverflow.Ellipsis,
-                        )
-                    }
                 }
-
-                DurationPill(durationMin = activity.durationMin, category = activity.category)
             }
-
+            DurationPill(durationMin = activity.durationMin, category = activity.category)
         }
     }
 }
