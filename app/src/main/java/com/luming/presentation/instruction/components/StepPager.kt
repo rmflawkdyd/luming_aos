@@ -62,10 +62,11 @@ fun StepPager(
         pageCount = { sortedSteps.size },
     )
 
-    LaunchedEffect(currentStepIndex) {
-        pagerState.animateScrollToPage(currentStepIndex)
-    }
-
+    // No programmatic page jumps exist (navigation is swipe-only — there are no
+    // prev/next buttons), so currentStepIndex only seeds initialPage. Driving
+    // animateScrollToPage from it would just re-scroll to the page the gesture
+    // already settled on, risking jitter on fast swipes. Pager stays the source of
+    // truth for position; the snapshotFlow below mirrors it back into the ViewModel.
     val currentIndexState = rememberUpdatedState(currentStepIndex)
     val onNextState = rememberUpdatedState(onNext)
     val onPreviousState = rememberUpdatedState(onPrevious)
