@@ -103,6 +103,50 @@ class StreakDataStoreTest {
         assertThat(persisted).isEqualTo(1)
     }
 
+    // ─── 30일 cap 회귀 방지 ──────────────────────────────────────────────────────
+
+    @Test fun `30일 초과 연속 - count가 30에서 고정되지 않음`() = testScope.runTest {
+        var last: com.luming.domain.model.Streak? = null
+        for (i in 99 downTo 0) {
+            last = store.markCompleted(today.minus(i, DateTimeUnit.DAY))
+        }
+        assertThat(last!!.currentCount).isEqualTo(100)
+    }
+
+    @Test fun `getStreak - 30일 초과 연속도 정확한 count 반환`() = testScope.runTest {
+        for (i in 99 downTo 0) {
+            store.markCompleted(today.minus(i, DateTimeUnit.DAY))
+        }
+        val result = store.getStreak().first()
+        assertThat(result.currentCount).isEqualTo(100)
+    }
+
+    @Test fun `markCompleted - 100일 연속 후에도 날짜 목록은 30개로 prune`() = testScope.runTest {
+        for (i in 99 downTo 0) {
+            store.markCompleted(today.minus(i, DateTimeUnit.DAY))
+        }
+        val prefs = dataStore.data.first()
+        val csv = prefs[stringPreferencesKey("streak_completion_dates")]!!
+        assertThat(csv.split(",")).hasSize(30)
+    }
+
+    // ─── getStreak 라이브 표시 동작 ──────────────────────────────────────────────
+
+    @Test fun `getStreak - 오늘 미완료여도 어제까지 연속이면 직전 카운트 표시`() = testScope.runTest {
+        // 어제까지 50일 연속(어제가 마지막 완료), 오늘은 아직 미완료
+        for (i in 50 downTo 1) {
+            store.markCompleted(today.minus(i, DateTimeUnit.DAY))
+        }
+        val result = store.getStreak().first()
+        assertThat(result.currentCount).isEqualTo(50)
+    }
+
+    @Test fun `getStreak - 이틀 이상 갭이면 count 0`() = testScope.runTest {
+        store.markCompleted(today.minus(2, DateTimeUnit.DAY))
+        val result = store.getStreak().first()
+        assertThat(result.currentCount).isEqualTo(0)
+    }
+
     private class FakeClock(private val date: LocalDate) : Clock {
         override fun today() = date
         override fun timeBucket() = TimeBucket.MORNING

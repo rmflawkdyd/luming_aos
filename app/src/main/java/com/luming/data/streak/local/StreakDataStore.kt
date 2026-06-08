@@ -26,28 +26,43 @@ class StreakDataStore @Inject constructor(
 
     fun getStreak(): Flow<Streak> = dataStore.data.map { prefs ->
         val dates = parseDates(prefs[KEY_COMPLETION_DATES])
-        buildStreak(dates, clock.today())
+        val storedCount = prefs[KEY_CURRENT_COUNT] ?: 0
+        val today = clock.today()
+        val last = dates.lastOrNull()
+        // currentCount is tracked independently of the (pruned, max-30) date list so the
+        // streak is never capped at 30. The cached count stays visible while the streak is
+        // still alive — completed today OR yesterday (today not done yet). Once a day is
+        // missed the streak is broken and the ring shows 0.
+        val count = if (last == today || last == today.minus(1, DateTimeUnit.DAY)) storedCount else 0
+        Streak(count, last, computeLast7Days(dates, today))
     }
 
     suspend fun markCompleted(today: LocalDate): Streak {
         var result: Streak? = null
         dataStore.edit { prefs ->
             val dates = parseDates(prefs[KEY_COMPLETION_DATES]).toMutableList()
+            val prevCount = prefs[KEY_CURRENT_COUNT] ?: 0
             val last = dates.lastOrNull()
-            when {
-                last == today -> { /* idempotent: no-op */ }
-                last == today.minus(1, DateTimeUnit.DAY) -> dates.add(today)
-                else -> { dates.clear(); dates.add(today) }
+            // Count is computed incrementally from the known transition, NOT by walking the
+            // date list — that keeps it independent of the 30-date storage prune.
+            val count = when {
+                last == today -> prevCount.coerceAtLeast(1)              // idempotent same-day
+                last == today.minus(1, DateTimeUnit.DAY) -> {            // consecutive day
+                    dates.add(today)
+                    prevCount + 1
+                }
+                else -> {                                               // first / gap / clock skew
+                    dates.clear()
+                    dates.add(today)
+                    1
+                }
             }
+            // Prune the date list to the last 30 — only used for last7Days + diagnostics.
             val pruned = dates.takeLast(30)
-            val streak = buildStreak(pruned, today)
+            val streak = Streak(count, today, computeLast7Days(pruned, today))
             prefs[KEY_COMPLETION_DATES] = pruned.joinToString(",") { it.toString() }
-            prefs[KEY_CURRENT_COUNT] = streak.currentCount
-            if (streak.lastCompletedDate != null) {
-                prefs[KEY_LAST_COMPLETED_DATE] = streak.lastCompletedDate.toString()
-            } else {
-                prefs.remove(KEY_LAST_COMPLETED_DATE)
-            }
+            prefs[KEY_CURRENT_COUNT] = count
+            prefs[KEY_LAST_COMPLETED_DATE] = today.toString()
             result = streak
         }
         return result!!
@@ -60,16 +75,8 @@ class StreakDataStore @Inject constructor(
             ?.sorted()
             ?: emptyList()
 
-    private fun buildStreak(dates: List<LocalDate>, today: LocalDate): Streak {
-        var count = 0
-        var cursor = today
-        while (dates.contains(cursor)) {
-            count++
-            cursor = cursor.minus(1, DateTimeUnit.DAY)
-        }
-        val last7 = (6 downTo 0).map { offset ->
+    private fun computeLast7Days(dates: List<LocalDate>, today: LocalDate): List<Boolean> =
+        (6 downTo 0).map { offset ->
             dates.contains(today.minus(offset, DateTimeUnit.DAY))
         }
-        return Streak(count, dates.lastOrNull(), last7)
-    }
 }
