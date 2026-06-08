@@ -1,14 +1,17 @@
 package com.luming.domain.model
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
-
-@Serializable
+/**
+ * Runtime-only weather classification used for rule scoring + rationale text.
+ *
+ * Intentionally NOT @Serializable: WeatherBucket is never persisted or JSON-encoded.
+ * Weather is cached as [WeatherCondition] + primitives in WeatherDataStore and mapped
+ * to a bucket at runtime via WeatherMapper, so there is no serialization path to map.
+ */
 enum class WeatherBucket {
-    @SerialName("clear") CLEAR,
-    @SerialName("cloudy") CLOUDY,
-    @SerialName("rainy") RAINY,
-    @SerialName("hot") HOT,
-    @SerialName("cold") COLD,
-    @SerialName("unknown") UNKNOWN,
+    CLEAR,
+    CLOUDY,
+    RAINY,
+    HOT,
+    COLD,
+    UNKNOWN,
 }
