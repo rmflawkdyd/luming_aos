@@ -4,7 +4,6 @@ import androidx.compose.ui.graphics.Color
 
 val SageGreen = Color(0xFF4A7C59)
 val SageGreenLight = Color(0xFF6FAF82)
-val SageGreenDark = Color(0xFF2E5A3A)
 val SoftBlue = Color(0xFF6B8EAD)
 val WarmBrown = Color(0xFFA0785A)
 

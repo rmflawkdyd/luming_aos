@@ -1,8 +1,6 @@
 package com.luming.presentation.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
@@ -20,24 +18,12 @@ private val LightColors = lightColorScheme(
     outline = DividerLight,
 )
 
-private val DarkColors = darkColorScheme(
-    primary = SageGreenLight,
-    onPrimary = SageGreenDark,
-    secondary = SoftBlue,
-    tertiary = WarmBrown,
-    background = OnSurface,
-    surface = OnSurface,
-    onBackground = BackgroundWarm,
-    onSurface = BackgroundWarm,
-)
-
 @Composable
 fun LumingTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {
     MaterialTheme(
-        colorScheme = if (darkTheme) DarkColors else LightColors,
+        colorScheme = LightColors,
         typography = LumingTypography,
         shapes = LumingShapes,
         content = content,
