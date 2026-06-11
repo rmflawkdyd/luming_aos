@@ -14,6 +14,8 @@ import com.luming.domain.usecase.GetRecommendationsUseCase
 import com.luming.domain.util.Clock
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -96,20 +98,18 @@ class HomeViewModel @Inject constructor(
             return
         }
 
-        // 캐시된 날씨가 있으면 즉시 WeatherAware로 렌더, 없으면 TimeOnly
+        // 신선한(≤30분) 날씨 캐시가 있으면 즉시 WeatherAware로 렌더 (대기 0초).
+        // 없으면 TimeOnly로 깜빡이지 않도록 로딩(Empty)을 유지하고, 데드라인 안에
+        // 최신 날씨를 받아 한 번에 렌더한다 (받기 전엔 스피너).
         val cachedWeather = weatherRepository.getLastCachedWeather()
         val streak = getCurrentStreak().first()
         if (cachedWeather != null) {
-            val ctx = buildContext(timeBucket, cachedWeather)
             _uiState.value = HomeUiState.WeatherAware(
-                recommendations = getRecommendations(ctx),
+                recommendations = getRecommendations(buildContext(timeBucket, cachedWeather)),
                 streak = streak,
                 date = today,
                 weatherBucket = WeatherMapper.toWeatherBucket(cachedWeather),
             )
-        } else {
-            val timeCtx = buildContext(timeBucket, weather = null)
-            _uiState.value = HomeUiState.TimeOnly(getRecommendations(timeCtx), streak, today)
         }
 
         if (!locationRepository.hasPermission()) {
@@ -117,26 +117,57 @@ class HomeViewModel @Inject constructor(
             return
         }
 
-        val location = withTimeoutOrNull(5_000L) { locationRepository.getCoarseLocation() }
-        if (location == null) {
-            if (cachedWeather == null) _uiState.value = HomeUiState.LocationFailed
-            return
-        }
+        coroutineScope {
+            // 신선한 캐시가 없을 때만: 데드라인(2.5초)을 넘기면 시간 기반으로 폴백.
+            // 그 전에 최신 날씨가 오면 폴백은 취소되고 곧장 WeatherAware로 렌더된다.
+            val fallbackJob = if (cachedWeather == null) {
+                launch {
+                    delay(FIRST_PAINT_DEADLINE_MS)
+                    if (_uiState.value is HomeUiState.Empty) {
+                        _uiState.value = HomeUiState.TimeOnly(
+                            getRecommendations(buildContext(clock.timeBucket(), weather = null)),
+                            streak,
+                            today,
+                        )
+                    }
+                }
+            } else {
+                null
+            }
 
-        val weather = withTimeoutOrNull(5_000L) { weatherRepository.getWeather(location.first, location.second) }
-        val currentStreak = getCurrentStreak().first()
-        if (weather != null) {
-            val currentBucket = clock.timeBucket()
-            lastTimeBucket = currentBucket
-            val weatherCtx = buildContext(currentBucket, weather)
-            _uiState.value = HomeUiState.WeatherAware(
-                recommendations = getRecommendations(weatherCtx),
-                streak = currentStreak,
-                date = today,
-                weatherBucket = WeatherMapper.toWeatherBucket(weather),
-            )
-        } else if (cachedWeather == null) {
-            _uiState.value = HomeUiState.WeatherFailed
+            val location = withTimeoutOrNull(5_000L) { locationRepository.getCoarseLocation() }
+            if (location == null) {
+                fallbackJob?.cancel()
+                if (cachedWeather == null) _uiState.value = HomeUiState.LocationFailed
+                return@coroutineScope
+            }
+
+            val weather = withTimeoutOrNull(5_000L) {
+                weatherRepository.getWeather(location.first, location.second)
+            }
+            fallbackJob?.cancel()
+            val currentStreak = getCurrentStreak().first()
+            if (weather != null) {
+                val currentBucket = clock.timeBucket()
+                lastTimeBucket = currentBucket
+                val newBucket = WeatherMapper.toWeatherBucket(weather)
+                // 날씨 버킷·시간대·날짜가 그대로면 재렌더하지 않아 목록 깜빡임을 막는다.
+                val current = _uiState.value
+                val unchanged = current is HomeUiState.WeatherAware &&
+                    current.weatherBucket == newBucket &&
+                    current.date == today &&
+                    currentBucket == timeBucket
+                if (!unchanged) {
+                    _uiState.value = HomeUiState.WeatherAware(
+                        recommendations = getRecommendations(buildContext(currentBucket, weather)),
+                        streak = currentStreak,
+                        date = today,
+                        weatherBucket = newBucket,
+                    )
+                }
+            } else if (cachedWeather == null) {
+                _uiState.value = HomeUiState.WeatherFailed
+            }
         }
     }
 
@@ -190,4 +221,10 @@ class HomeViewModel @Inject constructor(
             dayOfWeekHash = clock.dayOfWeekHash(),
             isPrecipitating = weather?.isPrecipitating ?: false,
         )
+
+    private companion object {
+        // 신선한 날씨 캐시가 없을 때 첫 화면을 위해 최신 날씨를 기다리는 최대 시간.
+        // 이 시간을 넘기면 시간 기반(TimeOnly)으로 폴백한다.
+        const val FIRST_PAINT_DEADLINE_MS = 2_500L
+    }
 }
