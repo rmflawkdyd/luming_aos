@@ -102,6 +102,11 @@ fun LumingNavGraph(navController: NavHostController) {
                 navController.popBackStack()
             }
 
+            // 이탈(aborting) 내비게이션은 상태 이벤트로 처리 — 다이얼로그가 먼저 닫힌 뒤 전환되도록 한다.
+            LaunchedEffect(uiState?.navigateBack) {
+                if (uiState?.navigateBack == true) navController.popBackStack()
+            }
+
             InstructionScreen(
                 uiState = uiState,
                 onNext = vm::goToNextStep,
@@ -110,7 +115,9 @@ fun LumingNavGraph(navController: NavHostController) {
                 onComplete = { elapsedMs -> vm.requestComplete(elapsedMs) { navigateComplete() } },
                 onConfirmWarning = { vm.confirmComplete { navigateComplete() } },
                 onDismissWarning = vm::dismissWarning,
-                onBack = { vm.onAbort(); navController.popBackStack() },
+                onBack = vm::requestAbort,
+                onConfirmAbort = vm::confirmAbort,
+                onDismissAbort = vm::dismissAbort,
             )
         }
     }

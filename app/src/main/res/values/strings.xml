@@ -39,6 +39,9 @@
     <!-- InstructionScreen -->
     <string name="dialog_early_complete_title">아직 완료하지 않으셨나요?</string>
     <string name="dialog_early_complete_message">아직 %d분 남았어요. 지금 완료할까요?</string>
+    <string name="dialog_abort_title">타이머가 진행 중이에요</string>
+    <string name="dialog_abort_message">지금 나가면 이 활동은 기록되지 않아요.</string>
+    <string name="action_abort">그만두기</string>
     <string name="cd_back">뒤로</string>
     <string name="cd_timer_start">타이머 시작</string>
     <string name="cd_elapsed_time">경과 시간 %1$s, 전체 %2$d분</string>

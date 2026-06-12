@@ -9,6 +9,8 @@ data class InstructionUiState(
     val timerStartedAt: Long? = null,
     val isCompleting: Boolean = false,
     val showTimerWarning: Boolean = false,
+    val showAbortWarning: Boolean = false,
+    val navigateBack: Boolean = false,
 ) {
     private val sortedSteps: List<Step> get() = activity.steps.sortedBy { it.order }
     val currentStep: Step get() = sortedSteps[currentStepIndex]

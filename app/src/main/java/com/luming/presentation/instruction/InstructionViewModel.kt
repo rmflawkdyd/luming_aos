@@ -78,10 +78,35 @@ class InstructionViewModel @Inject constructor(
         doComplete(onNavigate)
     }
 
-    /** BackButton / 중단 — startedSlot 명시적 리셋 (ViewModel 재사용 방어, AC-S13) */
+    /**
+     * 뒤로가기 요청. 타이머 진행 중이면 이탈 확인 다이얼로그를 띄우고,
+     * 시작 전이면 잃을 게 없으므로 즉시 이탈한다. (스펙 §2.2 aborting)
+     */
+    fun requestAbort() {
+        if (_uiState.value?.isTimerRunning == true) {
+            _uiState.update { it?.copy(showAbortWarning = true) }
+        } else {
+            onAbort()
+        }
+    }
+
+    fun dismissAbort() {
+        _uiState.update { it?.copy(showAbortWarning = false) }
+    }
+
+    fun confirmAbort() {
+        onAbort()
+    }
+
+    /**
+     * 중단 — startedSlot/timer 리셋 + 다이얼로그 닫기 + 뒤로가기 이벤트 발행.
+     * 내비게이션을 상태 이벤트(`navigateBack`)로 분리해, 다이얼로그가 먼저 닫힌 뒤
+     * `LaunchedEffect`에서 화면 전환되도록 한다(팝업이 Home 위에 잔상으로 남는 문제 방지).
+     * startedSlot 리셋은 ViewModel 재사용 방어(AC-S13).
+     */
     fun onAbort() {
         startedSlot = null
-        _uiState.update { it?.copy(timerStartedAt = null) }
+        _uiState.update { it?.copy(timerStartedAt = null, showAbortWarning = false, navigateBack = true) }
     }
 
     private fun doComplete(onNavigate: () -> Unit) {

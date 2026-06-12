@@ -3,6 +3,7 @@ package com.luming.presentation.instruction
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
 import com.luming.domain.model.Activity
@@ -34,6 +35,7 @@ class InstructionScreenTest {
                 uiState = InstructionUiState(testActivity),
                 onNext = {}, onPrevious = {}, onStart = {}, onComplete = {},
                 onConfirmWarning = {}, onDismissWarning = {}, onBack = {},
+                onConfirmAbort = {}, onDismissAbort = {},
             )
         }
         rule.waitForIdle()
@@ -48,6 +50,7 @@ class InstructionScreenTest {
                 uiState = InstructionUiState(testActivity),
                 onNext = {}, onPrevious = {}, onStart = {}, onComplete = {},
                 onConfirmWarning = {}, onDismissWarning = {}, onBack = {},
+                onConfirmAbort = {}, onDismissAbort = {},
             )
         }
         rule.waitForIdle()
@@ -64,6 +67,7 @@ class InstructionScreenTest {
                 uiState = state,
                 onNext = {}, onPrevious = {}, onStart = {}, onComplete = {},
                 onConfirmWarning = {}, onDismissWarning = {}, onBack = {},
+                onConfirmAbort = {}, onDismissAbort = {},
             )
         }
         rule.mainClock.advanceTimeBy(16)
@@ -80,6 +84,7 @@ class InstructionScreenTest {
                 uiState = state,
                 onNext = {}, onPrevious = {}, onStart = {}, onComplete = {},
                 onConfirmWarning = {}, onDismissWarning = {}, onBack = {},
+                onConfirmAbort = {}, onDismissAbort = {},
             )
         }
         rule.mainClock.advanceTimeBy(16)
@@ -99,10 +104,86 @@ class InstructionScreenTest {
                 uiState = state,
                 onNext = {}, onPrevious = {}, onStart = {}, onComplete = {},
                 onConfirmWarning = {}, onDismissWarning = {}, onBack = {},
+                onConfirmAbort = {}, onDismissAbort = {},
             )
         }
         rule.waitForIdle()
         rule.onNodeWithText("아직 완료하지 않으셨나요?").assertIsDisplayed()
+    }
+
+    // 스펙 §2.2 aborting: showAbortWarning=true → 이탈 다이얼로그 표시
+    @Test fun `showAbortWarning true - 이탈 다이얼로그 표시`() {
+        val state = InstructionUiState(
+            testActivity,
+            timerStartedAt = System.currentTimeMillis(),
+            showAbortWarning = true,
+        )
+        rule.setContent {
+            InstructionScreen(
+                uiState = state,
+                onNext = {}, onPrevious = {}, onStart = {}, onComplete = {},
+                onConfirmWarning = {}, onDismissWarning = {}, onBack = {},
+                onConfirmAbort = {}, onDismissAbort = {},
+            )
+        }
+        rule.waitForIdle()
+        rule.onNodeWithText("타이머가 진행 중이에요").assertIsDisplayed()
+    }
+
+    // 그만두기 버튼 클릭 → onConfirmAbort 호출
+    @Test fun `이탈 다이얼로그 - 그만두기 클릭 시 onConfirmAbort 호출`() {
+        var confirmed = false
+        val state = InstructionUiState(
+            testActivity,
+            timerStartedAt = System.currentTimeMillis(),
+            showAbortWarning = true,
+        )
+        rule.setContent {
+            InstructionScreen(
+                uiState = state,
+                onNext = {}, onPrevious = {}, onStart = {}, onComplete = {},
+                onConfirmWarning = {}, onDismissWarning = {}, onBack = {},
+                onConfirmAbort = { confirmed = true }, onDismissAbort = {},
+            )
+        }
+        rule.waitForIdle()
+        rule.onNodeWithText("그만두기").performClick()
+        assertThat(confirmed).isTrue()
+    }
+
+    // 계속하기 버튼 클릭 → onDismissAbort 호출
+    @Test fun `이탈 다이얼로그 - 계속하기 클릭 시 onDismissAbort 호출`() {
+        var dismissed = false
+        val state = InstructionUiState(
+            testActivity,
+            timerStartedAt = System.currentTimeMillis(),
+            showAbortWarning = true,
+        )
+        rule.setContent {
+            InstructionScreen(
+                uiState = state,
+                onNext = {}, onPrevious = {}, onStart = {}, onComplete = {},
+                onConfirmWarning = {}, onDismissWarning = {}, onBack = {},
+                onConfirmAbort = {}, onDismissAbort = { dismissed = true },
+            )
+        }
+        rule.waitForIdle()
+        rule.onNodeWithText("계속하기").performClick()
+        assertThat(dismissed).isTrue()
+    }
+
+    // 타이머 미시작 시 이탈 다이얼로그 미표시
+    @Test fun `showAbortWarning false - 이탈 다이얼로그 미표시`() {
+        rule.setContent {
+            InstructionScreen(
+                uiState = InstructionUiState(testActivity),
+                onNext = {}, onPrevious = {}, onStart = {}, onComplete = {},
+                onConfirmWarning = {}, onDismissWarning = {}, onBack = {},
+                onConfirmAbort = {}, onDismissAbort = {},
+            )
+        }
+        rule.waitForIdle()
+        rule.onNodeWithText("타이머가 진행 중이에요").assertDoesNotExist()
     }
 
     // AC-T9: 경과 시간 >= 목표 시 onComplete 자동 호출, elapsed == targetMs
@@ -116,6 +197,7 @@ class InstructionScreenTest {
                 onNext = {}, onPrevious = {}, onStart = {},
                 onComplete = { capturedElapsed = it },
                 onConfirmWarning = {}, onDismissWarning = {}, onBack = {},
+                onConfirmAbort = {}, onDismissAbort = {},
             )
         }
         rule.waitForIdle()

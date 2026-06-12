@@ -1,5 +1,6 @@
 package com.luming.presentation.instruction
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -55,8 +56,13 @@ fun InstructionScreen(
     onConfirmWarning: () -> Unit,
     onDismissWarning: () -> Unit,
     onBack: () -> Unit,
+    onConfirmAbort: () -> Unit,
+    onDismissAbort: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    // 시스템 백(제스처/하드웨어)도 툴바 백과 동일 경로로 통합 (스펙 §8.2)
+    BackHandler(onBack = onBack)
+
     if (uiState == null) {
         Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             CircularProgressIndicator()
@@ -95,6 +101,21 @@ fun InstructionScreen(
             },
             dismissButton = {
                 TextButton(onClick = onDismissWarning) { Text(stringResource(R.string.action_continue)) }
+            },
+        )
+    }
+
+    // AbortWarningDialog — 타이머 진행 중 이탈 확인 (스펙 §2.2 aborting)
+    if (uiState.showAbortWarning) {
+        AlertDialog(
+            onDismissRequest = onDismissAbort,
+            title = { Text(stringResource(R.string.dialog_abort_title)) },
+            text = { Text(stringResource(R.string.dialog_abort_message)) },
+            confirmButton = {
+                TextButton(onClick = onConfirmAbort) { Text(stringResource(R.string.action_abort)) }
+            },
+            dismissButton = {
+                TextButton(onClick = onDismissAbort) { Text(stringResource(R.string.action_continue)) }
             },
         )
     }

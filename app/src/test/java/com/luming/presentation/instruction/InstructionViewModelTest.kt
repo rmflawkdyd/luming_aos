@@ -137,6 +137,61 @@ class InstructionViewModelTest {
         assertThat(vm.uiState.value?.isTimerRunning).isTrue()
     }
 
+    // 스펙 §2.2 aborting: 타이머 미시작 시 뒤로가기 → 다이얼로그 없이 즉시 navigateBack
+    @Test fun `requestAbort - 타이머 미시작 → 다이얼로그 없이 navigateBack true`() = testScope.runTest {
+        val vm = buildViewModel()
+        advanceUntilIdle()
+        vm.requestAbort()
+        assertThat(vm.uiState.value?.showAbortWarning).isFalse()
+        assertThat(vm.uiState.value?.navigateBack).isTrue()
+    }
+
+    // 스펙 §2.2 aborting: 타이머 진행 중 뒤로가기 → 이탈 다이얼로그 표시, navigateBack 미발행
+    @Test fun `requestAbort - 타이머 진행 중 → showAbortWarning true, navigateBack false`() = testScope.runTest {
+        val vm = buildViewModel()
+        advanceUntilIdle()
+        vm.startTimer()
+        vm.requestAbort()
+        assertThat(vm.uiState.value?.showAbortWarning).isTrue()
+        assertThat(vm.uiState.value?.navigateBack).isFalse()
+        assertThat(vm.uiState.value?.isTimerRunning).isTrue()
+    }
+
+    // 그만두기: 다이얼로그 닫히고(먼저) 타이머 폐기 후 navigateBack 발행
+    @Test fun `confirmAbort - 다이얼로그 닫히고 타이머 폐기, navigateBack true`() = testScope.runTest {
+        val vm = buildViewModel()
+        advanceUntilIdle()
+        vm.startTimer()
+        vm.requestAbort()
+        vm.confirmAbort()
+        assertThat(vm.uiState.value?.showAbortWarning).isFalse()
+        assertThat(vm.uiState.value?.isTimerRunning).isFalse()
+        assertThat(vm.uiState.value?.navigateBack).isTrue()
+    }
+
+    // 계속하기: 다이얼로그만 닫히고 타이머 유지, navigateBack 미발행
+    @Test fun `dismissAbort - 다이얼로그만 닫히고 타이머 유지, navigateBack false`() = testScope.runTest {
+        val vm = buildViewModel()
+        advanceUntilIdle()
+        vm.startTimer()
+        vm.requestAbort()
+        vm.dismissAbort()
+        assertThat(vm.uiState.value?.showAbortWarning).isFalse()
+        assertThat(vm.uiState.value?.isTimerRunning).isTrue()
+        assertThat(vm.uiState.value?.navigateBack).isFalse()
+    }
+
+    // 이탈 시 streak/슬롯 기록 없음 (no side effects)
+    @Test fun `confirmAbort - SlotCompletionStore 기록 없음`() = testScope.runTest {
+        val vm = buildViewModel(bucket = TimeBucket.MORNING)
+        advanceUntilIdle()
+        vm.startTimer()
+        vm.requestAbort()
+        vm.confirmAbort()
+        advanceUntilIdle()
+        assertThat(slotStore.isCompleted(TimeBucket.MORNING, today)).isFalse()
+    }
+
     // ADR-011: NIGHT 슬롯 완료는 SlotCompletionStore에 기록 안 됨
     @Test fun `NIGHT 슬롯에서 완료 - SlotCompletionStore 기록 없음`() = testScope.runTest {
         val vm = buildViewModel(bucket = TimeBucket.NIGHT)
