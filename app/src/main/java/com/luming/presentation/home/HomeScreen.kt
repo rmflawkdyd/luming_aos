@@ -33,7 +33,7 @@ import com.luming.domain.model.WeatherBucket
 import com.luming.presentation.home.components.ActivityCard
 import com.luming.presentation.home.components.CompletionOverlay
 import com.luming.presentation.home.components.FooterDisclaimer
-import com.luming.presentation.home.components.LocationFailedCard
+import com.luming.presentation.home.components.LocationPermissionBanner
 import com.luming.presentation.home.components.RationaleBanner
 import com.luming.presentation.home.components.SevenDayStrip
 import com.luming.presentation.home.components.StreakRing
@@ -46,9 +46,11 @@ import java.util.Locale
 @Composable
 fun HomeScreen(
     uiState: HomeUiState,
+    locationDenied: Boolean,
     onActivityClick: (String) -> Unit,
     onRefresh: () -> Unit,
     onOverlayDismissed: () -> Unit,
+    onLocationBannerTap: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val showOverlay = uiState.showsOverlay()
@@ -64,19 +66,18 @@ fun HomeScreen(
                 recommendations = uiState.recommendations,
                 streak = uiState.streak,
                 weatherBucket = null,
+                locationDenied = locationDenied,
                 onActivityClick = onActivityClick,
+                onLocationBannerTap = onLocationBannerTap,
             )
             is HomeUiState.WeatherAware -> HomeContent(
                 recommendations = uiState.recommendations,
                 streak = uiState.streak,
                 weatherBucket = uiState.weatherBucket,
+                locationDenied = locationDenied,
                 onActivityClick = onActivityClick,
+                onLocationBannerTap = onLocationBannerTap,
             )
-            HomeUiState.LocationFailed -> {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    LocationFailedCard(onRetry = onRefresh)
-                }
-            }
             HomeUiState.WeatherFailed -> {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     WeatherFailedCard(onRetry = onRefresh)
@@ -106,7 +107,9 @@ private fun HomeContent(
     recommendations: List<Recommendation>,
     streak: Streak,
     weatherBucket: WeatherBucket?,
+    locationDenied: Boolean,
     onActivityClick: (String) -> Unit,
+    onLocationBannerTap: () -> Unit,
 ) {
     val safeInsets = WindowInsets.safeDrawing.asPaddingValues()
     Box(modifier = Modifier.fillMaxSize()) {
@@ -125,6 +128,11 @@ private fun HomeContent(
             }
             item {
                 RationaleBanner(weatherBucket = weatherBucket)
+            }
+            if (locationDenied) {
+                item {
+                    LocationPermissionBanner(onTap = onLocationBannerTap)
+                }
             }
             items(recommendations, key = { it.activity.id }) { rec ->
                 ActivityCard(

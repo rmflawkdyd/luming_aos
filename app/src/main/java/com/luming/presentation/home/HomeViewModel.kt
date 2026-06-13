@@ -38,6 +38,12 @@ class HomeViewModel @Inject constructor(
     private val _uiState = MutableStateFlow<HomeUiState>(HomeUiState.Empty)
     val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
+    /** 위치 권한 거부 시 true → LocationPermissionBanner 노출 (ADR-011, AC-24).
+     *  권한이 허용으로 바뀌면(resume 시) false로 돌아가고 weather-aware로 업그레이드된다.
+     *  위치 fetch 타임아웃은 비차단·무 UI(AC-9)이므로 이 플래그를 올리지 않는다. */
+    private val _locationDenied = MutableStateFlow(false)
+    val locationDenied: StateFlow<Boolean> = _locationDenied.asStateFlow()
+
     private var loadJob: Job? = null
     private var lastTimeBucket: TimeBucket? = null
 
@@ -48,7 +54,8 @@ class HomeViewModel @Inject constructor(
     fun onResume() {
         val current = clock.timeBucket()
         val timeBucketChanged = lastTimeBucket != null && lastTimeBucket != current
-        val recoverable = _uiState.value == HomeUiState.LocationFailed && locationRepository.hasPermission()
+        // 위치 거부 상태였다가 설정에서 권한을 켜고 돌아온 경우 재시작 → 배너 제거 + weather 업그레이드.
+        val recoverable = _locationDenied.value && locationRepository.hasPermission()
         // Re-check completed state on resume to handle date changes (AC-S7)
         val inCompletedSlot = _uiState.value is HomeUiState.CompletedSlot
         // Re-fetch if in-memory cache expired while backgrounded (§2.1 Background→foreground)
@@ -112,10 +119,20 @@ class HomeViewModel @Inject constructor(
             )
         }
 
+        // 위치 권한 거부 — 비차단 (ADR-011, AC-24): 배너 노출 + timeOnly 폴백.
+        // 권한이 없으면 날씨를 받을 수 없으므로 스피너를 유지하지 않고 즉시 timeOnly로 렌더한다.
         if (!locationRepository.hasPermission()) {
-            if (cachedWeather == null) _uiState.value = HomeUiState.LocationFailed
+            _locationDenied.value = true
+            if (cachedWeather == null) {
+                _uiState.value = HomeUiState.TimeOnly(
+                    getRecommendations(buildContext(timeBucket, weather = null)),
+                    streak,
+                    today,
+                )
+            }
             return
         }
+        _locationDenied.value = false
 
         coroutineScope {
             // 신선한 캐시가 없을 때만: 데드라인(2.5초)을 넘기면 시간 기반으로 폴백.
@@ -137,8 +154,15 @@ class HomeViewModel @Inject constructor(
 
             val location = withTimeoutOrNull(5_000L) { locationRepository.getCoarseLocation() }
             if (location == null) {
+                // 위치 fetch 타임아웃은 비차단·무 UI (AC-9): 배너 없이 시간 기반으로 폴백.
                 fallbackJob?.cancel()
-                if (cachedWeather == null) _uiState.value = HomeUiState.LocationFailed
+                if (cachedWeather == null && _uiState.value is HomeUiState.Empty) {
+                    _uiState.value = HomeUiState.TimeOnly(
+                        getRecommendations(buildContext(clock.timeBucket(), weather = null)),
+                        streak,
+                        today,
+                    )
+                }
                 return@coroutineScope
             }
 

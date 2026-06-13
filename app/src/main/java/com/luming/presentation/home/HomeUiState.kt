@@ -25,8 +25,6 @@ sealed interface HomeUiState {
         val showCompletionOverlay: Boolean = false,
     ) : HomeUiState
 
-    data object LocationFailed : HomeUiState
-
     data object WeatherFailed : HomeUiState
 
     /** 시간대 완료 — ActivityCardList 대신 TimeSlotCompletedContent 표시 (NIGHT 제외) */

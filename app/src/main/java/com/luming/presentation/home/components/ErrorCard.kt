@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.CloudOff
-import androidx.compose.material.icons.outlined.LocationOff
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -18,16 +17,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.luming.R
-
-@Composable
-fun LocationFailedCard(onRetry: () -> Unit, modifier: Modifier = Modifier) {
-    ErrorCard(
-        icon = Icons.Outlined.LocationOff,
-        message = stringResource(R.string.error_location),
-        onRetry = onRetry,
-        modifier = modifier,
-    )
-}
 
 @Composable
 fun WeatherFailedCard(onRetry: () -> Unit, modifier: Modifier = Modifier) {

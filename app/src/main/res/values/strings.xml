@@ -17,9 +17,13 @@
     <string name="completion_message">오늘의 활동을 마쳤어요</string>
 
     <!-- ErrorCard -->
-    <string name="error_location">위치 정보를 가져올 수 없어요.</string>
     <string name="error_weather">날씨 정보를 가져올 수 없어요.</string>
     <string name="action_retry">다시 시도</string>
+
+    <!-- LocationPermissionBanner (위치 거부 비차단 배너, AC-24) -->
+    <string name="location_banner_title">위치 권한이 꺼져 있어요</string>
+    <string name="location_banner_subtitle">지금은 시간 기반으로 추천하고 있어요</string>
+    <string name="location_banner_action">설정</string>
 
     <!-- TimeSlotCompletedContent -->
     <string name="slot_completed_morning">아침 활동 완료!</string>

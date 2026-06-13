@@ -94,33 +94,37 @@ class HomeViewModelTest {
 
     // ─── AC-9: 위치 권한 거부 케이스 ────────────────────────────────────────────
 
-    @Test fun `권한 거부 + 캐시 없음 - LocationFailed 전환`() = testScope.runTest {
+    @Test fun `권한 거부 + 캐시 없음 - TimeOnly 폴백 + 배너 노출 (AC-24)`() = testScope.runTest {
         val vm = buildViewModel(
             locationRepo = FakeLocationRepository(permissionGranted = false),
             weatherRepo = FakeWeatherRepository(cachedWeather = null),
         )
         advanceUntilIdle()
-        assertThat(vm.uiState.value).isEqualTo(HomeUiState.LocationFailed)
+        assertThat(vm.uiState.value).isInstanceOf(HomeUiState.TimeOnly::class.java)
+        assertThat(vm.locationDenied.value).isTrue()
     }
 
-    @Test fun `권한 거부 + 캐시 있음 - WeatherAware 유지 (LocationFailed 미전환)`() = testScope.runTest {
+    @Test fun `권한 거부 + 캐시 있음 - WeatherAware 유지 + 배너 노출 (AC-24)`() = testScope.runTest {
         val vm = buildViewModel(
             locationRepo = FakeLocationRepository(permissionGranted = false),
             weatherRepo = FakeWeatherRepository(cachedWeather = stubWeather),
         )
         advanceUntilIdle()
         assertThat(vm.uiState.value).isInstanceOf(HomeUiState.WeatherAware::class.java)
+        assertThat(vm.locationDenied.value).isTrue()
     }
 
     // ─── AC-9: 위치 fetch 실패(타임아웃/null) 케이스 ────────────────────────────
 
-    @Test fun `권한 있음 + 위치 fetch null + 캐시 없음 - LocationFailed 전환`() = testScope.runTest {
+    @Test fun `권한 있음 + 위치 fetch null + 캐시 없음 - TimeOnly 폴백 (배너 없음, AC-9)`() = testScope.runTest {
         val vm = buildViewModel(
             locationRepo = FakeLocationRepository(permissionGranted = true, location = null),
             weatherRepo = FakeWeatherRepository(cachedWeather = null),
         )
         advanceUntilIdle()
-        assertThat(vm.uiState.value).isEqualTo(HomeUiState.LocationFailed)
+        assertThat(vm.uiState.value).isInstanceOf(HomeUiState.TimeOnly::class.java)
+        // 위치 fetch 타임아웃은 권한 거부와 달리 배너를 띄우지 않는다 (AC-9 무 UI).
+        assertThat(vm.locationDenied.value).isFalse()
     }
 
     @Test fun `권한 있음 + 위치 fetch null + 캐시 있음 - WeatherAware 유지`() = testScope.runTest {
@@ -234,9 +238,9 @@ class HomeViewModelTest {
             assertThat(after.streak.currentCount).isEqualTo(5)
         }
 
-    // ─── onResume: LocationFailed 복구 ──────────────────────────────────────────
+    // ─── onResume: 위치 거부 배너 복구 ──────────────────────────────────────────
 
-    @Test fun `onResume - LocationFailed 상태에서 권한 부여 시 WeatherAware로 복구`() =
+    @Test fun `onResume - 위치 거부(배너) 상태에서 권한 부여 시 WeatherAware로 복구 + 배너 제거`() =
         testScope.runTest {
             val locationRepo = ConfigurableLocationRepository(
                 permissionGranted = false,
@@ -245,12 +249,14 @@ class HomeViewModelTest {
             val weatherRepo = FakeWeatherRepository(cachedWeather = null, liveWeather = stubWeather)
             val vm = buildViewModel(locationRepo = locationRepo, weatherRepo = weatherRepo)
             advanceUntilIdle()
-            assertThat(vm.uiState.value).isEqualTo(HomeUiState.LocationFailed)
+            assertThat(vm.uiState.value).isInstanceOf(HomeUiState.TimeOnly::class.java)
+            assertThat(vm.locationDenied.value).isTrue()
 
             locationRepo.permissionGranted = true
             vm.onResume()
             advanceUntilIdle()
             assertThat(vm.uiState.value).isInstanceOf(HomeUiState.WeatherAware::class.java)
+            assertThat(vm.locationDenied.value).isFalse()
         }
 
     // ─── Fakes ───────────────────────────────────────────────────────────────────

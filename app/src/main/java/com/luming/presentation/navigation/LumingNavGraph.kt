@@ -23,6 +23,7 @@ import com.luming.presentation.home.HomeViewModel
 import com.luming.presentation.instruction.InstructionScreen
 import com.luming.presentation.instruction.InstructionViewModel
 import com.luming.presentation.permission.PermissionScreen
+import com.luming.presentation.util.SystemSettings
 
 private object Screen {
     const val PERMISSION = "permission"
@@ -54,8 +55,10 @@ fun LumingNavGraph(navController: NavHostController) {
         composable(Screen.HOME) { entry ->
             val vm: HomeViewModel = hiltViewModel()
             val uiState by vm.uiState.collectAsStateWithLifecycle()
+            val locationDenied by vm.locationDenied.collectAsStateWithLifecycle()
 
-            val activity = LocalContext.current as? ComponentActivity
+            val context = LocalContext.current
+            val activity = context as? ComponentActivity
             BackHandler { activity?.finish() }
 
             val lifecycleOwner = LocalLifecycleOwner.current
@@ -80,11 +83,13 @@ fun LumingNavGraph(navController: NavHostController) {
 
             HomeScreen(
                 uiState = uiState,
+                locationDenied = locationDenied,
                 onActivityClick = { activityId ->
                     navController.navigate(Screen.instruction(activityId))
                 },
                 onRefresh = vm::refresh,
                 onOverlayDismissed = vm::onCompletionOverlayDismissed,
+                onLocationBannerTap = { SystemSettings.open(context) },
             )
         }
 
