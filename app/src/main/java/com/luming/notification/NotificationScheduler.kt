@@ -1,6 +1,7 @@
 package com.luming.notification
 
 import android.app.AlarmManager
+import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
@@ -14,6 +15,12 @@ class NotificationScheduler @Inject constructor(
     @ApplicationContext private val context: Context,
 ) {
     private val alarmManager: AlarmManager = context.getSystemService()!!
+
+    /** 알림이 OS 차원에서 활성화돼 있는지 — SettingsScreen 권한 행 상태 표시용 (iOS isAuthorized 패리티). */
+    fun isAuthorized(): Boolean {
+        val manager = context.getSystemService<NotificationManager>() ?: return false
+        return manager.areNotificationsEnabled()
+    }
 
     fun scheduleAll() {
         NotificationSlot.entries.forEach(::scheduleNext)

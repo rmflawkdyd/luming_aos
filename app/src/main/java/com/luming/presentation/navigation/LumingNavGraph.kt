@@ -23,11 +23,14 @@ import com.luming.presentation.home.HomeViewModel
 import com.luming.presentation.instruction.InstructionScreen
 import com.luming.presentation.instruction.InstructionViewModel
 import com.luming.presentation.permission.PermissionScreen
+import com.luming.presentation.settings.SettingsScreen
+import com.luming.presentation.settings.SettingsViewModel
 import com.luming.presentation.util.SystemSettings
 
 private object Screen {
     const val PERMISSION = "permission"
     const val HOME = "home"
+    const val SETTINGS = "settings"
     const val INSTRUCTION = "instruction/{activityId}"
     fun instruction(activityId: String) = "instruction/$activityId"
 }
@@ -90,6 +93,33 @@ fun LumingNavGraph(navController: NavHostController) {
                 onRefresh = vm::refresh,
                 onOverlayDismissed = vm::onCompletionOverlayDismissed,
                 onLocationBannerTap = { SystemSettings.open(context) },
+                onSettingsClick = { navController.navigate(Screen.SETTINGS) },
+            )
+        }
+
+        composable(Screen.SETTINGS) {
+            val vm: SettingsViewModel = hiltViewModel()
+            val locationGranted by vm.locationGranted.collectAsStateWithLifecycle()
+            val notificationGranted by vm.notificationGranted.collectAsStateWithLifecycle()
+
+            val context = LocalContext.current
+
+            // 시스템 설정에서 권한을 바꾸고 돌아오면(ON_RESUME) 라이브 상태를 다시 읽는다 (AC-25/AC-26).
+            val lifecycleOwner = LocalLifecycleOwner.current
+            DisposableEffect(lifecycleOwner) {
+                val observer = LifecycleEventObserver { _, event ->
+                    if (event == Lifecycle.Event.ON_RESUME) vm.refresh()
+                }
+                lifecycleOwner.lifecycle.addObserver(observer)
+                onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+            }
+
+            SettingsScreen(
+                locationGranted = locationGranted,
+                notificationGranted = notificationGranted,
+                appVersion = vm.appVersion,
+                onBack = { navController.popBackStack() },
+                onPermissionRowTap = { SystemSettings.open(context) },
             )
         }
 

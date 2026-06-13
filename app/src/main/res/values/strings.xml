@@ -25,6 +25,18 @@
     <string name="location_banner_subtitle">지금은 시간 기반으로 추천하고 있어요</string>
     <string name="location_banner_action">설정</string>
 
+    <!-- SettingsScreen (홈 기어 진입, §2.5, AC-25/AC-26) -->
+    <string name="settings_title">설정</string>
+    <string name="settings_section_permission">권한</string>
+    <string name="settings_section_info">정보</string>
+    <string name="settings_row_location">위치</string>
+    <string name="settings_row_notification">알림</string>
+    <string name="settings_row_version">버전</string>
+    <string name="settings_permission_granted">허용됨</string>
+    <string name="settings_permission_denied">거부됨</string>
+    <string name="settings_permission_hint">토글을 누르면 시스템 설정으로 이동해 권한을 변경할 수 있어요.</string>
+    <string name="cd_settings">설정</string>
+
     <!-- TimeSlotCompletedContent -->
     <string name="slot_completed_morning">아침 활동 완료!</string>
     <string name="slot_completed_afternoon">점심 활동 완료!</string>

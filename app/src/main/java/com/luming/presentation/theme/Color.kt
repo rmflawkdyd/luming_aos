@@ -25,6 +25,13 @@ val LumingRestLight = Color(0xFFF2F0F8)
 val LumingMist = Color(0xFFAAAAAA)
 val LumingPebble = Color(0xFFE0E0DA)
 
+// 권한 거부 시나리오 (luming.pen section/PermissionFlow) — iOS Color+Luming 패리티
+val LumingClay = Color(0xFFB08A4F)        // 배너 아이콘 / 설정 강조 / 알림 아이콘
+val LumingClayLight = Color(0xFFF5EFE6)   // 배너 배경 / 알림 아이콘 배경
+val LumingTerracotta = Color(0xFFC0795F)  // 권한 "거부됨" 상태 텍스트
+val LumingSlate = Color(0xFF6E8499)       // 위치 아이콘
+val LumingSlateBg = Color(0xFFEBF0F4)     // 위치 아이콘 배경
+
 val BackgroundWarm = Color(0xFFF7F5F2)
 val SurfaceWhite = Color(0xFFFFFFFF)
 val OnSurface = Color(0xFF1A1A1A)

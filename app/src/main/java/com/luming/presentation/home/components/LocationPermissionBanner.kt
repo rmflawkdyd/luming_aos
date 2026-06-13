@@ -26,8 +26,8 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.luming.R
-import com.luming.presentation.theme.LumingMovement
-import com.luming.presentation.theme.LumingMovementLight
+import com.luming.presentation.theme.LumingClay
+import com.luming.presentation.theme.LumingClayLight
 import com.luming.presentation.theme.SurfaceWhite
 
 /**
@@ -43,7 +43,7 @@ fun LocationPermissionBanner(onTap: () -> Unit, modifier: Modifier = Modifier) {
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(14.dp))
-            .background(LumingMovementLight)
+            .background(LumingClayLight)
             .clickable(onClick = onTap)
             .semantics { contentDescription = "$title. $subtitle" }
             .padding(horizontal = 14.dp, vertical = 12.dp),
@@ -60,7 +60,7 @@ fun LocationPermissionBanner(onTap: () -> Unit, modifier: Modifier = Modifier) {
             Icon(
                 imageVector = Icons.Outlined.LocationOff,
                 contentDescription = null,
-                tint = LumingMovement,
+                tint = LumingClay,
                 modifier = Modifier.size(18.dp),
             )
         }
@@ -85,12 +85,12 @@ fun LocationPermissionBanner(onTap: () -> Unit, modifier: Modifier = Modifier) {
                 text = stringResource(R.string.location_banner_action),
                 style = MaterialTheme.typography.labelLarge,
                 fontWeight = FontWeight.SemiBold,
-                color = LumingMovement,
+                color = LumingClay,
             )
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                 contentDescription = null,
-                tint = LumingMovement,
+                tint = LumingClay,
                 modifier = Modifier.size(18.dp),
             )
         }
