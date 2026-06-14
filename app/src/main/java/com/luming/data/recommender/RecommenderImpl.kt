@@ -29,43 +29,71 @@ class RecommenderImpl @Inject constructor(
             .map { it to ruleScorer.score(it, ctx) }
             .sortedWith(compareByDescending<Pair<Activity, Int>> { it.second }.thenBy { it.first.id })
 
-        // 3. Top-K = 3
-        val topK = scored.take(3)
+        // 3. Category-diverse Top-K = 3 (spec §6.3) — prevents a single category from
+        //    monopolising the list (all-walk in clear weather / all-breathing on score ties).
+        val topK = pickCategoryDiverse(scored, k = 3)
+        if (topK.isEmpty()) return emptyList()
 
-        // 4. Rule-relative N-decision scores (always from topK, never from selector output)
-        val ruleTop1Score = topK.getOrNull(0)?.second ?: 0
-        val ruleTop2Score = topK.getOrNull(1)?.second ?: 0
+        // 4. Diversity-first N-decision: show every category-diverse candidate with a
+        //    positive contextual score (1..3). When all score 0 (time-only, no tag match),
+        //    show up to 3. N derives from rule scores only — never from selector order.
+        val allZero = topK.all { it.second == 0 }
+        val displaySet = if (allZero) topK else topK.filter { it.second > 0 }
 
-        // 5. Selector reorders for diversity (display order only)
-        val ordered = if (selector.isLoaded && topK.isNotEmpty()) {
-            val chosenIdx = selector.pickIndex(ctx, topK)
-            val chosen = topK[chosenIdx]
-            val remaining = topK
+        // 5. Selector reorders for cross-day featured rotation (display order only)
+        val ordered = if (selector.isLoaded && displaySet.isNotEmpty()) {
+            val chosenIdx = selector.pickIndex(ctx, displaySet)
+            val chosen = displaySet[chosenIdx]
+            val remaining = displaySet
                 .filterIndexed { i, _ -> i != chosenIdx }
                 .sortedWith(compareByDescending<Pair<Activity, Int>> { it.second }.thenBy { it.first.id })
             listOf(chosen) + remaining
         } else {
-            topK
-        }
-
-        // 6. N decision using rule-relative scores
-        val allZero = topK.all { it.second == 0 }
-        val n = when {
-            allZero -> ordered.size.coerceAtMost(3)
-            ruleTop1Score >= 2 * ruleTop2Score -> 1
-            ordered.size >= 3 && (ordered[1].second - ordered[2].second) > ruleScorer.gapThreshold -> 2
-            else -> ordered.size.coerceAtMost(3)
+            displaySet
         }
 
         // Fallback rationale treats weather as unknown (spec §6.2)
         val rationaleCtx = if (isFallback) ctx.copy(weatherBucket = WeatherBucket.UNKNOWN) else ctx
-        return ordered.take(n).mapIndexed { idx, (activity, _) ->
+        return ordered.mapIndexed { idx, (activity, _) ->
             Recommendation(
                 activity = activity,
                 rationale = rationaleFor(activity, rationaleCtx),
                 rank = idx + 1,
             )
         }
+    }
+
+    /**
+     * Diversity-first Top-K selection (spec §6.3).
+     * Pass A picks the highest-scoring representative of each distinct category in score
+     * order; Pass B backfills if fewer than [k] distinct categories exist. The result is
+     * re-sorted by (score desc, id asc) for a stable top-K order.
+     */
+    private fun pickCategoryDiverse(
+        scored: List<Pair<Activity, Int>>,
+        k: Int,
+    ): List<Pair<Activity, Int>> {
+        val picked = ArrayList<Pair<Activity, Int>>(k)
+        val seenCategories = HashSet<Category>()
+        for (pair in scored) {
+            if (pair.first.category !in seenCategories) {
+                picked.add(pair)
+                seenCategories.add(pair.first.category)
+            }
+            if (picked.size == k) break
+        }
+        if (picked.size < k) {
+            val chosenIds = picked.mapTo(HashSet()) { it.first.id }
+            for (pair in scored) {
+                if (pair.first.id !in chosenIds) {
+                    picked.add(pair)
+                    if (picked.size == k) break
+                }
+            }
+        }
+        return picked.sortedWith(
+            compareByDescending<Pair<Activity, Int>> { it.second }.thenBy { it.first.id },
+        )
     }
 
     private fun applyFilters(library: List<Activity>, ctx: ContextSnapshot): List<Activity> {

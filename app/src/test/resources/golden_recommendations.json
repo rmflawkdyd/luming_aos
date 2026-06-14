@@ -19,13 +19,13 @@
         },
         {
           "rank": 2,
-          "activity_id": "stretch_forward_fold_05",
+          "activity_id": "movement_outdoor_skip_08",
           "rule_score": 6,
-          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+          "rationale": "Clear skies \u2014 a refreshing movement fits."
         },
         {
           "rank": 3,
-          "activity_id": "stretch_sun_salutation_09",
+          "activity_id": "stretch_forward_fold_05",
           "rule_score": 6,
           "rationale": "Clear skies \u2014 a refreshing stretch fits."
         }
@@ -48,13 +48,13 @@
         },
         {
           "rank": 2,
-          "activity_id": "stretch_forward_fold_05",
+          "activity_id": "movement_outdoor_skip_08",
           "rule_score": 6,
-          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+          "rationale": "Clear skies \u2014 a refreshing movement fits."
         },
         {
           "rank": 3,
-          "activity_id": "stretch_sun_salutation_09",
+          "activity_id": "stretch_forward_fold_05",
           "rule_score": 6,
           "rationale": "Clear skies \u2014 a refreshing stretch fits."
         }
@@ -77,15 +77,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_box_4_4_01",
+          "activity_id": "focus_gratitude_write_06",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_breath_count_01",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor meditation."
         }
       ]
     },
@@ -106,15 +106,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_box_4_4_01",
+          "activity_id": "focus_gratitude_write_06",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_breath_count_01",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor meditation."
         }
       ]
     },
@@ -135,15 +135,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_box_4_4_01",
+          "activity_id": "focus_gratitude_write_06",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_breath_count_01",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor meditation."
         }
       ]
     },
@@ -164,15 +164,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_box_4_4_01",
+          "activity_id": "focus_gratitude_write_06",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_breath_count_01",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor meditation."
         }
       ]
     },
@@ -193,15 +193,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_box_4_4_01",
+          "activity_id": "focus_gratitude_write_06",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_breath_count_01",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling meditation."
         }
       ]
     },
@@ -222,15 +222,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_box_4_4_01",
+          "activity_id": "focus_gratitude_write_06",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_breath_count_01",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling meditation."
         }
       ]
     },
@@ -251,15 +251,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_box_4_4_01",
+          "activity_id": "focus_gratitude_write_06",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_breath_count_01",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle meditation."
         }
       ]
     },
@@ -280,15 +280,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_box_4_4_01",
+          "activity_id": "focus_gratitude_write_06",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_breath_count_01",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle meditation."
         }
       ]
     },
@@ -309,13 +309,13 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_box_4_4_01",
+          "activity_id": "focus_gratitude_write_06",
           "rule_score": 3,
           "rationale": "Based on time of day."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_breath_count_01",
           "rule_score": 3,
           "rationale": "Based on time of day."
         }
@@ -338,13 +338,13 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_box_4_4_01",
+          "activity_id": "focus_gratitude_write_06",
           "rule_score": 3,
           "rationale": "Based on time of day."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_breath_count_01",
           "rule_score": 3,
           "rationale": "Based on time of day."
         }
@@ -361,19 +361,19 @@
       "recommendations": [
         {
           "rank": 1,
-          "activity_id": "breathing_box_4_4_01",
-          "rule_score": 3,
-          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+          "activity_id": "walk_gratitude_04",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing walk fits."
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
-          "rule_score": 3,
-          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+          "activity_id": "movement_arm_circles_05",
+          "rule_score": 4,
+          "rationale": "Clear skies \u2014 a refreshing movement fits."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "breathing_box_4_4_01",
           "rule_score": 3,
           "rationale": "Clear skies \u2014 a refreshing breathing fits."
         }
@@ -390,19 +390,19 @@
       "recommendations": [
         {
           "rank": 1,
-          "activity_id": "breathing_box_4_4_01",
-          "rule_score": 3,
-          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+          "activity_id": "walk_gratitude_04",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing walk fits."
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
-          "rule_score": 3,
-          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+          "activity_id": "movement_arm_circles_05",
+          "rule_score": 4,
+          "rationale": "Clear skies \u2014 a refreshing movement fits."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "breathing_box_4_4_01",
           "rule_score": 3,
           "rationale": "Clear skies \u2014 a refreshing breathing fits."
         }
@@ -425,15 +425,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_open_awareness_08",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor meditation."
         }
       ]
     },
@@ -454,15 +454,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_open_awareness_08",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor meditation."
         }
       ]
     },
@@ -483,15 +483,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_open_awareness_08",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor meditation."
         }
       ]
     },
@@ -512,15 +512,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_open_awareness_08",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor meditation."
         }
       ]
     },
@@ -535,21 +535,21 @@
       "recommendations": [
         {
           "rank": 1,
+          "activity_id": "rest_cold_eye_07",
+          "rule_score": 6,
+          "rationale": "Warm out \u2014 try a cooling rest."
+        },
+        {
+          "rank": 2,
           "activity_id": "breathing_box_4_4_01",
           "rule_score": 4,
           "rationale": "Warm out \u2014 try a cooling breathing."
         },
         {
-          "rank": 2,
-          "activity_id": "breathing_coherent_05",
-          "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
-        },
-        {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling focus."
         }
       ]
     },
@@ -564,21 +564,21 @@
       "recommendations": [
         {
           "rank": 1,
+          "activity_id": "rest_cold_eye_07",
+          "rule_score": 6,
+          "rationale": "Warm out \u2014 try a cooling rest."
+        },
+        {
+          "rank": 2,
           "activity_id": "breathing_box_4_4_01",
           "rule_score": 4,
           "rationale": "Warm out \u2014 try a cooling breathing."
         },
         {
-          "rank": 2,
-          "activity_id": "breathing_coherent_05",
-          "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
-        },
-        {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling focus."
         }
       ]
     },
@@ -599,15 +599,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_open_awareness_08",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle meditation."
         }
       ]
     },
@@ -628,15 +628,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_open_awareness_08",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle meditation."
         }
       ]
     },
@@ -657,13 +657,13 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 3,
           "rationale": "Based on time of day."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_open_awareness_08",
           "rule_score": 3,
           "rationale": "Based on time of day."
         }
@@ -686,13 +686,13 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 3,
           "rationale": "Based on time of day."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "meditation_open_awareness_08",
           "rule_score": 3,
           "rationale": "Based on time of day."
         }
@@ -709,21 +709,21 @@
       "recommendations": [
         {
           "rank": 1,
+          "activity_id": "walk_evening_06",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing walk fits."
+        },
+        {
+          "rank": 2,
           "activity_id": "breathing_4_7_8_02",
           "rule_score": 3,
           "rationale": "Clear skies \u2014 a refreshing breathing fits."
         },
         {
-          "rank": 2,
-          "activity_id": "breathing_coherent_05",
-          "rule_score": 3,
-          "rationale": "Clear skies \u2014 a refreshing breathing fits."
-        },
-        {
           "rank": 3,
-          "activity_id": "breathing_humming_bee_07",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 3,
-          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+          "rationale": "Clear skies \u2014 a refreshing focus fits."
         }
       ]
     },
@@ -738,21 +738,21 @@
       "recommendations": [
         {
           "rank": 1,
+          "activity_id": "walk_evening_06",
+          "rule_score": 6,
+          "rationale": "Clear skies \u2014 a refreshing walk fits."
+        },
+        {
+          "rank": 2,
           "activity_id": "breathing_4_7_8_02",
           "rule_score": 3,
           "rationale": "Clear skies \u2014 a refreshing breathing fits."
         },
         {
-          "rank": 2,
-          "activity_id": "breathing_coherent_05",
-          "rule_score": 3,
-          "rationale": "Clear skies \u2014 a refreshing breathing fits."
-        },
-        {
           "rank": 3,
-          "activity_id": "breathing_humming_bee_07",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 3,
-          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+          "rationale": "Clear skies \u2014 a refreshing focus fits."
         }
       ]
     },
@@ -773,15 +773,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_humming_bee_07",
+          "activity_id": "meditation_body_scan_02",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor meditation."
         }
       ]
     },
@@ -802,15 +802,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_humming_bee_07",
+          "activity_id": "meditation_body_scan_02",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor meditation."
         }
       ]
     },
@@ -831,15 +831,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_humming_bee_07",
+          "activity_id": "meditation_body_scan_02",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor meditation."
         }
       ]
     },
@@ -860,15 +860,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_humming_bee_07",
+          "activity_id": "meditation_body_scan_02",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor meditation."
         }
       ]
     },
@@ -889,15 +889,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_humming_bee_07",
+          "activity_id": "meditation_body_scan_02",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling meditation."
         }
       ]
     },
@@ -918,15 +918,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_humming_bee_07",
+          "activity_id": "meditation_body_scan_02",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling meditation."
         }
       ]
     },
@@ -947,15 +947,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_humming_bee_07",
+          "activity_id": "meditation_body_scan_02",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle meditation."
         }
       ]
     },
@@ -976,15 +976,15 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle focus."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_humming_bee_07",
+          "activity_id": "meditation_body_scan_02",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle meditation."
         }
       ]
     },
@@ -1005,13 +1005,13 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 3,
           "rationale": "Based on time of day."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_humming_bee_07",
+          "activity_id": "meditation_body_scan_02",
           "rule_score": 3,
           "rationale": "Based on time of day."
         }
@@ -1034,13 +1034,13 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_coherent_05",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 3,
           "rationale": "Based on time of day."
         },
         {
           "rank": 3,
-          "activity_id": "breathing_humming_bee_07",
+          "activity_id": "meditation_body_scan_02",
           "rule_score": 3,
           "rationale": "Based on time of day."
         }
@@ -1063,9 +1063,9 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 3,
-          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+          "rationale": "Clear skies \u2014 a refreshing focus fits."
         },
         {
           "rank": 3,
@@ -1092,9 +1092,9 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 3,
-          "rationale": "Clear skies \u2014 a refreshing breathing fits."
+          "rationale": "Clear skies \u2014 a refreshing focus fits."
         },
         {
           "rank": 3,
@@ -1121,9 +1121,9 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor focus."
         },
         {
           "rank": 3,
@@ -1150,9 +1150,9 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 3,
-          "rationale": "Cloudy and cool \u2014 a gentle indoor breathing."
+          "rationale": "Cloudy and cool \u2014 a gentle indoor focus."
         },
         {
           "rank": 3,
@@ -1179,9 +1179,9 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor focus."
         },
         {
           "rank": 3,
@@ -1208,9 +1208,9 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 4,
-          "rationale": "It's wet outside \u2014 a calming indoor breathing."
+          "rationale": "It's wet outside \u2014 a calming indoor focus."
         },
         {
           "rank": 3,
@@ -1237,9 +1237,9 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling focus."
         },
         {
           "rank": 3,
@@ -1266,9 +1266,9 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling focus."
         },
         {
           "rank": 3,
@@ -1295,9 +1295,9 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle focus."
         },
         {
           "rank": 3,
@@ -1324,9 +1324,9 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 4,
-          "rationale": "Chilly \u2014 warm up with a gentle breathing."
+          "rationale": "Chilly \u2014 warm up with a gentle focus."
         },
         {
           "rank": 3,
@@ -1353,7 +1353,7 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 3,
           "rationale": "Based on time of day."
         },
@@ -1382,7 +1382,7 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 3,
           "rationale": "Based on time of day."
         },
@@ -1411,13 +1411,13 @@
         },
         {
           "rank": 2,
-          "activity_id": "stretch_forward_fold_05",
+          "activity_id": "movement_outdoor_skip_08",
           "rule_score": 6,
-          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+          "rationale": "Clear skies \u2014 a refreshing movement fits."
         },
         {
           "rank": 3,
-          "activity_id": "stretch_sun_salutation_09",
+          "activity_id": "stretch_forward_fold_05",
           "rule_score": 6,
           "rationale": "Clear skies \u2014 a refreshing stretch fits."
         }
@@ -1440,13 +1440,13 @@
         },
         {
           "rank": 2,
-          "activity_id": "stretch_forward_fold_05",
+          "activity_id": "movement_outdoor_skip_08",
           "rule_score": 6,
-          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+          "rationale": "Clear skies \u2014 a refreshing movement fits."
         },
         {
           "rank": 3,
-          "activity_id": "stretch_sun_salutation_09",
+          "activity_id": "stretch_forward_fold_05",
           "rule_score": 6,
           "rationale": "Clear skies \u2014 a refreshing stretch fits."
         }
@@ -1469,13 +1469,13 @@
         },
         {
           "rank": 2,
-          "activity_id": "stretch_forward_fold_05",
+          "activity_id": "movement_outdoor_skip_08",
           "rule_score": 6,
-          "rationale": "Clear skies \u2014 a refreshing stretch fits."
+          "rationale": "Clear skies \u2014 a refreshing movement fits."
         },
         {
           "rank": 3,
-          "activity_id": "stretch_sun_salutation_09",
+          "activity_id": "stretch_forward_fold_05",
           "rule_score": 6,
           "rationale": "Clear skies \u2014 a refreshing stretch fits."
         }
@@ -1492,21 +1492,21 @@
       "recommendations": [
         {
           "rank": 1,
+          "activity_id": "rest_cold_eye_07",
+          "rule_score": 6,
+          "rationale": "Warm out \u2014 try a cooling rest."
+        },
+        {
+          "rank": 2,
           "activity_id": "breathing_box_4_4_01",
           "rule_score": 4,
           "rationale": "Warm out \u2014 try a cooling breathing."
         },
         {
-          "rank": 2,
-          "activity_id": "breathing_coherent_05",
-          "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
-        },
-        {
           "rank": 3,
-          "activity_id": "breathing_diaphragm_03",
+          "activity_id": "focus_creative_write_08",
           "rule_score": 4,
-          "rationale": "Warm out \u2014 try a cooling breathing."
+          "rationale": "Warm out \u2014 try a cooling focus."
         }
       ]
     },
@@ -1527,7 +1527,7 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 3,
           "rationale": "Based on time of day."
         },
@@ -1556,7 +1556,7 @@
         },
         {
           "rank": 2,
-          "activity_id": "breathing_sleep_prep_10",
+          "activity_id": "focus_night_read_09",
           "rule_score": 3,
           "rationale": "Based on time of day."
         },
