@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Luming</string>
+    <string name="app_name">luming</string>
 
     <!-- StreakRing -->
     <string name="streak_unit">days</string>
