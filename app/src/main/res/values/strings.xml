@@ -1,99 +1,100 @@
 <resources>
-    <string name="app_name">루밍</string>
+    <string name="app_name">Luming</string>
 
     <!-- StreakRing -->
-    <string name="streak_unit">일</string>
+    <string name="streak_unit">days</string>
 
     <!-- RationaleBanner -->
-    <string name="rationale_clear">맑은 날씨에 어울리는 활동이에요</string>
-    <string name="rationale_cloudy">흐린 날에도 할 수 있는 활동이에요</string>
-    <string name="rationale_rainy">실내에서 즐길 수 있는 활동이에요</string>
-    <string name="rationale_hot">더운 날엔 실내 활동이 좋아요</string>
-    <string name="rationale_cold">추운 날엔 몸을 따뜻하게 풀어보세요</string>
-    <string name="rationale_unknown">시간대에 맞는 활동이에요</string>
+    <string name="rationale_clear">A good activity for clear weather</string>
+    <string name="rationale_cloudy">An activity you can enjoy even on a cloudy day</string>
+    <string name="rationale_rainy">An activity you can enjoy indoors</string>
+    <string name="rationale_hot">Indoor activities feel better on a hot day</string>
+    <string name="rationale_cold">Warm yourself up on a cold day</string>
+    <string name="rationale_unknown">An activity that suits this time of day</string>
 
     <!-- CompletionOverlay -->
-    <string name="completion_title">완료!</string>
-    <string name="completion_message">오늘의 활동을 마쳤어요</string>
+    <string name="completion_title">Done!</string>
+    <string name="completion_message">You finished today\'s activity</string>
 
     <!-- ErrorCard -->
-    <string name="error_weather">날씨 정보를 가져올 수 없어요.</string>
-    <string name="action_retry">다시 시도</string>
+    <string name="error_weather">Couldn\'t load weather information.</string>
+    <string name="action_retry">Retry</string>
 
-    <!-- LocationPermissionBanner (위치 거부 비차단 배너, AC-24) -->
-    <string name="location_banner_title">위치 권한이 꺼져 있어요</string>
-    <string name="location_banner_subtitle">지금은 시간 기반으로 추천하고 있어요</string>
-    <string name="location_banner_action">설정</string>
+    <!-- LocationPermissionBanner (non-blocking banner for denied location, AC-24) -->
+    <string name="location_banner_title">Location access is off</string>
+    <string name="location_banner_subtitle">Recommendations are time-based for now</string>
+    <string name="location_banner_action">Settings</string>
 
-    <!-- SettingsScreen (홈 기어 진입, §2.5, AC-25/AC-26) -->
-    <string name="settings_title">설정</string>
-    <string name="settings_section_permission">권한</string>
-    <string name="settings_section_info">정보</string>
-    <string name="settings_row_location">위치</string>
-    <string name="settings_row_notification">알림</string>
-    <string name="settings_row_version">버전</string>
-    <string name="settings_permission_granted">허용됨</string>
-    <string name="settings_permission_denied">거부됨</string>
-    <string name="settings_permission_hint">토글을 누르면 시스템 설정으로 이동해 권한을 변경할 수 있어요.</string>
-    <string name="cd_settings">설정</string>
+    <!-- SettingsScreen (entered via home gear, §2.5, AC-25/AC-26) -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_permission">Permissions</string>
+    <string name="settings_section_info">Info</string>
+    <string name="settings_row_location">Location</string>
+    <string name="settings_row_notification">Notifications</string>
+    <string name="settings_row_version">Version</string>
+    <string name="settings_permission_granted">Granted</string>
+    <string name="settings_permission_denied">Denied</string>
+    <string name="settings_permission_hint">Tap a toggle to open system settings and change the permission.</string>
+    <string name="cd_settings">Settings</string>
 
     <!-- TimeSlotCompletedContent -->
-    <string name="slot_completed_morning">아침 활동 완료!</string>
-    <string name="slot_completed_afternoon">점심 활동 완료!</string>
-    <string name="slot_completed_evening">오늘 하루 활동 완료!</string>
-    <string name="slot_next_morning">점심엔 또 다른 활동이 기다려요</string>
-    <string name="slot_next_afternoon">저녁엔 또 다른 활동이 기다려요</string>
-    <string name="slot_next_evening">내일도 함께해요</string>
+    <string name="slot_completed_morning">Morning activity done!</string>
+    <string name="slot_completed_afternoon">Afternoon activity done!</string>
+    <string name="slot_completed_evening">All of today\'s activities done!</string>
+    <string name="slot_next_morning">Another activity awaits at midday</string>
+    <string name="slot_next_afternoon">Another activity awaits this evening</string>
+    <string name="slot_next_evening">See you again tomorrow</string>
 
-    <!-- RestPrompt (00~04시 휴식 안내) -->
-    <string name="rest_prompt_title">지금은 쉬어요</string>
-    <string name="rest_prompt_message">자정부터 아침까지는 충분히 쉬는 게 좋아요.\n아침 5시부터 오늘의 활동을 시작할 수 있어요.</string>
+    <!-- RestPrompt (00:00–04:00 rest guidance) -->
+    <string name="rest_prompt_title">Time to rest</string>
+    <string name="rest_prompt_message">From midnight until morning, it\'s best to rest well.\nYou can start today\'s activities from 5 AM.</string>
 
     <!-- FooterDisclaimer -->
-    <string name="footer_disclaimer">건강 정보 제공 목적이며, 의학적 조언이 아닙니다.</string>
+    <string name="footer_disclaimer">For wellness information only; not medical advice.</string>
 
     <!-- InstructionScreen -->
-    <string name="dialog_early_complete_title">아직 완료하지 않으셨나요?</string>
-    <string name="dialog_early_complete_message">아직 %d분 남았어요. 지금 완료할까요?</string>
-    <string name="dialog_abort_title">타이머가 진행 중이에요</string>
-    <string name="dialog_abort_message">지금 나가면 이 활동은 기록되지 않아요.</string>
-    <string name="action_abort">그만두기</string>
-    <string name="cd_back">뒤로</string>
-    <string name="cd_timer_start">타이머 시작</string>
-    <string name="cd_elapsed_time">경과 시간 %1$s, 전체 %2$d분</string>
-    <string name="duration_min">%d분</string>
+    <string name="dialog_early_complete_title">Haven\'t finished yet?</string>
+    <string name="dialog_early_complete_message">%d min still left. Finish now?</string>
+    <string name="dialog_abort_title">A timer is running</string>
+    <string name="dialog_abort_message">If you leave now, this activity won\'t be recorded.</string>
+    <string name="action_abort">Stop</string>
+    <string name="cd_back">Back</string>
+    <string name="cd_timer_start">Start timer</string>
+    <string name="cd_elapsed_time">Elapsed %1$s of %2$d min</string>
+    <string name="duration_min">%d min</string>
+    <string name="step_indicator">Step %1$d of %2$d</string>
 
     <!-- Common actions -->
-    <string name="action_complete">완료</string>
-    <string name="action_continue">계속하기</string>
-    <string name="action_start">시작</string>
-    <string name="action_previous">이전</string>
-    <string name="action_next">다음</string>
+    <string name="action_complete">Done</string>
+    <string name="action_continue">Continue</string>
+    <string name="action_start">Start</string>
+    <string name="action_previous">Previous</string>
+    <string name="action_next">Next</string>
 
     <!-- Recommendation rationale (data layer, %s = category name) -->
-    <string name="recommendation_rationale_unknown">현재 시간대에 맞는 활동이에요.</string>
-    <string name="recommendation_rationale_clear">맑은 날씨에 어울리는 %s 활동이에요.</string>
-    <string name="recommendation_rationale_rainy">비 오는 날엔 실내 %s 활동이 좋아요.</string>
-    <string name="recommendation_rationale_hot">더운 날엔 시원하게 즐기는 %s 활동이에요.</string>
-    <string name="recommendation_rationale_cold">쌀쌀한 날엔 몸을 풀어주는 %s 활동이에요.</string>
-    <string name="recommendation_rationale_cloudy">흐린 날엔 실내 %s 활동이 좋아요.</string>
+    <string name="recommendation_rationale_unknown">An activity that suits this time of day.</string>
+    <string name="recommendation_rationale_clear">A %s activity that suits clear weather.</string>
+    <string name="recommendation_rationale_rainy">A nice indoor %s activity for a rainy day.</string>
+    <string name="recommendation_rationale_hot">A refreshing %s activity for a hot day.</string>
+    <string name="recommendation_rationale_cold">A %s activity to warm up on a chilly day.</string>
+    <string name="recommendation_rationale_cloudy">A nice indoor %s activity for a cloudy day.</string>
 
     <!-- Notification -->
-    <string name="notification_channel_name">일일 활동 알림</string>
-    <string name="notification_channel_desc">아침·점심·저녁 활동 알림</string>
-    <string name="notification_morning_title">좋은 아침이에요</string>
-    <string name="notification_morning_body">오늘 아침 활동을 시작해 보세요</string>
-    <string name="notification_afternoon_title">점심 시간이에요</string>
-    <string name="notification_afternoon_body">잠깐 스트레칭 어때요?</string>
-    <string name="notification_evening_title">저녁 시간이에요</string>
-    <string name="notification_evening_body">하루를 마무리하는 활동을 해보세요</string>
+    <string name="notification_channel_name">Daily activity reminders</string>
+    <string name="notification_channel_desc">Morning, afternoon, and evening activity reminders</string>
+    <string name="notification_morning_title">Good morning</string>
+    <string name="notification_morning_body">Try starting your morning activity today</string>
+    <string name="notification_afternoon_title">It\'s midday</string>
+    <string name="notification_afternoon_body">How about a quick stretch?</string>
+    <string name="notification_evening_title">It\'s evening</string>
+    <string name="notification_evening_body">Try an activity to wind down your day</string>
 
     <!-- Category display names -->
-    <string name="category_breathing">호흡</string>
-    <string name="category_stretch">스트레칭</string>
-    <string name="category_meditation">명상</string>
-    <string name="category_walk">걷기</string>
-    <string name="category_focus">집중</string>
-    <string name="category_movement">움직임</string>
-    <string name="category_rest">휴식</string>
+    <string name="category_breathing">Breathing</string>
+    <string name="category_stretch">Stretching</string>
+    <string name="category_meditation">Meditation</string>
+    <string name="category_walk">Walking</string>
+    <string name="category_focus">Focus</string>
+    <string name="category_movement">Movement</string>
+    <string name="category_rest">Rest</string>
 </resources>

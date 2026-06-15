@@ -1,0 +1,2008 @@
+{
+  "version": "1",
+  "activities": [
+    {
+      "id": "stretch_neck_roll_01",
+      "name": "Neck Rolls",
+      "category": "stretch",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit on a chair or the floor with your back straight and shoulders relaxed."
+        },
+        {
+          "order": 2,
+          "text": "Tilt your right ear toward your right shoulder and take 5 slow breaths. Feel the stretch along the left side of your neck."
+        },
+        {
+          "order": 3,
+          "text": "Drop your chin to your chest for 3 breaths, then roll to your left shoulder for 5 breaths."
+        },
+        {
+          "order": 4,
+          "text": "Return to center and gently roll in a half-circle from shoulder to shoulder, 3 times in each direction."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "stretch_shoulder_open_02",
+      "name": "Shoulder Opener",
+      "category": "stretch",
+      "duration_min": 8,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Stand or sit tall, interlace your fingers behind your back, and straighten your arms."
+        },
+        {
+          "order": 2,
+          "text": "Draw your shoulder blades together and lift your hands away from your back for 5 breaths."
+        },
+        {
+          "order": 3,
+          "text": "Bring your right arm across your chest and gently pull it with your left hand for 5 breaths."
+        },
+        {
+          "order": 4,
+          "text": "Repeat on the other side for 5 breaths. Run through the whole sequence 2 more times."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "stretch_spine_twist_03",
+      "name": "Seated Spinal Twist",
+      "category": "stretch",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit on the floor with your legs extended, then bend your right knee and place that foot outside your left thigh."
+        },
+        {
+          "order": 2,
+          "text": "Inhale to sit tall; exhale and twist your torso to the right, hooking your left elbow outside your right knee."
+        },
+        {
+          "order": 3,
+          "text": "Place your right hand on the floor behind you and take 6 breaths. Lengthen your spine on each inhale."
+        },
+        {
+          "order": 4,
+          "text": "Release, return to center, and repeat on the other side. Do 2 rounds on each side."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "stretch_hip_flexor_04",
+      "name": "Hip Flexor Release",
+      "category": "stretch",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Kneel on your right knee and step your left foot forward into a low lunge, resting both hands on your left knee."
+        },
+        {
+          "order": 2,
+          "text": "Keep your torso upright and gently press your pelvis forward, feeling a stretch along the front of your right hip."
+        },
+        {
+          "order": 3,
+          "text": "Take 6 breaths. With each exhale, ease your pelvis a little lower without forcing it."
+        },
+        {
+          "order": 4,
+          "text": "Release and repeat on the other side. Do 2 rounds per side."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "stretch_forward_fold_05",
+      "name": "Standing Forward Fold",
+      "category": "stretch",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Stand with your feet hip-width apart and inhale to lengthen your spine."
+        },
+        {
+          "order": 2,
+          "text": "Exhale and hinge at your hips to fold forward. Let your head and arms hang, and bend your knees slightly if needed."
+        },
+        {
+          "order": 3,
+          "text": "Take 8 breaths. With each exhale, release the tension in the backs of your legs and your lower back."
+        },
+        {
+          "order": 4,
+          "text": "To rise, bend your knees and place your hands on your thighs, stacking your spine one vertebra at a time."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "indoor",
+        "outdoor",
+        "clear"
+      ]
+    },
+    {
+      "id": "stretch_cat_cow_06",
+      "name": "Cat-Cow Pose",
+      "category": "stretch",
+      "duration_min": 8,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Start on all fours with wrists under shoulders and knees under hips. Keep your spine neutral."
+        },
+        {
+          "order": 2,
+          "text": "Inhale and drop your belly toward the floor, lifting your tailbone and chest (Cow Pose). Gaze gently forward."
+        },
+        {
+          "order": 3,
+          "text": "Exhale and round your spine toward the ceiling, tucking your chin and tailbone (Cat Pose). Press the floor away with your hands."
+        },
+        {
+          "order": 4,
+          "text": "Flow between Cow on the inhale and Cat on the exhale for 10 breaths. Let your breath lead the movement."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "stretch_chest_opener_07",
+      "name": "Chest Opener",
+      "category": "stretch",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Stand beside a doorway or wall, place your right forearm on the frame, and keep your elbow at shoulder height."
+        },
+        {
+          "order": 2,
+          "text": "Slowly turn your body to the left and feel the stretch across your right chest and shoulder."
+        },
+        {
+          "order": 3,
+          "text": "Take 5 breaths, then switch arms and repeat on the other side."
+        },
+        {
+          "order": 4,
+          "text": "For a deeper stretch, raise your elbow slightly above shoulder height and turn again. Do 2 rounds per side."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "stretch_hamstring_release_08",
+      "name": "Hamstring Release",
+      "category": "stretch",
+      "duration_min": 12,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Lie on your back with both knees bent and feet flat on the floor."
+        },
+        {
+          "order": 2,
+          "text": "Lift your right leg, hold the back of your thigh, and straighten your knee as far as is comfortable. Flex your toes toward you."
+        },
+        {
+          "order": 3,
+          "text": "Take 8 breaths, gently releasing the hamstring. Don't force the pull; let the breath do the lengthening."
+        },
+        {
+          "order": 4,
+          "text": "Lower it and repeat on the other side, 2 rounds per leg. To finish, hug both knees to your chest for 5 breaths."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "stretch_sun_salutation_09",
+      "name": "Gentle Sun Salutation",
+      "category": "stretch",
+      "duration_min": 15,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Stand tall at the front of your mat with palms together at your chest. Take 3 deep breaths to settle in."
+        },
+        {
+          "order": 2,
+          "text": "Inhale and sweep your arms overhead; exhale and hinge at your hips to fold forward. Inhale to lift your spine halfway."
+        },
+        {
+          "order": 3,
+          "text": "Exhale and step back to plank or lower to the floor. Inhale and gently lift your chest (Cobra)."
+        },
+        {
+          "order": 4,
+          "text": "Exhale to Downward Dog and take 5 breaths. Step your feet toward your hands, fold, then inhale to rise. Repeat 4 times."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "indoor",
+        "outdoor",
+        "clear"
+      ]
+    },
+    {
+      "id": "stretch_wrist_desk_10",
+      "name": "Wrist & Desk Relief",
+      "category": "stretch",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Extend your right arm forward with the palm up, and use your left hand to gently pull the fingers toward the floor."
+        },
+        {
+          "order": 2,
+          "text": "Take 5 breaths, then flip your palm down and pull the fingers up. Take 5 breaths."
+        },
+        {
+          "order": 3,
+          "text": "Switch to your left arm and repeat in both directions."
+        },
+        {
+          "order": 4,
+          "text": "Shake out both wrists, then finish by slowly rolling your fists 5 times in each direction."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "meditation_breath_count_01",
+      "name": "Breath Counting Meditation",
+      "category": "meditation",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit comfortably with your spine upright. Close your eyes or soften your gaze downward, and rest your hands on your thighs."
+        },
+        {
+          "order": 2,
+          "text": "Breathe naturally. On each exhale, silently count one, two, three… up to ten, then start again at one."
+        },
+        {
+          "order": 3,
+          "text": "If your mind wanders and you lose the count, return to one without judgment. The noticing is the practice."
+        },
+        {
+          "order": 4,
+          "text": "Continue to the end. To finish, take one deep inhale and a long exhale, then slowly open your eyes."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "indoor"
+      ]
+    },
+    {
+      "id": "meditation_body_scan_02",
+      "name": "Body Scan Meditation",
+      "category": "meditation",
+      "duration_min": 15,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Lie on your back or sit comfortably. Close your eyes and take 3 slow breaths to settle in."
+        },
+        {
+          "order": 2,
+          "text": "Bring your attention to the crown of your head. Simply observe whatever is there—warmth, tingling, or nothing at all."
+        },
+        {
+          "order": 3,
+          "text": "Slowly move your attention downward: face, jaw, neck, shoulders, arms, hands, chest, belly, hips, legs, feet."
+        },
+        {
+          "order": 4,
+          "text": "Take 2–3 breaths at each area as you observe. Where you find tension, breathe into it and release on the exhale."
+        },
+        {
+          "order": 5,
+          "text": "To finish, feel your whole body at once for 5 breaths. Breathe deeply, wiggle your hands and feet, then return."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "night",
+        "indoor"
+      ]
+    },
+    {
+      "id": "meditation_loving_kindness_03",
+      "name": "Loving-Kindness Meditation",
+      "category": "meditation",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit comfortably, close your eyes, and take 3 breaths. If it feels natural, rest one hand on your chest."
+        },
+        {
+          "order": 2,
+          "text": "Silently repeat, slowly: 'May I be happy. May I be healthy. May I be at peace.' Feel the meaning of each phrase."
+        },
+        {
+          "order": 3,
+          "text": "Picture someone you care about and send them the same wishes: 'May you be happy. May you be healthy. May you be at peace.'"
+        },
+        {
+          "order": 4,
+          "text": "Widen it to the people around you, and finally to all beings. Spend the last 2 minutes with a warm, open heart."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "indoor"
+      ]
+    },
+    {
+      "id": "meditation_mindful_walk_04",
+      "name": "Walking Meditation",
+      "category": "meditation",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Find a quiet path or open space. Pause, feel the ground beneath your feet, and take 3 deep breaths."
+        },
+        {
+          "order": 2,
+          "text": "Begin walking slowly and deliberately. Feel each foot lift, move through the air, and set down."
+        },
+        {
+          "order": 3,
+          "text": "Widen your awareness to sounds, smells, and the air on your skin. Don't chase your thoughts—let them arise and pass."
+        },
+        {
+          "order": 4,
+          "text": "When your mind wanders, gently return to the feeling of your feet meeting the ground. Continue to the end."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "outdoor",
+        "clear"
+      ]
+    },
+    {
+      "id": "meditation_visualization_05",
+      "name": "Guided Imagery Meditation",
+      "category": "meditation",
+      "duration_min": 15,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit or lie comfortably. Close your eyes and take 5 slow, deep breaths to fully relax your body."
+        },
+        {
+          "order": 2,
+          "text": "Picture a peaceful place—a forest, a beach, a quiet garden. Imagine its colors, textures, sounds, and scents in detail."
+        },
+        {
+          "order": 3,
+          "text": "Wander through it in your mind. Notice how safe and calm it feels, and let that peace seep into your body."
+        },
+        {
+          "order": 4,
+          "text": "Stay in that space for the remaining time. When you're ready, take 3 deep breaths and slowly return to the room."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "meditation_gratitude_06",
+      "name": "Gratitude Reflection",
+      "category": "meditation",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit quietly. Close your eyes and take 3 slow breaths to arrive in this moment."
+        },
+        {
+          "order": 2,
+          "text": "Bring to mind one thing you're truly grateful for today. It can be small—a cup of coffee, a kind word, morning sunlight."
+        },
+        {
+          "order": 3,
+          "text": "On each inhale, let that gratitude spread through your chest. Stay with that one thing for 5 breaths."
+        },
+        {
+          "order": 4,
+          "text": "Bring to mind two more things, taking 3 breaths with each. Open your eyes with one long, grateful exhale."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "meditation_rain_focus_07",
+      "name": "Rain Sound Focus Meditation",
+      "category": "meditation",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit by a window where you can hear the rain. Close your eyes and let the sound fill your mind."
+        },
+        {
+          "order": 2,
+          "text": "Notice the rhythm and texture of the rain—heavy drops, fine drizzle, distant thunder. Just listen, without judgment."
+        },
+        {
+          "order": 3,
+          "text": "When thoughts arise, use the rain as your anchor. Each time you notice a thought, return to the sound."
+        },
+        {
+          "order": 4,
+          "text": "For the last 2 minutes, breathe with the rain. Inhale as it grows louder, exhale as it softens."
+        }
+      ],
+      "context_tags": [
+        "rainy",
+        "indoor"
+      ]
+    },
+    {
+      "id": "meditation_open_awareness_08",
+      "name": "Open Awareness Meditation",
+      "category": "meditation",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit comfortably. Close your eyes and take 3 breaths to settle in. Let your body be still but not stiff."
+        },
+        {
+          "order": 2,
+          "text": "Instead of focusing on one thing, open your awareness to everything—sounds, sensations, thoughts, and emotions."
+        },
+        {
+          "order": 3,
+          "text": "Watch experiences arise and dissolve like clouds passing through a clear sky. You are the sky, not the clouds."
+        },
+        {
+          "order": 4,
+          "text": "When a thought pulls you along, don't follow it—just notice the pull itself. Rest in that wide awareness to the end."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "meditation_wind_down_09",
+      "name": "Evening Wind-Down Meditation",
+      "category": "meditation",
+      "duration_min": 15,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Lie or sit in a comfortable position. Lower the lights if you can, close your eyes, and breathe naturally."
+        },
+        {
+          "order": 2,
+          "text": "Recall your day from morning until now. Without judging, simply let the events drift by."
+        },
+        {
+          "order": 3,
+          "text": "Notice one thing that went well today, no matter how small. Feel it for 3 breaths."
+        },
+        {
+          "order": 4,
+          "text": "Set a light intention for tomorrow, then let it go. Spend the last 5 minutes breathing slowly and releasing the day."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "night",
+        "indoor"
+      ]
+    },
+    {
+      "id": "meditation_cold_stillness_10",
+      "name": "Cold-Day Stillness Meditation",
+      "category": "meditation",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Find a warm, comfortable spot; a blanket is welcome. Close your eyes and feel the warmth within and the chill outside."
+        },
+        {
+          "order": 2,
+          "text": "Breathe slowly and deeply. On the inhale, feel warmth spread through your body; on the exhale, feel tension melt away."
+        },
+        {
+          "order": 3,
+          "text": "Picture a quiet winter landscape—still, clean, and calm. Let that stillness settle inside you."
+        },
+        {
+          "order": 4,
+          "text": "Rest in that warm stillness for the remaining time. Let your thoughts slow like ice over calm water. Don't rush."
+        }
+      ],
+      "context_tags": [
+        "cold",
+        "indoor"
+      ]
+    },
+    {
+      "id": "breathing_box_4_4_01",
+      "name": "Box Breathing",
+      "category": "breathing",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit tall. Exhale completely through your mouth to empty your lungs."
+        },
+        {
+          "order": 2,
+          "text": "Inhale through your nose for 4 seconds, hold for 4, exhale through your nose for 4, and hold for 4."
+        },
+        {
+          "order": 3,
+          "text": "That's one cycle. Repeat to the end, keeping each count even and unhurried."
+        },
+        {
+          "order": 4,
+          "text": "If 4 seconds feels too long or short, try 3 or 5. The key is keeping all four counts equal."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "breathing_4_7_8_02",
+      "name": "4-7-8 Relaxing Breath",
+      "category": "breathing",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit or lie comfortably. Rest the tip of your tongue against the ridge behind your upper teeth and keep it there throughout."
+        },
+        {
+          "order": 2,
+          "text": "Exhale completely through your mouth with a soft 'whoosh' sound."
+        },
+        {
+          "order": 3,
+          "text": "Close your mouth and inhale through your nose for 4 seconds. Hold for 7, then exhale through your mouth for 8."
+        },
+        {
+          "order": 4,
+          "text": "Start with 4 cycles. As it becomes familiar, build up to 8. It's great for calming the nervous system."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "night",
+        "indoor"
+      ]
+    },
+    {
+      "id": "breathing_diaphragm_03",
+      "name": "Diaphragmatic Breathing",
+      "category": "breathing",
+      "duration_min": 8,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Lie on your back or sit comfortably. Place one hand on your chest and one on your belly."
+        },
+        {
+          "order": 2,
+          "text": "Inhale slowly through your nose. The hand on your belly should rise, while the one on your chest barely moves."
+        },
+        {
+          "order": 3,
+          "text": "Purse your lips and exhale slowly. Feel your belly fall, and make the exhale a little longer than the inhale."
+        },
+        {
+          "order": 4,
+          "text": "Continue to the end. If your chest rises more than your belly, consciously guide the breath down into your lower belly."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "breathing_alternate_nostril_04",
+      "name": "Alternate Nostril Breathing",
+      "category": "breathing",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit tall. Raise your right hand and rest your index and middle fingers on your forehead between the eyebrows."
+        },
+        {
+          "order": 2,
+          "text": "Close your right nostril with your thumb and inhale through your left nostril for 4 seconds."
+        },
+        {
+          "order": 3,
+          "text": "Close both nostrils and hold for 2 seconds. Close your left nostril with your ring finger and exhale right for 4 seconds."
+        },
+        {
+          "order": 4,
+          "text": "Inhale right for 4 seconds, hold for 2, then exhale left for 4. That's one cycle. Continue for 8 cycles."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "indoor"
+      ]
+    },
+    {
+      "id": "breathing_coherent_05",
+      "name": "Coherent Breathing",
+      "category": "breathing",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit or lie comfortably. Breathe naturally and simply observe your breath without changing it."
+        },
+        {
+          "order": 2,
+          "text": "Slow down to about 5 breaths per minute: inhale for 6 seconds and exhale for 6, with no pause between."
+        },
+        {
+          "order": 3,
+          "text": "Keep your breath soft, smooth, and easy. Don't force it—if 6 seconds is too long, start with 4."
+        },
+        {
+          "order": 4,
+          "text": "Hold this rhythm to the end. Feel your nervous system settle as calm and balance grow."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "breathing_energizing_06",
+      "name": "Energizing Kapalabhati Breath",
+      "category": "breathing",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit tall with your spine straight. Take 2 normal breaths to settle in."
+        },
+        {
+          "order": 2,
+          "text": "Exhale sharply and quickly through your nose, about once per second. Let each inhale happen passively on its own."
+        },
+        {
+          "order": 3,
+          "text": "Focus on your lower belly pumping inward with each exhale. After 20 reps, take one natural breath."
+        },
+        {
+          "order": 4,
+          "text": "Do 3 sets of 20. To finish, inhale deeply, hold for 5 seconds, then exhale slowly. Skip this if pregnant or dizzy."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "indoor"
+      ]
+    },
+    {
+      "id": "breathing_humming_bee_07",
+      "name": "Humming Bee Breath",
+      "category": "breathing",
+      "duration_min": 8,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit quietly in a comfortable position. Close your eyes and take 2 natural breaths."
+        },
+        {
+          "order": 2,
+          "text": "Cover your ears with your thumbs and rest your other fingers lightly over your eyes. Keep your mouth closed."
+        },
+        {
+          "order": 3,
+          "text": "Inhale through your nose. On the exhale, make a soft 'mmm' humming sound like a bee, lips closed."
+        },
+        {
+          "order": 4,
+          "text": "Feel the vibration in your head and chest. Repeat 8 times, then sit in silence for 1 minute, feeling the aftereffect."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "breathing_cooling_08",
+      "name": "Cooling Sitali Breath",
+      "category": "breathing",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit comfortably. Try curling your tongue like a straw. If you can't, part your lips slightly instead."
+        },
+        {
+          "order": 2,
+          "text": "Inhale slowly through your rolled tongue or slightly parted lips. Feel the cool air pass over your tongue and into your throat."
+        },
+        {
+          "order": 3,
+          "text": "Close your mouth and exhale slowly through your nose. That's one cycle."
+        },
+        {
+          "order": 4,
+          "text": "Repeat for 10 cycles. Feel the coolness spread through your mouth and body. Great on a hot day or after exercise."
+        }
+      ],
+      "context_tags": [
+        "hot",
+        "indoor",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "breathing_warming_09",
+      "name": "Warming Fire Breath",
+      "category": "breathing",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit cross-legged or in a chair. Lengthen your spine and relax your shoulders."
+        },
+        {
+          "order": 2,
+          "text": "Inhale slowly and deeply through your nose to fill your lungs. Feel warmth build in your chest and belly."
+        },
+        {
+          "order": 3,
+          "text": "Exhale through your nose in a steady, controlled stream. Make the exhale a little longer than the inhale."
+        },
+        {
+          "order": 4,
+          "text": "With each breath, imagine warmth spreading from your center to your limbs. After 12 cycles, rest with normal breathing."
+        }
+      ],
+      "context_tags": [
+        "cold",
+        "indoor"
+      ]
+    },
+    {
+      "id": "breathing_sleep_prep_10",
+      "name": "Sleep-Prep Breathing",
+      "category": "breathing",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Lie on your back in bed or on a mat. Rest your arms at your sides with palms up, and close your eyes."
+        },
+        {
+          "order": 2,
+          "text": "Take 5 natural breaths. Feel the weight of your body sink into the surface beneath you."
+        },
+        {
+          "order": 3,
+          "text": "Slowly lengthen your exhale: inhale for 4 seconds, exhale for 8. Let your body grow heavier with each exhale."
+        },
+        {
+          "order": 4,
+          "text": "Continue to the end. If your mind is busy, count from 10 down to 1 on each exhale and repeat. Fully release the day."
+        }
+      ],
+      "context_tags": [
+        "night",
+        "indoor"
+      ]
+    },
+    {
+      "id": "walk_sunrise_01",
+      "name": "Morning Sunrise Walk",
+      "category": "walk",
+      "duration_min": 15,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Step outside and pause. Look toward the horizon, take 3 deep breaths of fresh morning air, and feel the light."
+        },
+        {
+          "order": 2,
+          "text": "Begin walking at an easy, relaxed pace. Let your arms swing naturally and keep your shoulders away from your ears."
+        },
+        {
+          "order": 3,
+          "text": "After 5 minutes, stop and look around. Find one color, sound, or scent you hadn't noticed before."
+        },
+        {
+          "order": 4,
+          "text": "For the rest of the time, alternate between focusing on your steps and savoring the morning scenery."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "clear",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "walk_brisk_morning_02",
+      "name": "Brisk Morning Walk",
+      "category": "walk",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Walk at your normal pace for 2 minutes to loosen your joints and wake up your circulation."
+        },
+        {
+          "order": 2,
+          "text": "Pick up the pace to a brisk walk—fast enough to raise your heart rate but still able to speak in short sentences."
+        },
+        {
+          "order": 3,
+          "text": "Swing your arms with energy and lengthen your stride. Keep your gaze forward and your core lightly engaged."
+        },
+        {
+          "order": 4,
+          "text": "Slow to an easy pace for the last 2 minutes to settle your breath, then head back inside."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "clear",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "walk_neighborhood_03",
+      "name": "Around the Neighborhood",
+      "category": "walk",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Choose a familiar or new route. Keep your phone in your pocket and start at a comfortable pace."
+        },
+        {
+          "order": 2,
+          "text": "As you walk, notice 5 things you see, 3 things you hear, and 1 thing you smell. Let your senses lead."
+        },
+        {
+          "order": 3,
+          "text": "When the day's thoughts come up, gently acknowledge them and turn your attention back to your surroundings."
+        },
+        {
+          "order": 4,
+          "text": "Finish your loop and take one slow, grateful breath at your starting point before heading inside."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "clear",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "walk_gratitude_04",
+      "name": "Gratitude Walk",
+      "category": "walk",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Start walking at a comfortable pace. Lightly set an intention to notice one thing to be grateful for with each step."
+        },
+        {
+          "order": 2,
+          "text": "Start with small things: the warmth of the sun, the feel of your feet on the ground, the fact that your body can move."
+        },
+        {
+          "order": 3,
+          "text": "Use new sights and sensations as cues. Find something to appreciate in a tree, a sound, or a passing cloud."
+        },
+        {
+          "order": 4,
+          "text": "At the end, let the accumulated gratitude settle in your chest. Carry that feeling inside with you."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "afternoon",
+        "clear",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "walk_nature_mindful_05",
+      "name": "Mindful Nature Walk",
+      "category": "walk",
+      "duration_min": 15,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Find a green route, like a park or tree-lined street, and begin walking slowly."
+        },
+        {
+          "order": 2,
+          "text": "For the first 5 minutes, focus only on what you hear—birdsong, wind, distant sounds. Let them come and go without chasing them."
+        },
+        {
+          "order": 3,
+          "text": "For the next 5 minutes, shift to what you see: shapes, colors, the movement of leaves and shadows."
+        },
+        {
+          "order": 4,
+          "text": "For the last 5 minutes, open all your senses. Walk with a soft gaze and take in your surroundings without judgment."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "clear",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "walk_evening_06",
+      "name": "Evening Unwind Walk",
+      "category": "walk",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Step outside as the day winds down. Walk slowly and deliberately—for release, not exercise."
+        },
+        {
+          "order": 2,
+          "text": "With each exhale, let go of one piece of the day's tension. Release a worry, a task, or a conversation with your breath."
+        },
+        {
+          "order": 3,
+          "text": "Notice how the evening light, temperature, and sounds differ from the day. Take it as a signal to slow down."
+        },
+        {
+          "order": 4,
+          "text": "Walk even more slowly for the last 2 minutes. Arrive home feeling like you've left the day behind."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "clear",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "walk_sunset_07",
+      "name": "Sunset Walk",
+      "category": "walk",
+      "duration_min": 15,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Head outside as the sky begins to change color. Find an open spot if you can."
+        },
+        {
+          "order": 2,
+          "text": "Walk toward the light. Move slowly and reflectively, matching the unhurried rhythm of the setting sun."
+        },
+        {
+          "order": 3,
+          "text": "At the halfway point, stop and watch the sky for 1 minute. Simply observe the colors and light shifting."
+        },
+        {
+          "order": 4,
+          "text": "Walk back in silence. Let the changing sky mark your transition from an active day to a quiet evening."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "clear",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "walk_indoor_corridor_08",
+      "name": "Indoor Corridor Walk",
+      "category": "walk",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Find a hallway or open room where you can take 5–6 steps. Take off your shoes if you can."
+        },
+        {
+          "order": 2,
+          "text": "Walk mindfully from one end to the other. At each end, pause, turn slowly, and walk back."
+        },
+        {
+          "order": 3,
+          "text": "On each pass, focus on one sensation: the feel of your soles, the rhythm of your breath, the light swing of your arms."
+        },
+        {
+          "order": 4,
+          "text": "Continue to the end, changing your point of focus each time. Treat the repeated movement as meditation, not boredom."
+        }
+      ],
+      "context_tags": [
+        "rainy",
+        "cold",
+        "indoor"
+      ]
+    },
+    {
+      "id": "walk_indoor_paced_09",
+      "name": "Indoor Paced Walk",
+      "category": "walk",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Make a path in an open space like a hallway or living room. Stand tall and take 3 deep breaths to begin."
+        },
+        {
+          "order": 2,
+          "text": "Walk at a moderate pace, swinging your arms and landing heel-first. Settle into a comfortable, sustainable rhythm."
+        },
+        {
+          "order": 3,
+          "text": "Change your pace every 2 minutes—once slow, then fast. Notice how your energy shifts."
+        },
+        {
+          "order": 4,
+          "text": "Slow to a gentle stroll for the last minute. Stop and feel the warmth and circulation in your legs to finish."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "walk_post_meal_10",
+      "name": "Light Post-Meal Walk",
+      "category": "walk",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Wait about 10 minutes after eating before you start. Begin walking at a comfortable, unhurried pace."
+        },
+        {
+          "order": 2,
+          "text": "Keep good posture and breathe deeply through your nose. Avoid slouching, which hinders digestion."
+        },
+        {
+          "order": 3,
+          "text": "Keep your mind light. This isn't exercise—it's helping your body. Notice how it feels as you move."
+        },
+        {
+          "order": 4,
+          "text": "After 8 minutes, slow down to prepare to head back. Notice whether you feel lighter and more comfortable than when you started."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "evening",
+        "clear",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "focus_morning_reading_01",
+      "name": "Morning Reading Ritual",
+      "category": "focus",
+      "duration_min": 20,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Before looking at screens or notifications, choose a book or article you genuinely want to read. A warm drink is welcome."
+        },
+        {
+          "order": 2,
+          "text": "Sit in a comfortable, well-lit spot. Sitting upright rather than slouching helps you focus."
+        },
+        {
+          "order": 3,
+          "text": "Read slowly and savor it. Pause at the end of a paragraph or page to let it sink in before continuing."
+        },
+        {
+          "order": 4,
+          "text": "If a task or worry comes up, jot it on a small slip of paper and return to your page."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "indoor"
+      ]
+    },
+    {
+      "id": "focus_journal_morning_02",
+      "name": "Morning Intention Journal",
+      "category": "focus",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Open your notebook and write today's date and three words for how you feel right now. No explanation needed."
+        },
+        {
+          "order": 2,
+          "text": "Write one sentence: 'The thing I most want to do today is…' Don't overthink it—complete it honestly."
+        },
+        {
+          "order": 3,
+          "text": "Note one obstacle that could block that intention, and one small, concrete action to move toward it anyway."
+        },
+        {
+          "order": 4,
+          "text": "Close the notebook. The act of writing alone helps the intention take root in your day, even when you're not thinking about it."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "indoor"
+      ]
+    },
+    {
+      "id": "focus_digital_detox_03",
+      "name": "Digital Detox Reading",
+      "category": "focus",
+      "duration_min": 20,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Put your phone in another room or on airplane mode. Closing all tabs and notifications makes it easier."
+        },
+        {
+          "order": 2,
+          "text": "Choose analog reading like a paper book. An e-reader in airplane mode is fine too—avoid multipurpose devices."
+        },
+        {
+          "order": 3,
+          "text": "Read without interruption for 15 minutes. When the urge to check your phone arises, notice it instead of acting. It usually passes in 60 seconds."
+        },
+        {
+          "order": 4,
+          "text": "For the last 5 minutes, recall one thing you read. Jot it down in a sentence or simply sit with the thought."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "focus_rainy_book_04",
+      "name": "Rainy Day Book Time",
+      "category": "focus",
+      "duration_min": 20,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Let the sound of rain set the mood. Find your coziest spot—a chair by the window or a blanket-covered couch."
+        },
+        {
+          "order": 2,
+          "text": "Choose something you truly want to read, not something you should. Reading for pleasure is more than enough."
+        },
+        {
+          "order": 3,
+          "text": "Read with no goal or page count. Turn the page when you feel like it, and reread passages that move you."
+        },
+        {
+          "order": 4,
+          "text": "When you're done, mark your place, savor that quiet, unhurried feeling for a moment, then return to your day."
+        }
+      ],
+      "context_tags": [
+        "rainy",
+        "indoor"
+      ]
+    },
+    {
+      "id": "focus_evening_journal_05",
+      "name": "Evening Reflection Journal",
+      "category": "focus",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "As an active day winds down, open your journal and write the date. Take one slow breath before you begin."
+        },
+        {
+          "order": 2,
+          "text": "Write one thing you want to remember from today. It can be small—a conversation, a feeling, a beautiful moment."
+        },
+        {
+          "order": 3,
+          "text": "Note one thing that drained your energy today and one thing that restored it."
+        },
+        {
+          "order": 4,
+          "text": "Finish with one sentence about tomorrow—not a to-do, but an intention or something you look forward to. Then close the journal."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "focus_gratitude_write_06",
+      "name": "Gratitude Journal",
+      "category": "focus",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Open a fresh page. Before you pick up your pen, take 3 slow breaths to arrive in this moment."
+        },
+        {
+          "order": 2,
+          "text": "Write three things you're truly grateful for today. They can be specific ('the coffee was perfect') or broad ('my health')."
+        },
+        {
+          "order": 3,
+          "text": "For each, write one sentence on why it matters. This deepens gratitude beyond a simple list."
+        },
+        {
+          "order": 4,
+          "text": "Reread what you wrote. Notice if your mood shifted as you wrote, and carry that feeling into your next moments."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "focus_deep_read_07",
+      "name": "Deep Focus Reading",
+      "category": "focus",
+      "duration_min": 20,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Choose something challenging and rich—nonfiction, an essay, or a complex novel. Set a timer so you won't watch the clock."
+        },
+        {
+          "order": 2,
+          "text": "Read the first section slowly, marking unfamiliar concepts or questions. Don't stop to look them up—just mark them and continue."
+        },
+        {
+          "order": 3,
+          "text": "At the halfway point, pause and summarize what you've read in one sentence. Saying or writing it cements your understanding."
+        },
+        {
+          "order": 4,
+          "text": "Read to the end. Revisit a question you marked and answer one from memory or context, then close the book."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "focus_creative_write_08",
+      "name": "Free Writing",
+      "category": "focus",
+      "duration_min": 15,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Open a blank page and set a 15-minute timer. There's one rule: don't stop until the timer ends."
+        },
+        {
+          "order": 2,
+          "text": "Start with any prompt: 'I remember…', 'Outside the window…', 'I've always wanted to say…'. Write without editing."
+        },
+        {
+          "order": 3,
+          "text": "If you get stuck, write 'I don't know what to write' until something else comes. It always does."
+        },
+        {
+          "order": 4,
+          "text": "When the timer rings, stop even mid-sentence. Read it once without judgment and notice anything that surprises you."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "focus_night_read_09",
+      "name": "Bedtime Reading",
+      "category": "focus",
+      "duration_min": 15,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Dim the room lights. Avoid blue-light screens for 10 minutes beforehand, and choose calming reading material."
+        },
+        {
+          "order": 2,
+          "text": "Get into bed or a very comfortable position. This is about unwinding, not absorbing information. Read at an easy pace."
+        },
+        {
+          "order": 3,
+          "text": "If your eyes feel heavy or your attention drifts, that's a signal, not a failure. Set the book down and close your eyes."
+        },
+        {
+          "order": 4,
+          "text": "If you're still alert after 10 minutes, keep reading, but slow your breath and keep your body still to signal sleep to your nervous system."
+        }
+      ],
+      "context_tags": [
+        "night",
+        "indoor"
+      ]
+    },
+    {
+      "id": "focus_intention_set_10",
+      "name": "Set Weekly Intentions",
+      "category": "focus",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "At the start of the week, open a fresh journal page and write the date range at the top."
+        },
+        {
+          "order": 2,
+          "text": "Write a word or short phrase for how you want the week to feel: 'steady', 'creative', 'calm', 'connected'."
+        },
+        {
+          "order": 3,
+          "text": "Write one small habit you want to practice each day this week—simple enough to do even on a hard day."
+        },
+        {
+          "order": 4,
+          "text": "Close the journal. Return to this page midweek or on the weekend to review, without judgment, what held and what didn't."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "indoor"
+      ]
+    },
+    {
+      "id": "movement_jumping_jacks_01",
+      "name": "Jumping Jack Burst",
+      "category": "movement",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Stand with your feet together and arms at your sides. Take 3 deep breaths to prepare. It's time to wake up your body."
+        },
+        {
+          "order": 2,
+          "text": "Start jumping jacks at a comfortable pace—feet out as your arms sweep overhead, then back together. Keep your knees soft."
+        },
+        {
+          "order": 3,
+          "text": "Do 3 sets of 20 with 15 seconds of rest between sets. Focus on smooth, controlled movement over speed."
+        },
+        {
+          "order": 4,
+          "text": "March in place lightly for 30 seconds to settle your heart rate. Shake out your arms and roll your shoulders to finish."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "indoor"
+      ]
+    },
+    {
+      "id": "movement_dance_break_02",
+      "name": "Desk Dance Break",
+      "category": "movement",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Step back from your desk or stand up. Put on an upbeat song or recall a rhythm in your head."
+        },
+        {
+          "order": 2,
+          "text": "Move however feels good—sway, step side to side, roll your shoulders, nod your head. There's no wrong way."
+        },
+        {
+          "order": 3,
+          "text": "After 1 minute, add more movement: step-touches, small jumps, arm waves. The goal is to enjoy it, not to do it well."
+        },
+        {
+          "order": 4,
+          "text": "When the song ends, breathe slowly and notice the shift in your energy and mood. Return to work with fresh eyes."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "movement_high_knees_03",
+      "name": "High Knees in Place",
+      "category": "movement",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Stand tall with your feet hip-width apart. Engage your core lightly and keep your chest open throughout."
+        },
+        {
+          "order": 2,
+          "text": "Lift your right knee to hip height, then quickly switch to the left. Swing your arms in opposition with each knee lift."
+        },
+        {
+          "order": 3,
+          "text": "Do 3 rounds of 20 with 20 seconds of rest between rounds. Focus on height rather than speed."
+        },
+        {
+          "order": 4,
+          "text": "March slowly in place for 30 seconds and take 3 deep breaths. Feel the warmth and energy in your legs."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "movement_march_place_04",
+      "name": "Marching in Place",
+      "category": "movement",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Stand tall. Begin marching in place, lifting your knees to hip height and swinging the opposite arm naturally."
+        },
+        {
+          "order": 2,
+          "text": "After 1 minute, pick up the pace slightly. Breathe through your nose and keep your core engaged."
+        },
+        {
+          "order": 3,
+          "text": "At the 3-minute mark, add variety: side steps, wide marches, and heel kicks, 30 seconds each."
+        },
+        {
+          "order": 4,
+          "text": "Cool down with 1 minute of slow, low marching. Stop, stand still, and take 5 slow deep breaths to finish."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "indoor"
+      ]
+    },
+    {
+      "id": "movement_arm_circles_05",
+      "name": "Arm Circle Energizer",
+      "category": "movement",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Stand with your feet shoulder-width apart and extend your arms out to the sides at shoulder height, forming a T."
+        },
+        {
+          "order": 2,
+          "text": "Make 20 small circles forward, then 20 backward. Keep your shoulders relaxed, not shrugged."
+        },
+        {
+          "order": 3,
+          "text": "Gradually widen the circles until your arms trace their full range, then return to small circles."
+        },
+        {
+          "order": 4,
+          "text": "Make 10 large circles forward and 10 backward. Lower your arms and gently roll your shoulders to release."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "afternoon",
+        "indoor",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "movement_chair_stands_06",
+      "name": "Chair Stands",
+      "category": "movement",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit toward the front of a chair with your feet hip-width apart on the floor. Cross your arms over your chest or extend them forward."
+        },
+        {
+          "order": 2,
+          "text": "Lean slightly forward and press through your heels to stand without using your hands. Pause standing for 1 second."
+        },
+        {
+          "order": 3,
+          "text": "Sit back down gently and with control. Do 3 sets of 8–10 with 20 seconds of rest between sets."
+        },
+        {
+          "order": 4,
+          "text": "After the last set, stand and gently shake out your legs. This simple move loosens up long stretches of sitting."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "movement_step_touch_07",
+      "name": "Step-Touch Cardio",
+      "category": "movement",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Stand in an open space. Step your right foot to the side and bring your left foot to meet it, in a light, bouncy rhythm."
+        },
+        {
+          "order": 2,
+          "text": "Step side to side for 2 minutes. Keep your arms relaxed at your sides or swing them lightly."
+        },
+        {
+          "order": 3,
+          "text": "Add arm movements: reach one arm overhead as you step, or clap your hands as your feet come together."
+        },
+        {
+          "order": 4,
+          "text": "Vary your pace: 30 seconds slow, 30 seconds fast. Cool down with 1 minute of slow steps and 5 deep breaths."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "movement_outdoor_skip_08",
+      "name": "Outdoor Energizing Skip",
+      "category": "movement",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Find an open outdoor path or space. Walk briskly for 1 minute, swinging your arms, to warm up."
+        },
+        {
+          "order": 2,
+          "text": "Start skipping. If that feels awkward, a light, bouncy jog works too. Treat it like play, not a workout."
+        },
+        {
+          "order": 3,
+          "text": "After 2 minutes, stop and catch your breath. Take 3 deep breaths of fresh air and feel the sun on your face."
+        },
+        {
+          "order": 4,
+          "text": "Walk slowly for 1 minute back to your starting point. Notice the lightness and energy in your body."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "clear",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "movement_cold_warmup_09",
+      "name": "Cold-Day Warm-Up",
+      "category": "movement",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Warm up indoors before heading into the cold. March in place for 30 seconds to get your blood moving."
+        },
+        {
+          "order": 2,
+          "text": "Add arm swings: cross them in front of your chest and open them wide 10 times, then hug yourself tight 5 times."
+        },
+        {
+          "order": 3,
+          "text": "Warm your legs and core with 10 light squats, 10 calf raises, and 10 side-to-side torso twists."
+        },
+        {
+          "order": 4,
+          "text": "Finish with 30 seconds of fast marching or a light jog in place. You should feel warm head to toe before going out."
+        }
+      ],
+      "context_tags": [
+        "cold",
+        "indoor"
+      ]
+    },
+    {
+      "id": "movement_stair_10",
+      "name": "Stair Climbing Intervals",
+      "category": "movement",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Find a staircase of at least one flight. Warm up by going up and down at an easy pace for 2 minutes."
+        },
+        {
+          "order": 2,
+          "text": "Pick up the pace: climb quickly, but come down slowly and carefully. Descending is harder on your joints."
+        },
+        {
+          "order": 3,
+          "text": "Do 4 rounds of fast up / slow down, resting 30 seconds at the bottom between rounds."
+        },
+        {
+          "order": 4,
+          "text": "Cool down with 2 minutes of slow walking on level ground. Stretch your calves on a stair edge if needed."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "rest_eye_palming_01",
+      "name": "Eye Palming",
+      "category": "rest",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit comfortably at a desk or chair. Rub your palms together for 10 seconds to warm them up."
+        },
+        {
+          "order": 2,
+          "text": "Close your eyes and gently cup your warm palms over them. Don't press on your eyeballs—let the warmth and darkness soothe them."
+        },
+        {
+          "order": 3,
+          "text": "Hold for 60 seconds. Breathe slowly and imagine the tension in and around your eyes melting away."
+        },
+        {
+          "order": 4,
+          "text": "Repeat the rub-and-cup 2 more times. Slowly open your eyes and finish by blinking gently 10 times."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "rest_legs_up_wall_02",
+      "name": "Legs Up the Wall",
+      "category": "rest",
+      "duration_min": 15,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Sit sideways next to a wall. Swing your legs up the wall as you lower your back to the floor, bringing your hips close to the wall."
+        },
+        {
+          "order": 2,
+          "text": "Rest your legs fully against the wall with your feet relaxed. Place your arms at your sides, palms up, and close your eyes."
+        },
+        {
+          "order": 3,
+          "text": "Breathe naturally and let gravity release the tension in your legs and lower back. Feel the floor support your whole body."
+        },
+        {
+          "order": 4,
+          "text": "After 12 minutes, bend your knees, roll to your side, and rest for 30 seconds before slowly getting up. Don't rush to stand."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "rest_power_nap_prep_03",
+      "name": "Power Nap Prep",
+      "category": "rest",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Lie down somewhere quiet or recline in a chair. If you'll sleep, set a 10–20 minute alarm and silence all notifications."
+        },
+        {
+          "order": 2,
+          "text": "Close your eyes. Take 5 slow, deep breaths, letting your body grow heavier with each exhale."
+        },
+        {
+          "order": 3,
+          "text": "Do a quick scan from head to feet, releasing tension: jaw, shoulders, hands, legs."
+        },
+        {
+          "order": 4,
+          "text": "Let go of the need to fall asleep. Simply resting with your eyes closed like this is recovery enough."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "rest_screen_break_04",
+      "name": "Screen Break Eye Rest",
+      "category": "rest",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Look completely away from your screen. Gaze at something at least 6 meters away for 20 seconds. It's the 20-20-20 rule."
+        },
+        {
+          "order": 2,
+          "text": "Close your eyes and roll them slowly—5 times clockwise, 5 times counterclockwise."
+        },
+        {
+          "order": 3,
+          "text": "Look to the far left for 3 seconds, then far right for 3 seconds. Repeat 3 times, then do the same up and down."
+        },
+        {
+          "order": 4,
+          "text": "Blink quickly 10 times to moisten your eyes. Finish by gazing at something green or natural, like a plant, tree, or the sky."
+        }
+      ],
+      "context_tags": [
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "rest_savasana_05",
+      "name": "Savasana Rest",
+      "category": "rest",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Lie on your back on a firm, flat surface. Let your feet fall open naturally and rest your arms at your sides, palms up."
+        },
+        {
+          "order": 2,
+          "text": "Close your eyes. Take 3 deep breaths, then let your breath flow naturally."
+        },
+        {
+          "order": 3,
+          "text": "Starting at your feet, release every muscle: feet, calves, thighs, hips, belly, chest, arms, hands, neck, face."
+        },
+        {
+          "order": 4,
+          "text": "Stay still for the remaining time. When thoughts arise, don't grab them—let them drift by. Simply being still is the practice."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "night",
+        "indoor"
+      ]
+    },
+    {
+      "id": "rest_tea_break_06",
+      "name": "Tea Meditation",
+      "category": "rest",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Prepare tea or a warm drink with full attention. Notice the sound of the kettle, the color of the water, the rising steam."
+        },
+        {
+          "order": 2,
+          "text": "Cup the warm mug in both hands and feel its warmth before your first sip. Take 3 slow breaths."
+        },
+        {
+          "order": 3,
+          "text": "Drink slowly. With each sip, notice the taste, the warmth, and the sensation moving through your body."
+        },
+        {
+          "order": 4,
+          "text": "Sit to the end without doing anything else. When the cup is empty, stay still for 1 more minute before continuing your day."
+        }
+      ],
+      "context_tags": [
+        "morning",
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "rest_cold_eye_07",
+      "name": "Cool Eye Compress",
+      "category": "rest",
+      "duration_min": 5,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Dampen a clean cloth or cotton pad with cool (not cold) water and wring it out so it doesn't drip."
+        },
+        {
+          "order": 2,
+          "text": "Lie down or recline in a chair. Gently place the cool cloth over your closed eyes."
+        },
+        {
+          "order": 3,
+          "text": "Breathe slowly and let the coolness ease puffiness and fatigue around your eyes. Hold for 3 minutes."
+        },
+        {
+          "order": 4,
+          "text": "Remove the cloth and blink gently. Keep the lights low for 1 minute before returning to bright screens or sunlight."
+        }
+      ],
+      "context_tags": [
+        "hot",
+        "afternoon",
+        "indoor"
+      ]
+    },
+    {
+      "id": "rest_supine_relax_08",
+      "name": "Supine Relaxation",
+      "category": "rest",
+      "duration_min": 15,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Lie on your back on a comfortable surface. Use a pillow if needed. Let your body go completely and release any holding."
+        },
+        {
+          "order": 2,
+          "text": "Breathe slowly and deeply for 3 minutes. With each exhale, feel yourself sink a little deeper into the floor."
+        },
+        {
+          "order": 3,
+          "text": "For 5 minutes, do nothing—no focusing, scanning, or counting. Just lie there and breathe."
+        },
+        {
+          "order": 4,
+          "text": "For the last 5 minutes, let a soft smile rest on your lips and imagine warmth slowly spreading from your chest. Stay with that warmth."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "indoor"
+      ]
+    },
+    {
+      "id": "rest_digital_sunset_09",
+      "name": "Digital Sunset Routine",
+      "category": "rest",
+      "duration_min": 10,
+      "steps": [
+        {
+          "order": 1,
+          "text": "At a set evening time each day, close unnecessary apps and tabs. Set your phone to Do Not Disturb."
+        },
+        {
+          "order": 2,
+          "text": "Lower your screen to its most comfortable brightness or switch to night mode. If you can, step away from screens entirely."
+        },
+        {
+          "order": 3,
+          "text": "Do something analog: tidy your space, prepare tomorrow's things, or simply sit quietly."
+        },
+        {
+          "order": 4,
+          "text": "Before bed, charge your phone outside the bedroom if you can. Notice how the room's mood changes without screen light."
+        }
+      ],
+      "context_tags": [
+        "evening",
+        "night",
+        "indoor"
+      ]
+    },
+    {
+      "id": "rest_rainy_cozy_10",
+      "name": "Cozy Rainy-Day Rest",
+      "category": "rest",
+      "duration_min": 20,
+      "steps": [
+        {
+          "order": 1,
+          "text": "Take the rain as an invitation to slow down. Find the warmest, most comfortable spot in your space."
+        },
+        {
+          "order": 2,
+          "text": "Cozy up with a blanket if you like. Play some gentle sounds, or just listen to the rain."
+        },
+        {
+          "order": 3,
+          "text": "Choose one restful thing: lying still, reading a few pages, sipping something warm, or light stretching on the couch."
+        },
+        {
+          "order": 4,
+          "text": "For these 20 minutes, fully allow yourself to be unproductive. Rest isn't laziness—it's recovery."
+        }
+      ],
+      "context_tags": [
+        "rainy",
+        "indoor"
+      ]
+    }
+  ]
+}

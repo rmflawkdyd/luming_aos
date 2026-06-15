@@ -26,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.luming.R
@@ -92,7 +93,7 @@ fun StepPager(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
-                text = "${page + 1} / ${sortedSteps.size} 단계",
+                text = stringResource(R.string.step_indicator, page + 1, sortedSteps.size),
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )

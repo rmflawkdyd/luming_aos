@@ -15,10 +15,24 @@ class ActivityLocalDataSource @Inject constructor(
     @param:ApplicationContext private val context: Context,
 ) {
     private val json = Json { ignoreUnknownKeys = true }
-    private val activities: List<Activity> by lazy {
-        val text = context.assets.open("activities.v1.json").bufferedReader().readText()
-        json.decodeFromString<ActivityLibraryDto>(text).activities
+
+    // Activity content (name + step text) is localized per language. Assets are not
+    // resolved through the resource qualifier system, so we pick the file explicitly
+    // from the current configuration locale. Falls back to the Korean library when no
+    // localized asset exists for the active language.
+    private fun assetNameForLocale(): String {
+        val language = context.resources.configuration.locales[0].language
+        return when (language) {
+            "en" -> "activities.en.v1.json"
+            else -> "activities.v1.json"
+        }
     }
 
-    suspend fun getActivities(): List<Activity> = withContext(Dispatchers.IO) { activities }
+    private fun loadActivities(): List<Activity> {
+        val assetName = assetNameForLocale()
+        val text = context.assets.open(assetName).bufferedReader().readText()
+        return json.decodeFromString<ActivityLibraryDto>(text).activities
+    }
+
+    suspend fun getActivities(): List<Activity> = withContext(Dispatchers.IO) { loadActivities() }
 }
