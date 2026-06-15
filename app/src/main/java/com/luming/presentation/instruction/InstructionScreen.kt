@@ -15,7 +15,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material3.AlertDialog
+import androidx.compose.material.icons.outlined.Schedule
+import androidx.compose.material.icons.outlined.WarningAmber
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -24,7 +25,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -39,11 +39,19 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.luming.R
+import com.luming.presentation.instruction.components.LumingDialog
 import com.luming.presentation.instruction.components.StepPager
+import com.luming.presentation.theme.LumingSage
+import com.luming.presentation.theme.LumingSageLight
+import com.luming.presentation.theme.LumingTerracotta
 import kotlinx.coroutines.delay
+
+// luming.pen screen/Instruction-AbortDialog 아이콘 배지/보조 버튼 배경 (#F6EBE5)
+private val DialogAbortBadgeBg = Color(0xFFF6EBE5)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -87,36 +95,41 @@ fun InstructionScreen(
         }
     }
 
-    // TimerWarningDialog
+    // TimerWarningDialog — luming.pen screen/Instruction-WarnDialog
     if (uiState.showTimerWarning) {
         val thresholdMs = (uiState.activity.durationMin * 60_000L * 0.8).toLong()
         val remainingMs = (thresholdMs - elapsedMs).coerceAtLeast(0L)
         val remainingMins = ((remainingMs + 59_999L) / 60_000L).coerceAtLeast(1L)
-        AlertDialog(
+        LumingDialog(
+            icon = Icons.Outlined.Schedule,
+            iconTint = LumingSage,
+            iconBackground = LumingSageLight,
+            title = stringResource(R.string.dialog_early_complete_title),
+            message = stringResource(R.string.dialog_early_complete_message, remainingMins),
+            primaryLabel = stringResource(R.string.action_continue),
+            onPrimary = onDismissWarning,
+            secondaryLabel = stringResource(R.string.action_complete),
+            onSecondary = onConfirmWarning,
+            secondaryTextColor = LumingSage,
             onDismissRequest = onDismissWarning,
-            title = { Text(stringResource(R.string.dialog_early_complete_title)) },
-            text = { Text(stringResource(R.string.dialog_early_complete_message, remainingMins)) },
-            confirmButton = {
-                TextButton(onClick = onConfirmWarning) { Text(stringResource(R.string.action_complete)) }
-            },
-            dismissButton = {
-                TextButton(onClick = onDismissWarning) { Text(stringResource(R.string.action_continue)) }
-            },
         )
     }
 
-    // AbortWarningDialog — 타이머 진행 중 이탈 확인 (스펙 §2.2 aborting)
+    // AbortWarningDialog — 타이머 진행 중 이탈 확인 (스펙 §2.2 aborting) / luming.pen screen/Instruction-AbortDialog
     if (uiState.showAbortWarning) {
-        AlertDialog(
+        LumingDialog(
+            icon = Icons.Outlined.WarningAmber,
+            iconTint = LumingTerracotta,
+            iconBackground = DialogAbortBadgeBg,
+            title = stringResource(R.string.dialog_abort_title),
+            message = stringResource(R.string.dialog_abort_message),
+            primaryLabel = stringResource(R.string.action_continue),
+            onPrimary = onDismissAbort,
+            secondaryLabel = stringResource(R.string.action_abort),
+            onSecondary = onConfirmAbort,
+            secondaryBackground = DialogAbortBadgeBg,
+            secondaryTextColor = LumingTerracotta,
             onDismissRequest = onDismissAbort,
-            title = { Text(stringResource(R.string.dialog_abort_title)) },
-            text = { Text(stringResource(R.string.dialog_abort_message)) },
-            confirmButton = {
-                TextButton(onClick = onConfirmAbort) { Text(stringResource(R.string.action_abort)) }
-            },
-            dismissButton = {
-                TextButton(onClick = onDismissAbort) { Text(stringResource(R.string.action_continue)) }
-            },
         )
     }
 
