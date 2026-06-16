@@ -16,7 +16,9 @@ env:
   ARCH: x86_64
   PROFILE: pixel_6
   # 헤드리스 CI 러너에서 에뮬레이터가 멈추지 않도록 강제하는 안정화 옵션.
-  EMULATOR_OPTIONS: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -no-snapshot-save -camera-back none
+  # -no-snapshot: 스냅샷을 복원하지 않고 콜드 부팅한다. 스냅샷 복원 시 GPU 표면
+  # 상태가 어긋나 Compose 렌더가 깨지는("Failed to find ColorBuffer") 문제를 회피.
+  EMULATOR_OPTIONS: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -no-snapshot -camera-back none
 
 jobs:
   android-instrumented-tests:
