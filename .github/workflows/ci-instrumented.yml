@@ -10,6 +10,13 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  API_LEVEL: 31          # minSdk=31 — 최소 지원 버전에서 검증
+  ARCH: x86_64
+  PROFILE: pixel_6
+  # 헤드리스 CI 러너에서 에뮬레이터가 멈추지 않도록 강제하는 안정화 옵션.
+  EMULATOR_OPTIONS: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -no-snapshot-save -camera-back none
+
 jobs:
   android-instrumented-tests:
     name: "Android 계측(UI) 테스트"
@@ -31,19 +38,53 @@ jobs:
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
 
-      # 에뮬레이터를 부팅한 상태에서 androidTest(계측 테스트)를 실행한다.
+      # 부팅된 AVD 스냅샷을 캐시한다 — 캐시 적중 시 콜드 부팅(5~10분)을 건너뛴다.
+      - name: Cache AVD snapshot
+        uses: actions/cache@v4
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-${{ env.API_LEVEL }}-${{ env.ARCH }}-${{ env.PROFILE }}
+
+      # 캐시가 없을 때만: AVD를 만들고 한 번 부팅해 스냅샷을 생성·저장한다.
+      - name: Create AVD and generate snapshot
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ env.API_LEVEL }}
+          arch: ${{ env.ARCH }}
+          profile: ${{ env.PROFILE }}
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "AVD 스냅샷 생성 완료"
+
+      # 캐시된 스냅샷에서 에뮬레이터를 복원한 뒤 androidTest(계측 테스트)를 실행한다.
       - name: Run instrumented tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 31          # minSdk=31 — 최소 지원 버전에서 검증
-          arch: x86_64
-          profile: pixel_6
+          api-level: ${{ env.API_LEVEL }}
+          arch: ${{ env.ARCH }}
+          profile: ${{ env.PROFILE }}
+          force-avd-creation: false
+          emulator-options: ${{ env.EMULATOR_OPTIONS }}
+          disable-animations: true
           script: ./gradlew connectedDebugAndroidTest
 
-      # 성공/실패와 무관하게 테스트 리포트는 항상 업로드한다.
+      # 성공/실패와 무관하게 테스트 리포트(HTML)는 항상 업로드한다.
       - name: Upload instrumented test report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: instrumented-test-report
           path: app/build/reports/androidTests/
+
+      # 실패 케이스 파싱이 쉬운 결과 XML도 함께 올린다.
+      - name: Upload instrumented test results (XML)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: instrumented-test-results-xml
+          path: app/build/outputs/androidTest-results/
