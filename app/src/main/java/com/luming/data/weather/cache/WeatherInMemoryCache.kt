@@ -10,7 +10,11 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class WeatherInMemoryCache @Inject constructor() {
+class WeatherInMemoryCache internal constructor(
+    private val clock: Clock,
+) {
+
+    @Inject constructor() : this(Clock.System)
 
     private data class Entry(val snapshot: WeatherSnapshot, val expiresAt: Instant)
 
@@ -19,7 +23,7 @@ class WeatherInMemoryCache @Inject constructor() {
     fun get(lat: Double, lon: Double): WeatherSnapshot? {
         val key = cacheKey(lat, lon)
         val entry = cache[key] ?: return null
-        return if (Clock.System.now() < entry.expiresAt) {
+        return if (clock.now() < entry.expiresAt) {
             entry.snapshot
         } else {
             cache.remove(key)
@@ -30,11 +34,11 @@ class WeatherInMemoryCache @Inject constructor() {
     fun put(lat: Double, lon: Double, snapshot: WeatherSnapshot) {
         cache[cacheKey(lat, lon)] = Entry(
             snapshot = snapshot,
-            expiresAt = Clock.System.now() + 30.minutes,
+            expiresAt = clock.now() + 30.minutes,
         )
     }
 
-    fun hasAnyValid(): Boolean = cache.values.any { Clock.System.now() < it.expiresAt }
+    fun hasAnyValid(): Boolean = cache.values.any { clock.now() < it.expiresAt }
 
     fun clear() = cache.clear()
 

@@ -3,17 +3,29 @@ package com.luming.data.util
 import com.luming.domain.model.TimeBucket
 import com.luming.domain.util.Clock
 import kotlinx.datetime.LocalDate
-import kotlinx.datetime.toKotlinLocalDate
-import java.time.ZonedDateTime
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 import javax.inject.Inject
+import kotlinx.datetime.Clock as KtClock
 
-class ClockImpl @Inject constructor() : Clock {
+/**
+ * 시각 공급자(clock)와 타임존을 주입받아 모든 시각 계산을 그로부터 파생한다.
+ * 프로덕션은 무인자 [Inject] 생성자가 시스템 시계/타임존을 사용하고,
+ * 테스트는 internal 생성자로 고정 시각을 주입해 경계값을 결정적으로 검증한다.
+ */
+class ClockImpl internal constructor(
+    private val clock: KtClock,
+    private val timeZone: TimeZone,
+) : Clock {
 
-    override fun today(): LocalDate =
-        java.time.LocalDate.now().toKotlinLocalDate()
+    @Inject constructor() : this(KtClock.System, TimeZone.currentSystemDefault())
+
+    private fun nowDateTime() = clock.now().toLocalDateTime(timeZone)
+
+    override fun today(): LocalDate = nowDateTime().date
 
     override fun timeBucket(): TimeBucket {
-        val hour = ZonedDateTime.now().hour
+        val hour = nowDateTime().hour
         return when {
             hour in 5..11 -> TimeBucket.MORNING
             hour in 12..16 -> TimeBucket.AFTERNOON
@@ -22,7 +34,7 @@ class ClockImpl @Inject constructor() : Clock {
         }
     }
 
-    override fun isRestHour(): Boolean = ZonedDateTime.now().hour in 0..4
+    override fun isRestHour(): Boolean = nowDateTime().hour in 0..4
 
     override fun dayOfWeekHash(): Int =
         today().dayOfWeek.value % 7
