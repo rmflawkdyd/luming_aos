@@ -6,7 +6,9 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
+import com.luming.R
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -15,6 +17,9 @@ import org.junit.runner.RunWith
 class SettingsScreenTest {
 
     @get:Rule val rule = createComposeRule()
+
+    private val context = InstrumentationRegistry.getInstrumentation().targetContext
+    private fun str(id: Int) = context.getString(id)
 
     private fun setSettings(
         locationGranted: Boolean = true,
@@ -38,9 +43,9 @@ class SettingsScreenTest {
     // AC-25: 권한 행(위치/알림)과 제목이 표시된다
     @Test fun `권한 행과 제목 표시`() {
         setSettings()
-        rule.onNodeWithText("설정").assertIsDisplayed()
-        rule.onNodeWithText("위치").assertIsDisplayed()
-        rule.onNodeWithText("알림").assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.settings_title)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.settings_row_location)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.settings_row_notification)).assertIsDisplayed()
     }
 
     // AC-26: 버전 정보가 전달된 값으로 표시된다
@@ -52,15 +57,21 @@ class SettingsScreenTest {
     // 위치 허용/알림 거부 상태가 각 행 접근성 라벨에 반영된다
     @Test fun `권한 상태 - 허용됨_거부됨이 접근성 라벨에 반영`() {
         setSettings(locationGranted = true, notificationGranted = false)
-        rule.onNodeWithContentDescription("위치, 허용됨", substring = true).assertExists()
-        rule.onNodeWithContentDescription("알림, 거부됨", substring = true).assertExists()
+        rule.onNodeWithContentDescription(
+            "${str(R.string.settings_row_location)}, ${str(R.string.settings_permission_granted)}",
+            substring = true,
+        ).assertExists()
+        rule.onNodeWithContentDescription(
+            "${str(R.string.settings_row_notification)}, ${str(R.string.settings_permission_denied)}",
+            substring = true,
+        ).assertExists()
     }
 
     // AC-26: 위치 권한 행 탭 → onPermissionRowTap (시스템 설정 딥링크)
     @Test fun `위치 행 탭 - onPermissionRowTap 호출`() {
         var tapped = false
         setSettings(onPermissionRowTap = { tapped = true })
-        rule.onNodeWithContentDescription("위치", substring = true).performClick()
+        rule.onNodeWithContentDescription(str(R.string.settings_row_location), substring = true).performClick()
         assertThat(tapped).isTrue()
     }
 
@@ -68,7 +79,7 @@ class SettingsScreenTest {
     @Test fun `알림 행 탭 - onPermissionRowTap 호출`() {
         var tapped = false
         setSettings(onPermissionRowTap = { tapped = true })
-        rule.onNodeWithContentDescription("알림", substring = true).performClick()
+        rule.onNodeWithContentDescription(str(R.string.settings_row_notification), substring = true).performClick()
         assertThat(tapped).isTrue()
     }
 
@@ -76,7 +87,7 @@ class SettingsScreenTest {
     @Test fun `뒤로 버튼 탭 - onBack 호출`() {
         var backed = false
         setSettings(onBack = { backed = true })
-        rule.onNodeWithContentDescription("뒤로").performClick()
+        rule.onNodeWithContentDescription(str(R.string.cd_back)).performClick()
         assertThat(backed).isTrue()
     }
 }

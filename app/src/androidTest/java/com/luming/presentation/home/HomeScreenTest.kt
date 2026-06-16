@@ -6,7 +6,9 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
+import com.luming.R
 import com.luming.domain.model.Activity
 import com.luming.domain.model.Category
 import com.luming.domain.model.Recommendation
@@ -23,6 +25,9 @@ import org.junit.runner.RunWith
 class HomeScreenTest {
 
     @get:Rule val rule = createComposeRule()
+
+    private val context = InstrumentationRegistry.getInstrumentation().targetContext
+    private fun str(id: Int) = context.getString(id)
 
     private val date = LocalDate(2026, 6, 16)
 
@@ -77,7 +82,7 @@ class HomeScreenTest {
     // Empty 상태 — 콘텐츠(앱 이름) 미표시 (스피너만)
     @Test fun `Empty 상태 - 앱 콘텐츠 미표시`() {
         setHome(HomeUiState.Empty)
-        rule.onNodeWithText("루밍").assertDoesNotExist()
+        rule.onNodeWithText(str(R.string.app_name)).assertDoesNotExist()
         rule.onNodeWithText("어깨 스트레칭").assertDoesNotExist()
     }
 
@@ -91,13 +96,13 @@ class HomeScreenTest {
     // AC-24: locationDenied=false 면 위치 배너가 없다
     @Test fun `위치 허용 - 위치 배너 미표시`() {
         setHome(HomeUiState.TimeOnly(sampleRecs, streak(), date), locationDenied = false)
-        rule.onNodeWithText("위치 권한이 꺼져 있어요").assertDoesNotExist()
+        rule.onNodeWithText(str(R.string.location_banner_title)).assertDoesNotExist()
     }
 
     // AC-24: locationDenied=true 면 위치 배너가 상시 노출된다 (비차단)
     @Test fun `위치 거부 - 위치 배너 표시 및 추천도 함께 표시`() {
         setHome(HomeUiState.TimeOnly(sampleRecs, streak(), date), locationDenied = true)
-        rule.onNodeWithText("위치 권한이 꺼져 있어요").assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.location_banner_title)).assertIsDisplayed()
         // 비차단: 시간 기반 추천은 그대로 보인다
         rule.onNodeWithText("어깨 스트레칭").assertIsDisplayed()
     }
@@ -111,7 +116,7 @@ class HomeScreenTest {
             onLocationBannerTap = { tapped = true },
         )
         rule.onNodeWithContentDescription(
-            "위치 권한이 꺼져 있어요. 지금은 시간 기반으로 추천하고 있어요",
+            "${str(R.string.location_banner_title)}. ${str(R.string.location_banner_subtitle)}",
         ).performClick()
         assertThat(tapped).isTrue()
     }
@@ -120,7 +125,7 @@ class HomeScreenTest {
     @Test fun `설정 기어 탭 - onSettingsClick 호출`() {
         var clicked = false
         setHome(HomeUiState.TimeOnly(sampleRecs, streak(), date), onSettingsClick = { clicked = true })
-        rule.onNodeWithContentDescription("설정").performClick()
+        rule.onNodeWithContentDescription(str(R.string.cd_settings)).performClick()
         assertThat(clicked).isTrue()
     }
 
@@ -135,7 +140,7 @@ class HomeScreenTest {
     // WeatherAware — 날씨 근거 배너 + 추천 카드 표시
     @Test fun `WeatherAware - 날씨 근거 문구 표시`() {
         setHome(HomeUiState.WeatherAware(sampleRecs, streak(), date, WeatherBucket.RAINY))
-        rule.onNodeWithText("실내에서 즐길 수 있는 활동이에요").assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.rationale_rainy)).assertIsDisplayed()
         rule.onNodeWithText("어깨 스트레칭").assertIsDisplayed()
     }
 
@@ -143,8 +148,8 @@ class HomeScreenTest {
     @Test fun `WeatherFailed - 에러 메시지 표시 및 재시도 콜백`() {
         var refreshed = false
         setHome(HomeUiState.WeatherFailed, onRefresh = { refreshed = true })
-        rule.onNodeWithText("날씨 정보를 가져올 수 없어요.").assertIsDisplayed()
-        rule.onNodeWithText("다시 시도").performClick()
+        rule.onNodeWithText(str(R.string.error_weather)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.action_retry)).performClick()
         assertThat(refreshed).isTrue()
     }
 
@@ -153,13 +158,13 @@ class HomeScreenTest {
         setHome(HomeUiState.CompletedSlot(TimeBucket.MORNING, streak(), date))
         // TimeSlotCompletedContent 는 clearAndSetSemantics 로 자식 텍스트를 지우고
         // 단일 contentDescription("완료 라벨. 다음 안내")으로 대체하므로 cd 로 단언한다.
-        rule.onNodeWithContentDescription("아침 활동 완료!", substring = true).assertIsDisplayed()
+        rule.onNodeWithContentDescription(str(R.string.slot_completed_morning), substring = true).assertIsDisplayed()
     }
 
     // RestPrompt — 휴식 안내 문구 표시 (00~04시), 추천 카드 없음
     @Test fun `RestPrompt - 휴식 안내 표시 및 추천 카드 없음`() {
         setHome(HomeUiState.RestPrompt(streak(), date))
-        rule.onNodeWithText("지금은 쉬어요").assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.rest_prompt_title)).assertIsDisplayed()
         rule.onNodeWithText("어깨 스트레칭").assertDoesNotExist()
     }
 }
