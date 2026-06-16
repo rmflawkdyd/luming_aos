@@ -15,6 +15,9 @@ env:
   API_LEVEL: 31          # minSdk=31 — 최소 지원 버전에서 검증
   ARCH: x86_64
   PROFILE: pixel_6
+  # ATD(Automated Test Device): 헤드리스 계측 테스트 전용 경량 이미지.
+  # AOSP 순정(default) 이미지의 swiftshader 렌더 실패("Failed to find ColorBuffer")를 회피.
+  TARGET: google_atd
   # 헤드리스 CI 러너에서 에뮬레이터가 멈추지 않도록 강제하는 안정화 옵션.
   # -no-snapshot: 스냅샷을 복원하지 않고 콜드 부팅한다. 스냅샷 복원 시 GPU 표면
   # 상태가 어긋나 Compose 렌더가 깨지는("Failed to find ColorBuffer") 문제를 회피.
@@ -49,7 +52,7 @@ jobs:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-${{ env.API_LEVEL }}-${{ env.ARCH }}-${{ env.PROFILE }}
+          key: avd-${{ env.API_LEVEL }}-${{ env.ARCH }}-${{ env.PROFILE }}-${{ env.TARGET }}
 
       # 캐시가 없을 때만: AVD를 만들고 한 번 부팅해 스냅샷을 생성·저장한다.
       - name: Create AVD and generate snapshot
@@ -59,6 +62,7 @@ jobs:
           api-level: ${{ env.API_LEVEL }}
           arch: ${{ env.ARCH }}
           profile: ${{ env.PROFILE }}
+          target: ${{ env.TARGET }}
           force-avd-creation: false
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: false
@@ -71,6 +75,7 @@ jobs:
           api-level: ${{ env.API_LEVEL }}
           arch: ${{ env.ARCH }}
           profile: ${{ env.PROFILE }}
+          target: ${{ env.TARGET }}
           force-avd-creation: false
           emulator-options: ${{ env.EMULATOR_OPTIONS }}
           disable-animations: true
