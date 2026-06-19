@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  평문(HTTP) 트래픽을 전면 차단한다. 앱의 유일한 외부 통신은
+  https://api.open-meteo.com (HTTPS) 이므로 영향 없음.
+  시스템 신뢰 저장소만 사용 (사용자 설치 CA 미신뢰).
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
