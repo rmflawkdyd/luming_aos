@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.luming"
+    namespace = "io.github.rmflawkdyd.luming"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.luming"
+        applicationId = "io.github.rmflawkdyd.luming"
         minSdk = 31
         targetSdk = 35
         versionCode = 1
