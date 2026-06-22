@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import androidx.core.content.getSystemService
+import io.github.rmflawkdyd.luming.domain.util.Clock
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -13,6 +14,8 @@ import javax.inject.Singleton
 @Singleton
 class NotificationScheduler @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val fireStore: NotificationFireStore,
+    private val clock: Clock,
 ) {
     private val alarmManager: AlarmManager = context.getSystemService()!!
 
@@ -22,14 +25,19 @@ class NotificationScheduler @Inject constructor(
         return manager.areNotificationsEnabled()
     }
 
-    fun scheduleAll() {
-        NotificationSlot.entries.forEach(::scheduleNext)
+    suspend fun scheduleAll() {
+        NotificationSlot.entries.forEach { scheduleNext(it) }
     }
 
-    fun scheduleNext(slot: NotificationSlot) {
+    suspend fun scheduleNext(slot: NotificationSlot) {
+        val firedToday = fireStore.lastFired(slot) == clock.today()
+        val triggerAt = slot.computeTriggerMillis(
+            now = System.currentTimeMillis(),
+            alreadyFiredToday = firedToday,
+        )
         alarmManager.setAndAllowWhileIdle(
             AlarmManager.RTC_WAKEUP,
-            slot.nextTriggerMillis(),
+            triggerAt,
             buildPendingIntent(slot, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)!!,
         )
     }

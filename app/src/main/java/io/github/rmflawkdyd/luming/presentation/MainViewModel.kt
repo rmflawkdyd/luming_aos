@@ -6,9 +6,11 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import io.github.rmflawkdyd.luming.notification.NotificationScheduler
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,11 +22,11 @@ class MainViewModel @Inject constructor(
     val needsPermission: Boolean = !hasRequiredPermissions()
 
     init {
-        if (!needsPermission) notificationScheduler.scheduleAll()
+        if (!needsPermission) viewModelScope.launch { notificationScheduler.scheduleAll() }
     }
 
     fun onPermissionsResult(notificationGranted: Boolean) {
-        if (notificationGranted) notificationScheduler.scheduleAll()
+        if (notificationGranted) viewModelScope.launch { notificationScheduler.scheduleAll() }
     }
 
     private fun hasRequiredPermissions(): Boolean {

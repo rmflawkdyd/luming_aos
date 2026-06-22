@@ -12,19 +12,34 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import io.github.rmflawkdyd.luming.MainActivity
 import io.github.rmflawkdyd.luming.R
+import io.github.rmflawkdyd.luming.domain.util.Clock
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class NotificationReceiver : BroadcastReceiver() {
 
     @Inject lateinit var scheduler: NotificationScheduler
+    @Inject lateinit var fireStore: NotificationFireStore
+    @Inject lateinit var clock: Clock
 
     override fun onReceive(context: Context, intent: Intent) {
         val slotName = intent.getStringExtra(EXTRA_SLOT) ?: return
         val slot = runCatching { NotificationSlot.valueOf(slotName) }.getOrNull() ?: return
         showNotification(context, slot)
-        scheduler.scheduleNext(slot)
+        // 발화 도장을 먼저 찍어야 재예약이 "오늘 이미 발화"로 판단해 다음 날로 넘어간다.
+        val pending = goAsync()
+        CoroutineScope(Dispatchers.Default).launch {
+            try {
+                fireStore.markFired(slot, clock.today())
+                scheduler.scheduleNext(slot)
+            } finally {
+                pending.finish()
+            }
+        }
     }
 
     private fun showNotification(context: Context, slot: NotificationSlot) {
