@@ -26,7 +26,9 @@ android {
         applicationId = "io.github.rmflawkdyd.luming"
         minSdk = 31
         targetSdk = 35
-        versionCode = 1
+        // CI(CD 워크플로우)에서 CI_VERSION_CODE 환경변수로 주입한다.
+        // 로컬 빌드 등 환경변수가 없을 때는 1로 폴백한다.
+        versionCode = System.getenv("CI_VERSION_CODE")?.toIntOrNull() ?: 1
         versionName = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

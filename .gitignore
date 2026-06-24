@@ -25,3 +25,8 @@ keystore.properties
 # Secrets
 google-services.json
 *.env
+
+# Build artifacts (release AAB/APK — 커밋 금지)
+/app/release/
+*.aab
+*.apk

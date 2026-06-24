@@ -1,0 +1,77 @@
+name: CD - Play
+
+# CI(ci.yml)와 완전히 분리되어 있다.
+# 1) v 태그 push → 자동으로 alpha(비공개 테스트) 배포
+#      예) git tag v1.0.1 && git push origin v1.0.1
+# 2) Actions 탭의 "Run workflow" 버튼 → 트랙을 체크박스로 골라 배포
+#      internal / alpha 둘 다 체크하면 한 번에 두 트랙 모두 업로드된다.
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      deploy_internal:
+        description: "internal (내부 테스트)로 배포"
+        type: boolean
+        default: false
+      deploy_alpha:
+        description: "alpha (비공개 테스트, 12명 정책)로 배포"
+        type: boolean
+        default: true
+
+concurrency:
+  group: cd-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: "Build AAB & upload to Play"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      # 1) 릴리스 키스토어 복원 (secret base64 → .jks + keystore.properties)
+      - name: Restore keystore
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > "$RUNNER_TEMP/release.jks"
+          cat > keystore.properties <<EOF
+          storeFile=$RUNNER_TEMP/release.jks
+          storePassword=${{ secrets.KEYSTORE_PASSWORD }}
+          keyAlias=${{ secrets.KEY_ALIAS }}
+          keyPassword=${{ secrets.KEY_PASSWORD }}
+          EOF
+
+      # 2) 서명된 AAB 빌드 (한 번 빌드해 두 트랙에 재사용). versionCode 는 run_number 주입.
+      - name: Build release bundle
+        run: ./gradlew bundleRelease
+        env:
+          CI_VERSION_CODE: ${{ github.run_number }}
+
+      # 3a) internal 트랙 업로드 — 버튼에서 internal 체크했을 때만
+      - name: Upload to Play (internal)
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_internal == 'true' }}
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: io.github.rmflawkdyd.luming
+          releaseFiles: app/build/outputs/bundle/release/app-release.aab
+          track: internal
+          status: completed
+
+      # 3b) alpha(비공개) 트랙 업로드 — 버튼에서 alpha 체크 OR 태그 push 자동 실행
+      - name: Upload to Play (alpha / closed)
+        if: ${{ github.event_name == 'push' || github.event.inputs.deploy_alpha == 'true' }}
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: io.github.rmflawkdyd.luming
+          releaseFiles: app/build/outputs/bundle/release/app-release.aab
+          track: alpha
+          status: completed
