@@ -48,6 +48,13 @@ android {
 
     buildTypes {
         release {
+            // LiteRT 의 x86_64 libtensorflowlite_jni.so 는 4KB 페이지로 링크되어 있어
+            // Play 의 16KB 페이지 요건을 통과하지 못한다 (arm64-v8a 는 이미 16KB 정렬됨).
+            // 실기기 배포에 x86/x86_64 는 불필요하고, 32비트 ARM 은 minSdk 31 기준 사실상 없다.
+            // 에뮬레이터(x86_64) instrumented 테스트는 debug 빌드로 계속 동작한다.
+            ndk {
+                abiFilters += "arm64-v8a"
+            }
             isMinifyEnabled = true       // R8 활성화 (난독화 + 코드 축소)
             isShrinkResources = true     // 미사용 리소스 제거
             isDebuggable = false
